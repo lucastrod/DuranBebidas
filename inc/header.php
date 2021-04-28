@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE php>
 <?php
 session_start();
 include('inc/config.php');
@@ -23,7 +23,7 @@ if(isset($_POST['login'])){
 }
  
 ?>
-<html lang="zxx" class="no-js">
+<php lang="zxx" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,22 +67,13 @@ if(isset($_POST['login'])){
           <div class="row"> 
             <!-- Header Language -->
             <div class="col-xs-7 col-sm-6">
-              <div class="dropdown block-language-wrapper hidden-xs"> <a role="button" data-toggle="dropdown" data-target="#" class="block-language dropdown-toggle" href="#"> <img src="images/english.png" alt="language"> English <span class="caret"></span> </a>
-                <ul class="dropdown-menu" role="menu">
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/english.png" alt="language"> English </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/francais.png" alt="language"> French </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/german.png" alt="language"> German </a></li>
-                </ul>
+              <div class="block-language-wrapper hidden-xs"> <a role="button" data-target="#" class="block-language " href="#">UBICACION  </a>
               </div>
               <!-- End Header Language --> 
               
               <!-- Header Currency -->
-              <div class="dropdown block-currency-wrapper hidden-xs"> <a role="button" data-toggle="dropdown" data-target="#" class="block-currency dropdown-toggle" href="#"> USD <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> $ - Dollar </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> £ - Pound </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> € - Euro </a></li>
-                </ul>
+              <div class=" block-currency-wrapper hidden-xs"> <a role="button" data-target="#" class="block-currency" href="#"> TELEFONO </a>
+                
               </div>
               <!-- End Header Currency -->
               
@@ -160,14 +151,14 @@ if(isset($_POST['login'])){
               <div class="toplinks">
                 <div class="links">
                 
-                  <div class="check"><a title="Checkout" href="checkout.html"><span class="hidden-xs">Checkout</span></a></div>
+                  <div class="check"><a title="Checkout" href="checkout.php"><span class="hidden-xs">Checkout</span></a></div>
                   <!-- Header Company -->
                   
                   <!-- End Header Company -->
                   <?php
                   if(empty($_SESSION["usuario"])):
                   ?>
-                    <div class="login"><a href="login.html"><span class="hidden-xs">Log In</span></a></div>
+                    <div class="login"><a href="login.php"><span class="hidden-xs">Log In</span></a></div>
                   <?php
                   else:
                   
@@ -175,8 +166,8 @@ if(isset($_POST['login'])){
 
                     <ul class="navbar-nav mr-5 pr-6">
                           <span class="nav-link"><?= $_SESSION["usuario"]["nombre"]; ?></span>                                                
-                          <div class="login"><a href="panel.html"><span class="hidden-xs">Admin Panel</span></a></div>
-                          <div class="login"><a href="logout.html"><span class="hidden-xs">Logout</span></a></div>                    
+                          <div class="login"><a href="panel.php"><span class="hidden-xs">Admin Panel</span></a></div>
+                          <div class="login"><a href="logout.php"><span class="hidden-xs">Logout</span></a></div>                    
                         </ul>                    
                   <?php
                   }
@@ -196,7 +187,7 @@ if(isset($_POST['login'])){
   <!-- end header --> 
 
     <!-- Logo -->
-    <div class="logo"><a title="DuranBebidas" href="index.php"><img alt="Duran" src="images/logo1.png"></a></div>
+    <div class="logo"><a title="DuranBebidas" href="index.php"><img alt="Duran" src="images/logonegro.png"></a></div>
     <!-- End Logo -->
   
     <!-- Navbar -->
@@ -208,94 +199,93 @@ if(isset($_POST['login'])){
         </div>
 
           <ul class="nav hidden-xs menu-item menu-item-left">
-            <li class="level0 parent drop-menu active"><a href="index.html"><span>Vinos</span></a>
+            <li class="level0 parent drop-menu"><a href="#"><span>Vinos</span></a>
               <ul class="level1" style="display: none;">
-                  <li class="level1 first"><a href="grid.html"><span>Tinto</span></a></li>
-                  <li class="level1 nav-10-2"> <a href="list.html"> <span>Rosado</span> </a> </li>
-                  <li class="level1 nav-10-3"> <a href="product_detail.html"> <span>Malbec</span> </a> </li>
-                  <li class="level1 nav-10-4"> <a href="shopping_cart.html"> <span>Cabernet</span> </a> </li>
-                  <li class="level1 nav-10-4"> <a href="wishlist.html"> <span>Blanco</span> </a> </li>
+                  <li class="level1 first"><a href="#"><span>Tinto</span></a></li>
+                  <li class="level1 nav-10-2"> <a href="#"> <span>Rosado</span> </a> </li>
+                  <li class="level1 nav-10-3"> <a href="#"> <span>Malbec</span> </a> </li>
+                  <li class="level1 nav-10-4"> <a href="#"> <span>Cabernet</span> </a> </li>
+                  <li class="level1 nav-10-4"> <a href="#"> <span>Blanco</span> </a> </li>
                 </ul></li>
             <li class="level0 parent drop-menu"><a href="#"><span>Espumantes</span> </a>
               <ul class="level1" style="display: none;">
-                <li class="level1 first"><a href="grid.html"><span>Brut Nature</span></a></li>
-                <li class="level1 nav-10-2"> <a href="list.html"> <span>Demi Sec</span> </a> </li>
-                <li class="level1 nav-10-3"> <a href="product_detail.html"> <span>Extra Brut</span> </a> </li>
-                <li class="level1 nav-10-4"> <a href="shopping_cart.html"> <span>Frizze</span> </a> </li>
-                <li class="level1 nav-10-4"> <a href="wishlist.html"> <span>Malbec</span> </a> </li>
-                <li class="level1 nav-10-4"> <a href="multiple_addresses.html"> <span>Pinot Noir</span> </a> </li>
-                <li class="level1 nav-10-4"> <a href="about_us.html"> <span>Sidra</span> </a> </li>               
+                <li class="level1 first"><a href="#"><span>Brut Nature</span></a></li>
+                <li class="level1 nav-10-2"> <a href="#"> <span>Demi Sec</span> </a> </li>
+                <li class="level1 nav-10-3"> <a href="#"> <span>Extra Brut</span> </a> </li>
+                <li class="level1 nav-10-4"> <a href="#"> <span>Frizze</span> </a> </li>
+                <li class="level1 nav-10-4"> <a href="#"> <span>Malbec</span> </a> </li>
+                <li class="level1 nav-10-4"> <a href="#"> <span>Pinot Noir</span> </a> </li>
+                <li class="level1 nav-10-4"> <a href="#"> <span>Sidra</span> </a> </li>               
               </ul></li>
-            <li class="level0 parent drop-menu"><a href="grid.html" class="level-top"><span>Whiskies</span></a>
+            <li class="level0 parent drop-menu"><a href="#" class="level-top"><span>Whiskies</span></a>
               <ul class="level1" style="display: none;">
-                <li class="level1 first"> <a href="wishlist.html"> <span>Bourbon</span> </a> </li>
-                <li class="level1 nav-10-2"> <a href="about_us.html"> <span>Scotch</span> </a> </li>
-                <li class="level1 nav-10-3"> <a href="product_detail.html"> <span>Single Malt</span> </a> </li>               
+                <li class="level1 first"> <a href="#"> <span>Bourbon</span> </a> </li>
+                <li class="level1 nav-10-2"> <a href="#"> <span>Scotch</span> </a> </li>
+                <li class="level1 nav-10-3"> <a href="#"> <span>Single Malt</span> </a> </li>               
               </ul></li>
-            <li class="level0 parent drop-menu"><a href="grid.html" class="level-top"><span>Cervezas</span></a>
+            <li class="level0 parent drop-menu"><a href="#" class="level-top"><span>Cervezas</span></a>
               <ul class="level1" style="display: none;">
-                  <li class="level1 first"> <a href="wishlist.html"> <span>APA</span> </a> </li>
-                  <li class="level1 nav-10-2"> <a href="about_us.html"> <span>Artesanal</span> </a> </li>
-                  <li class="level1 nav-10-3"> <a href="product_detail.html"> <span>IPA</span> </a> </li>
-                  <li class="level1 nav-10-3"> <a href="product_detail.html"> <span>Lager</span> </a> </li>
-                  <li class="level1 nav-10-3"> <a href="product_detail.html"> <span>Miel</span> </a> </li>
-                  <li class="level1 nav-10-3"> <a href="product_detail.html"> <span>Negra</span> </a> </li>
-                  <li class="level1 nav-10-3"> <a href="product_detail.html"> <span>Roja</span> </a> </li>
-                  <li class="level1 nav-10-3"> <a href="product_detail.html"> <span>Rubia</span> </a> </li>
+                  <li class="level1 first"> <a href="#"> <span>APA</span> </a> </li>
+                  <li class="level1 nav-10-2"> <a href="#"> <span>Artesanal</span> </a> </li>
+                  <li class="level1 nav-10-3"> <a href="#"> <span>IPA</span> </a> </li>
+                  <li class="level1 nav-10-3"> <a href="#"> <span>Lager</span> </a> </li>
+                  <li class="level1 nav-10-3"> <a href="#"> <span>Miel</span> </a> </li>
+                  <li class="level1 nav-10-3"> <a href="#"> <span>Negra</span> </a> </li>
+                  <li class="level1 nav-10-3"> <a href="#"> <span>Roja</span> </a> </li>
+                  <li class="level1 nav-10-3"> <a href="#"> <span>Rubia</span> </a> </li>
                 </ul></li>
-            <li class="level0 parent drop-menu"><a href="grid.html" class="level-top"><span>Licores</span></a>
+            <li class="level0 parent drop-menu"><a href="#" class="level-top"><span>Licores</span></a>
               <ul class="level1" style="display: none;">
-                    <li class="level1 first"> <a href="wishlist.html"> <span>Baileys</span></a></li>
+                    <li class="level1 first"> <a href="#"> <span>Baileys</span></a></li>
               </ul></li>
-            <li class="level0 parent drop-menu"><a href="grid.html" class="level-top"><span>Aperitivos</span></a>
+            <li class="level0 parent drop-menu"><a href="#" class="level-top"><span>Aperitivos</span></a>
               <ul class="level1" style="display: none;">
-                <li class="level1 first"> <a href="wishlist.html"> <span>Aperol</span> </a> </li>
-                <li class="level1 nav-10-2"> <a href="about_us.html"> <span>Bitter</span> </a> </li>
-                <li class="level1 nav-10-3"> <a href="product_detail.html"> <span>Cynar</span> </a> </li>
-                <li class="level1 nav-10-4"> <a href="product_detail.html"> <span>Dr Lemon</span> </a> </li>  
-                <li class="level1 nav-10-4"> <a href="product_detail.html"> <span>Fernet</span> </a> </li>  
-                <li class="level1 nav-10-4"> <a href="product_detail.html"> <span>Vermouth</span> </a> </li>  
+                <li class="level1 first"> <a href="#"> <span>Aperol</span> </a> </li>
+                <li class="level1 nav-10-2"> <a href="#"> <span>Bitter</span> </a> </li>
+                <li class="level1 nav-10-3"> <a href="#"> <span>Cynar</span> </a> </li>
+                <li class="level1 nav-10-4"> <a href="#"> <span>Dr Lemon</span> </a> </li>  
+                <li class="level1 nav-10-4"> <a href="#"> <span>Fernet</span> </a> </li>  
+                <li class="level1 nav-10-4"> <a href="#"> <span>Vermouth</span> </a> </li>  
               </ul></li>
             </ul>
             <ul class="nav hidden-xs menu-item menu-item-right">         
-            <li class="level0 parent drop-menu"><a href="grid.html" class="level-top"><span>Gin</span></a>              
+            <li class="level0 parent drop-menu"><a href="#" class="level-top"><span>Gin</span></a>              
               <ul class="level1" style="display: none;">
-                <li class="level1 first"> <a href="wishlist.html"> <span>Gin Gordons</span> </a> </li>
-                <li class="level1 nav-10-2"> <a href="about_us.html"> <span>Gin Bombay</span> </a> </li>
-                <li class="level1 nav-10-3"> <a href="product_detail.html"> <span>Gin Beefeter</span> </a> </li>
-                <li class="level1 nav-10-4"> <a href="product_detail.html"> <span>Gin Tanqueray</span> </a> </li>  
+                <li class="level1 first"> <a href="#"> <span>Gin Gordons</span> </a> </li>
+                <li class="level1 nav-10-2"> <a href="#"> <span>Gin Bombay</span> </a> </li>
+                <li class="level1 nav-10-3"> <a href="#"> <span>Gin Beefeter</span> </a> </li>
+                <li class="level1 nav-10-4"> <a href="#"> <span>Gin Tanqueray</span> </a> </li>  
               </ul></li>
-            <li class="level0 parent drop-menu"><a href="grid.html" class="level-top"><span>Destilados Varios</span></a>
+            <li class="level0 parent drop-menu"><a href="#" class="level-top"><span>Destilados Varios</span></a>
               <ul class="level1" style="display: none;">
-                <li class="level1 first"> <a href="wishlist.html"> <span>Vodka</span> </a> </li>
-                <li class="level1 nav-10-2"> <a href="about_us.html"> <span>Ron</span> </a> </li>
-                <li class="level1 nav-10-3"> <a href="product_detail.html"> <span>Tequila</span> </a> </li>
-                <li class="level1 nav-10-4"> <a href="product_detail.html"> <span>Cachaca</span> </a> </li>  
-              </ul></li>
-            
-            <li class="level0 parent drop-menu"><a href="grid.html" class="level-top"><span>Sin Alcohol</span></a>
-              <ul class="level1" style="display: none;">
-                <li class="level1 first"> <a href="wishlist.html"> <span>Malta</span> </a> </li>
-                <li class="level1 nav-10-2"> <a href="about_us.html"> <span>Jugos</span> </a> </li>
-                <li class="level1 nav-10-3"> <a href="product_detail.html"> <span>Aguas y Gaseosas</span> </a> </li>
-                <li class="level1 nav-10-4"> <a href="product_detail.html"> <span>Energizantes</span> </a> </li>
-                <li class="level1 nav-10-4"> <a href="product_detail.html"> <span>Granadina</span> </a> </li>  
+                <li class="level1 first"> <a href="#"> <span>Vodka</span> </a> </li>
+                <li class="level1 nav-10-2"> <a href="#"> <span>Ron</span> </a> </li>
+                <li class="level1 nav-10-3"> <a href="#"> <span>Tequila</span> </a> </li>
+                <li class="level1 nav-10-4"> <a href="#"> <span>Cachaca</span> </a> </li>  
               </ul></li>
             
-            <li class="level0 parent drop-menu"><a href="grid.html" class="level-top"><span>Regaleria</span></a>
+            <li class="level0 parent drop-menu"><a href="#" class="level-top"><span>Sin Alcohol</span></a>
               <ul class="level1" style="display: none;">
-                <li class="level1 first"> <a href="wishlist.html"> <span>Estucheria</span> </a> </li>
+                <li class="level1 first"> <a href="#"> <span>Malta</span> </a> </li>
+                <li class="level1 nav-10-2"> <a href="#"> <span>Jugos</span> </a> </li>
+                <li class="level1 nav-10-3"> <a href="#"> <span>Aguas y Gaseosas</span> </a> </li>
+                <li class="level1 nav-10-4"> <a href="#"> <span>Energizantes</span> </a> </li>
+                <li class="level1 nav-10-4"> <a href="#"> <span>Granadina</span> </a> </li>  
               </ul></li>
             
-            <li class="level0 parent drop-menu"><a href="grid.html" class="level-top"><span>Placeres</span></a>
+            <li class="level0 parent drop-menu"><a href="#" class="level-top"><span>Regaleria</span></a>
               <ul class="level1" style="display: none;">
-                <li class="level1 first"> <a href="wishlist.html"> <span>Alimentos</span> </a> </li>
+                <li class="level1 first"> <a href="#"> <span>Estucheria</span> </a> </li>
+              </ul></li>
+            
+            <li class="level0 parent drop-menu"><a href="#" class="level-top"><span>Placeres</span></a>
+              <ul class="level1" style="display: none;">
+                <li class="level1 first"> <a href="#"> <span>Alimentos</span> </a> </li>
               </ul></li>
           </ul>
-          <!-- End Sections --> 
-              
+          <!-- End Sections -->          
     </div>
   </nav>
   <!-- end nav --> 
 </body>
-</html>
+</php>
