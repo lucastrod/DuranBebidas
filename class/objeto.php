@@ -181,11 +181,11 @@ Class Usuario{
 					$_SESSION['usuario']['secciones'] = $secciones;
 				}
 				else{
-					return 'Error en contraseña';
+					return 'Error';
 				}
 			}
 			else{
-				return 'No existe usuario';
+				return 'Error';
 			} 
         }
 		
@@ -572,7 +572,6 @@ class Categoria{
             WHERE padre_id = 0'.$categoria;
         }
         else{
-
             $query = 'SELECT categoria_id,nombre_Cat,padre_id,inactivo
             FROM categorias
             WHERE padre_id != 0';
@@ -600,6 +599,48 @@ class Categoria{
 		}
             return $resultado; 
     }
+
+	public function getPrincipal($parametros = array()){
+
+		
+		$query = 'SELECT categoria_id,nombre_Cat,padre_id,inactivo
+                   FROM categorias
+                   WHERE inactivo = 0 AND padre_id='.$parametros;
+
+		$resultado = array();
+		foreach($this->con->query($query) as $key=>$comentario){
+			$resultado[$key] = $comentario;	
+		}
+            return $resultado; 
+    }
+
+	public function esPrincipal($cat){
+
+	    $query = 'SELECT count(1) as cantidad
+                   FROM categorias
+                   WHERE padre_id=0 AND categoria_id ='.$cat;
+		
+		$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
+
+		if($consulta->cantidad == 0){
+			return false; 
+		}
+		return true;
+	}
+
+	public function getListSubcat($parametro){
+
+		$query = 'SELECT categoria_id, nombre_Cat,padre_id,inactivo
+                   FROM categorias
+                   WHERE padre_id='.$parametro;
+
+		$resultado = array();
+		foreach($this->con->query($query) as $key=>$comentario){
+			$resultado[$key] = $comentario;	
+		}
+            return $resultado; 
+    }
+
 
     public function activarCategoria($data){
        
@@ -737,8 +778,43 @@ class Categoria{
 		}
             return $resultado; 
 	}
+	
 
 	
+}
+
+class Compra{
+
+	protected $con;
+	
+	public function __construct($con){
+		$this->con = $con;
+	}
+
+	public function guardarVenta($data){
+        
+        foreach($data as $key => $value){
+            if(!is_array($value)){
+                if($value != null){
+                    $columns[]=$key;
+                    $datos[]=$value;
+                }
+            }
+        }
+        $sql = "INSERT INTO ventas(".implode(',',$columns).") VALUES('".implode("','",$datos)."')";
+
+	try{
+		$this->con->exec($sql);
+		$respuesta = 1;
+	}
+	catch(PDOException $e){
+		$respuesta = 0;
+	}
+
+	return $respuesta;
+        
+    
+    }
 }
 
 ?>

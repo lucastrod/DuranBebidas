@@ -43,7 +43,7 @@ class Producto{
 		$padre[] = ' AND categorias.padre_id = 0'.$where;
 	}
 
-		$sql = 'SELECT DISTINCT productos_categorias.producto_id,productos.modelo,productos.inactivo,productos.precio,productos.ranking,nombre,descripcion,destacado,id_marca,nombre_Cat,padre_id
+		$sql = 'SELECT DISTINCT productos_categorias.producto_id,productos.inactivo,productos.precio,productos.stock,nombre,descripcion,id_marca,nombre_Cat,padre_id,oferta,precio_oferta
 				FROM productos, categorias, productos_categorias
 				WHERE productos_categorias.producto_id = productos.producto_id AND productos_categorias.categoria_id = categorias.categoria_id'.implode(' ',$padre);
 
@@ -69,11 +69,10 @@ class Producto{
 			$padre[] = ' AND categorias.padre_id != 0';
 		}
 
-		$query = 'SELECT productos.producto_id,modelo,productos.inactivo,precio,ranking,nombre,descripcion,destacado,id_marca,productos.categoria_id, categorias.categoria_id, nombre_Cat,padre_id
+		$query = 'SELECT productos.producto_id,productos.inactivo,precio,stock,nombre,descripcion,id_marca,productos.categoria_id, categorias.categoria_id, nombre_Cat,padre_id,oferta,precio_oferta
 		FROM productos, categorias, productos_categorias
 		WHERE productos_categorias.categoria_id = categorias.categoria_id AND productos_categorias.producto_id = productos.producto_id AND productos_categorias.producto_id = '.$parametros['producto_id'].implode(' ',$padre);
 		
-				   
 		$resultado = array();
 		foreach($this->con->query($query) as $key=>$producto){
 			$resultado[$key] = $producto;
@@ -81,21 +80,6 @@ class Producto{
 		}
             return $resultado; 
 	}
-
-	public function getListSubcat($parametros = array()){
-		
-		
-
-		$query = 'SELECT categoria_id, nombre_Cat,padre_id,inactivo
-                   FROM categorias
-                   WHERE padre_id='.$parametros;
-
-		$resultado = array();
-		foreach($this->con->query($query) as $key=>$comentario){
-			$resultado[$key] = $comentario;	
-		}
-            return $resultado; 
-    }
 
 	
 	public function obtenerListado($data = array()){
@@ -144,14 +128,29 @@ class Producto{
 		//return $this->con->query($query); // Puntero a la consulta
 	}
 	
-	public function obtenerCat($parametros = array()){
+	public function obtenerCat($parametros = array(), $limit){
 		
 	
 		$where = array();
 		$orden = '';
 		$marca= ' AND 1=1';
+		$inicial = 0;
+		$oferta='';
 
-		
+		if(isset($parametros['limite'])){
+			if(!empty($parametros['limite'])){
+			$inicial = $parametros['limite'];
+			}
+		}
+   
+		   $limite = ' limit '.$inicial.' ,'.($limit);
+
+		if(isset($parametros['oferta'])){
+			if(!empty($parametros['oferta'])){
+			$oferta = ' AND oferta = 1';
+			}
+		}
+
 		if(isset($parametros['marca'])){
 
 			
@@ -159,7 +158,6 @@ class Producto{
 				$marca= ' AND productos.id_marca = '.$parametros['marca'];
 			}
 		}
-
 		else{
 			$marca= ' AND 1=1';
 		}
@@ -201,11 +199,11 @@ class Producto{
 				case "ZA":
 					$orden=' productos.nombre DESC';
 					break;
-				case "destacados":
-					$orden=' productos.destacado DESC';
+				case "Mayor":
+					$orden=' productos.precio DESC';
 					break;
-				case "ranking":
-					$orden=' ranking DESC';
+				case "Menor":
+					$orden=' productos.precio ASC';
 					break;	
 				default:
 				$orden=' rand()';
@@ -213,7 +211,7 @@ class Producto{
 			
 		}
 		else{
-			$orden=' productos.destacado DESC';
+			$orden=' productos.nombre';
 		}
 		
 
@@ -221,16 +219,17 @@ class Producto{
 		$query = 'SELECT DISTINCT productos.producto_id, 
 						 nombre, 
 						 productos.id_marca,
-						 destacado,
+						 productos.descripcion,
 						 precio,
-						 ranking,
+						 stock,
+						 oferta,
+						 precio_oferta,
 						 productos.categoria_id,
 						 categorias.padre_id 
 					FROM productos, productos_categorias, marcas, categorias
-					WHERE 1=1 AND productos_categorias.producto_id = productos.producto_id AND productos.id_marca = marcas.id_marca AND marcas.activo = 1 AND productos_categorias.categoria_id = productos.categoria_id AND productos_categorias.categoria_id = categorias.categoria_id AND categorias.inactivo = 0 AND categorias.padre_id IN (SELECT categoria_id FROM categorias WHERE inactivo = 0) AND productos.categoria_id = categorias.categoria_id '.implode("",$where).'
-					ORDER BY'.$orden;
-				
-					
+					WHERE 1=1 AND productos.stock > 0 AND productos_categorias.producto_id = productos.producto_id AND productos.id_marca = marcas.id_marca AND marcas.activo = 1 AND productos_categorias.categoria_id = productos.categoria_id AND productos_categorias.categoria_id = categorias.categoria_id AND categorias.inactivo = 0 AND categorias.padre_id IN (SELECT categoria_id FROM categorias WHERE inactivo = 0) AND productos.categoria_id = categorias.categoria_id '.implode("",$where).$oferta.'
+					ORDER BY'.$orden.$limite;
+		
 		try{
 			$resultado = $this->con->query($query)->fetchAll(PDO::FETCH_OBJ); //objetos
 		}catch(PDOException $e){
@@ -283,6 +282,18 @@ class Producto{
 					$this->con->exec($sql);
 				}
 			}
+	}
+
+	public function actualizarOferta($id,$precioNuevo){
+       
+		$sql = "UPDATE productos SET oferta = 1, precio_oferta=".$precioNuevo." WHERE producto_id = ".$id;
+		$this->con->exec($sql);	
+	}
+
+	public function eliminarOferta($id){
+       
+		$sql = "UPDATE productos SET oferta = 0, precio_oferta=null WHERE producto_id = ".$id;
+		$this->con->exec($sql);	
 	}
 
 	public function editarProducto($data){
@@ -344,6 +355,7 @@ class Producto{
 
     public function saveProducto($data){
 
+	
         foreach($data as $key => $value){
             if(!is_array($value)){
                 if($value != null){
@@ -352,9 +364,13 @@ class Producto{
                 }
             }
         }
+
         $sql = "INSERT INTO productos(".implode(',',$columns).") VALUES('".implode("','",$datos)."')";
 		$this->con->exec($sql);
 		$id_producto = $this->con->lastInsertId();
+
+		$query = 'SELECT count(1) as cantidad FROM categorias WHERE padre_id = 0';
+		$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
 
 		$sql = '';
 		
@@ -363,6 +379,11 @@ class Producto{
 			foreach($data['categorias'] as $categoria){
 				$sql .= 'INSERT INTO productos_categorias(producto_id,categoria_id) 
 							VALUES ('.$id_producto.','.$categoria.');';
+
+				if($categoria > $consulta->cantidad){
+						
+					$sql .= "UPDATE productos SET categoria_id = $categoria WHERE producto_id = ".$id_producto;
+				}
 			}
 			
 			 $this->con->exec($sql);
@@ -372,7 +393,7 @@ class Producto{
 	}
 	
 	public function getProducto($id){
-	    $query = "SELECT productos.producto_id,modelo,inactivo,precio,ranking,nombre,descripcion,destacado,marcas.id_marca,marcas.nombre_Marca, productos_categorias.categoria_id, marcas.activo
+	    $query = "SELECT productos.producto_id,inactivo,precio,codigo,nombre,descripcion,stock,marcas.id_marca,marcas.nombre_Marca, productos_categorias.categoria_id, marcas.activo, oferta, precio_oferta
 				   FROM productos, marcas, productos_categorias WHERE productos_categorias.producto_id = productos.producto_id AND productos.id_marca = marcas.id_marca AND productos.producto_id = ".$id;
 				 
         $query = $this->con->query($query); 
@@ -415,6 +436,33 @@ class Producto{
 		else{
 			return 'Padre Inactivo';
 		}
+	}
+
+
+	public function totalProductos($cat,$ofe){
+
+		if($cat!=''){
+			$categoria =' AND pc.categoria_id= '.$cat;
+		}
+		else{
+			$categoria = '';
+		}
+		if($ofe!=''){
+			$oferta =' AND p.oferta= 1';
+		}
+		else{
+			$oferta = '';
+		}
+																															
+	    $query = 'SELECT count(DISTINCT p.producto_id) as cantidad 
+		FROM productos p, productos_categorias pc, categorias c 
+		WHERE p.inactivo = 0 
+		AND pc.producto_id = p.producto_id
+		AND pc.categoria_id = c.categoria_id AND c.inactivo = 0 
+		AND ( c.padre_id IN (SELECT categoria_id FROM categorias WHERE inactivo = 0) OR c.padre_id  = 0)'.$categoria.$oferta;
+		
+		$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
+		return $consulta->cantidad;
 	}
 	
 	

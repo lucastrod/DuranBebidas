@@ -20,7 +20,6 @@
             <?php if(in_array('produ',$_SESSION['usuario']['secciones'])){?>
             <a href="ListProd.php" class="bg-dark list-group-item list-group-item-action <?=isset($productsMenu)?'active':''?>">
                 <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-question fa-fw mr-3"></span>
                     <span class="menu-collapsed">Productos</span>
                 </div>
             </a>
@@ -29,7 +28,6 @@
             <?php if(in_array('perf',$_SESSION['usuario']['secciones'])){?>
             <a class="<?=isset($perfilMenu)?'active':''?> bg-dark list-group-item list-group-item-action" href="perfiles.php">
             <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-question fa-fw mr-3"></span>
                     <span class="menu-collapsed">Perfiles</span>
                 </div>
             </a>
@@ -44,29 +42,10 @@
             </a>
 			  <?php }?>
 
-              <?php if(in_array('coment',$_SESSION['usuario']['secciones'])){?>
-              <a href="comentarios.php" class="bg-dark list-group-item list-group-item-action <?=isset($comentariosMenu)?'active':''?>">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-question fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Comentarios</span>
-                </div>
-              </a>
-              <?php }?>
-
               <?php if(in_array('cat',$_SESSION['usuario']['secciones'])){?>
               <a href="categorias.php" class="bg-dark list-group-item list-group-item-action <?=isset($categoriasMenu)?'active':''?>">
                 <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-question fa-fw mr-3"></span>
                     <span class="menu-collapsed">Categorias</span>
-                </div>
-              </a>
-              <?php }?>
-
-              <?php if(in_array('marc',$_SESSION['usuario']['secciones'])){?>
-              <a href="marcas.php" class="bg-dark list-group-item list-group-item-action <?=isset($marcasMenu)?'active':''?>">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-question fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Marcas</span>
                 </div>
               </a>
               <?php }?>

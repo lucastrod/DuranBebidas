@@ -50,7 +50,19 @@ if(isset($_GET['inactivo'])){
         }
         elseif (isset($_GET['producto_id'])){
                 $producto->activarProducto($_GET);
-                header('Location:ListProd.php');
+                if(isset($_GET['cat'])){
+                        if(isset($_GET['padre_id'])){
+                                header('Location:ListProd.php?cat='.$_GET['cat'].'&padre_id='.$_GET['padre_id']);
+                        }
+                        else{
+                                header('Location:ListProd.php?cat='.$_GET['cat']);
+                        }
+                             
+                }
+                else{
+                        header('Location:ListProd.php');
+                }
+               
                 die();
         }
 }

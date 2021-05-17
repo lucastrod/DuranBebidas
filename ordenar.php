@@ -3,6 +3,7 @@
 
 if(!empty($_GET)):
 
+    echo($_GET);
     if(!empty($_GET["cat"])):
 
         $cat = $_GET["cat"];
@@ -18,14 +19,22 @@ if(!empty($_GET)):
         $orden ='';
     endif;
 
-    if(!empty($_GET["marca"])):
+    if(!empty($_GET["oferta"])):
 
-        $marca = $_GET["marca"];
+        $oferta = '&oferta='.$_GET["oferta"];
     else:
-        $marca ='';
+        $oferta ='';
     endif;
 
-    header("Location:productos.php?cat=$cat&orden=$orden&marca=$marca");
+    if(!empty($_GET["limite"])):
+
+        $lim = $_GET["limite"];
+
+    else:
+        $lim ='';
+    endif;
+    
+    header("Location:productos.php?cat=$cat&orden=$orden&limite=$lim$oferta");
 
 endif;
 

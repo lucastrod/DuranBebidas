@@ -10,7 +10,7 @@ $port = '3306';
 */
 
 $host = '127.0.0.1';
-$dbname = 'vino';
+$dbname = 'bebidas';
 $user = 'root';
 $pass = '';
 $port = '3306';

@@ -1,23 +1,19 @@
 <!DOCTYPE php>
 <?php
 session_start();
-include('inc/config.php');
+include('config.php');
 require('inc/db_data.php');
 include('inc/arrays.php');
 include('class/productos.php');
 include('class/objeto.php');
-
 
 $user = new Usuario($con);
 
 if(isset($_POST['login'])){
   $valor = $user->login($_POST);
   if($valor !=Null){
-    if($valor == 'Error en contraseña'){
-      header('Location:log.php?estado=error&error=datosErroneos');
-    }
-    else{
-      header('Location:log.php?estado=error&error=datosErroneos');
+    if($valor == 'Error'){
+      header('Location:login.php?estado=error&error=datosErroneos');
     }
   }
 }
@@ -42,6 +38,7 @@ if(isset($_POST['login'])){
 
     <!-- CSS Style -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all">
     <link rel="stylesheet" type="text/css" href="css/simple-line-icons.css" media="all">
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
@@ -84,35 +81,14 @@ if(isset($_POST['login'])){
               <div class="top-cart-contain pull-right"> 
             <!-- Top Cart -->
             <div class="mini-cart">
-              <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"><a href="#">  Carrito <span class="cart_count">(2)</span></a></div>
+              <div class="basket dropdown-toggle">
+                <a href="carrito.php">  Carrito 
+                  <span class="count" id="value">0</span>
+                  <span id="value"></span>
+                </a>
+              </div>
               <div>
-                <div class="top-cart-content" style="display: none;">
-                  <div class="actions">
-                    <button class="btn-checkout" title="Checkout" type="button"><span>Checkout</span></button>
-                    <a href="#" class="view-cart" ><span>View Cart</span></a> </div>
-                  <!--block-subtitle-->
-                  <ul class="mini-products-list" id="cart-sidebar">
-                    <li class="item first">
-                      <div class="item-inner"><a class="product-image" title="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White" href="#l"><img alt="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White" src="products-images/product.jpg"></a>
-                        <div class="product-details">
-                          <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="icon-pencil"></i><span class="hidden">Edit item</span></a> </div>
-                          <!--access--> <strong>1</strong> x <span class="price">$499.99</span>
-                          <p class="product-name"><a href="#">Vinito Toro</a></p>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="item last">
-                      <div class="item-inner"><a class="product-image" title="JP Lizzy Satchel Designer Diaper Bag - Slate Citron" href="#"><img alt="JP Lizzy Satchel Designer Diaper Bag - Slate Citron" src="products-images/product.jpg"></a>
-                        <div class="product-details">
-                          <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="icon-pencil"></i><span class="hidden">Edit item</span></a> </div>
-                          <!--access--> <strong>1</strong> x <span class="price">$80.00</span>
-                          <p class="product-name"><a href="#">Manaos Pomelo</a></p>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                  <!--actions--> 
-                </div>
+                
               </div>
             </div>
             <!-- Top Cart -->
@@ -198,15 +174,16 @@ if(isset($_POST['login'])){
           <div class="mm-toggle"><i class="fa fa-reorder"></i><span class="mm-label">Menu</span> </div>
         </div>
 
-          <ul class="nav hidden-xs menu-item menu-item-left">
-            <li class="level0 parent drop-menu"><a href="#"><span>Vinos</span></a>
+<!--<ul class="nav hidden-xs menu-item menu-item-left">
+            <li class="level0 parent drop-menu" ><a href="#"><span style="color:#C2A476;">Vinos</span></a>
               <ul class="level1" style="display: none;">
                   <li class="level1 first"><a href="#"><span>Tinto</span></a></li>
                   <li class="level1 nav-10-2"> <a href="#"> <span>Rosado</span> </a> </li>
                   <li class="level1 nav-10-3"> <a href="#"> <span>Malbec</span> </a> </li>
                   <li class="level1 nav-10-4"> <a href="#"> <span>Cabernet</span> </a> </li>
                   <li class="level1 nav-10-4"> <a href="#"> <span>Blanco</span> </a> </li>
-                </ul></li>
+                </ul>  
+            </li>
             <li class="level0 parent drop-menu"><a href="#"><span>Espumantes</span> </a>
               <ul class="level1" style="display: none;">
                 <li class="level1 first"><a href="#"><span>Brut Nature</span></a></li>
@@ -282,10 +259,14 @@ if(isset($_POST['login'])){
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="#"> <span>Alimentos</span> </a> </li>
               </ul></li>
-          </ul>
+          </ul>-->
           <!-- End Sections -->          
     </div>
   </nav>
   <!-- end nav --> 
 </body>
 </php>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="js/iconoCarrito.js"></script>
