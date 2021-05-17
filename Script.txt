@@ -95,7 +95,7 @@ INSERT INTO `categorias` (`categoria_id`, `nombre_Cat`, `padre_id`, `inactivo`) 
 (53,'APA',2,0),
 (54,'Negra',2,0),
 (55,'Cachaca',5,0),
-(56,'Malbec2',8,0);
+(56,'Malbec',8,0);
 
 
 
