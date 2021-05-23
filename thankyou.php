@@ -1,4 +1,22 @@
+<?php
+include_once('inc/header.php');
 
+if(!empty($_SESSION["usuario"] ["id_usuario"])){
+  echo($_SESSION["usuario"] ["id_usuario"]);
+  if(!empty($_SESSION['carrito'])){
+  $array = $_SESSION['carrito'];
+  $total = 0;
+  $cantidad = 0;
+  $precio = 0;
+  foreach ($array as $colum) {
+    $cantidad = $colum['Cantidad'];
+    $precio = $colum['Precio'];
+    $total+= $cantidad * $precio;
+  }
+  echo($total);
+  }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

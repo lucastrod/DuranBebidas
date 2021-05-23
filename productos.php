@@ -234,7 +234,8 @@ $oferIn =  isset($_GET['oferta']) ? '?oferta='.$_GET['oferta']: '';
             
            ?>
             <li class="item first">
-              <div class="product-image"> <a href="#" title="HTC Rhyme Sense"> <img class="small-image" src="products-images/product.jpg" alt="HTC Rhyme Sense"> </a> </div>
+              <div class="product-image"> <img class="small-image" src="file_sitio/<?php echo $row->producto_id;?>/0.png"></div>
+            
             <div class="product-shop">
               <h2 class="product-name"><a href="#/htc-rhyme-sense.html" title="HTC Rhyme Sense"><?php echo utf8_decode($row->nombre)?></a></h2>
               

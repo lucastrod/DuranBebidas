@@ -185,25 +185,8 @@
             <!-- SLIDE  -->
             <li data-index="rs-19" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="images/video-img.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="HTML5 Video" data-description=""> 
               <!-- MAIN IMAGE --> 
-              <img src="images/video-img.jpg"  alt=""> 
-              <!-- LAYERS --> 
-              
-              <!-- BACKGROUND VIDEO LAYER -->
-              <div class="rs-background-video-layer" 
-									data-forcerewind="on" 
-									data-volume="mute" 
-									data-videowidth="100%" 
-									data-videoheight="100%" 
-									data-videomp4="images/bg1.mp4"
-									data-videowebm="images/bg1.webm"  
-									data-videopreload="preload" 
-									data-videoloop="none" 
-									data-forceCover="1" 
-									data-aspectratio="16:9" 
-									data-autoplay="true" 
-									data-autoplayonlyfirsttime="false" 
-									data-nextslideatend="true" 
-								></div>
+              <img src="images/slide-img3.jpg"  alt="">
+              <!-- LAYERS -->
               
               <!-- LAYER NR. 1 -->
               <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 

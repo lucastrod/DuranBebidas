@@ -2,12 +2,7 @@
 
 <?php
 
-session_start();
-include('config.php');
-require('inc/db_data.php');
-include('inc/arrays.php');
-include('class/productos.php');
-include('class/objeto.php');
+include_once('inc/header.php');
 
 if(!isset($_SESSION['carrito'])){
     header('Location:productos.php');
@@ -25,11 +20,16 @@ MercadoPago\SDK::setAccessToken('TEST-6760243392925397-042116-b5fa11a3fd3a9e2bb4
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 $preference->back_urls = array(
-    "success" => "https://localhost/wines/thankyou.php",
-    "failure" => "https://localhost/wines/errorPago.php?error=error",
-    "pending" => "https://localhost/wines/errorPago.php?error=pendiente"
+    "success" => "https://localhost/DuranBebidas/DuranBebidas/thankyou.php",
+    "failure" => "https://localhost/DuranBebidas/errorPago.php?error=error",
+    "pending" => "https://localhost/DuranBebidas/errorPago.php?error=pendiente"
 );
 
+$preference->statement_descriptor = "DuranBebidas";
+$envio = new MercadoPago\shipments();
+$envio ->cost = 0;
+$envio ->mode = "not_specified";
+$preference->shipments = $envio;
 
 
 $items=array();
@@ -50,140 +50,15 @@ $preference->save();
 //curl -X POST -H "Content-Type: application/json" "https://api.mercadopago.com/users/test_user?access_token=TEST-2228781292720900-042100-859650dc67e9ee7eb7f5495ef5e55d0f-200979013" -d "{'site_id':'MLA'}"
 //{"id":747384503,"nickname":"TESTMHP3EO7G","password":"qatest3152","site_status":"active","email":"test_user_52156287@testuser.com"}//comprador
 //{"id":747384554,"nickname":"TEST5ANAL27L","password":"qatest4038","site_status":"active","email":"test_user_12323708@testuser.com"}//vendedor
+//Mastercard	5031 7557 3453 0604	123	11/25
+//Visa	4509 9535 6623 3704	123	11/25
+//American Express	3711 803032 57522	1234	11/25
 
 
 
 ?>
 
-<html lang="zxx" class="no-js">
 
-<head>
-  <title>Vino</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-  
-  <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700|Montserrat:400,700|Roboto&display=swap" rel="stylesheet"> 
-
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
-
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/jquery-ui.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-
-  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-
-  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-
-  <link rel="stylesheet" href="css/aos.css">
-  <link href="css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
-
-  <link rel="stylesheet" href="css/style.css">
-
-
-
-</head>
-
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" >
-
-<div class="site-wrap site-navbar">
-
-  <div class="site-mobile-menu site-navbar-target">
-    <div class="site-mobile-menu-header">
-      <div class="site-mobile-menu-close mt-3">
-        <span class="icon-close2 js-menu-toggle"></span>
-      </div>
-    </div>
-    <div class="site-mobile-menu-body"></div>
-  </div>
-
-
-  
-  <div class="header-top ">
-    <div class="container px-0">
-      <div class="row align-items-center">
-        <div class="col-12 text-center ">
-          <a href="index.php" class="site-logo">
-            <img src="images/logo.png" alt="Image" class="img-fluid ">
-          </a>
-        </div>
-        <a href="#" class="mx-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
-              class="icon-menu h3"></span></a>
-      </div>
-    </div>
-  </div> 
-
-  <div class="col-12 col-md-12 order-3 order-md-3 text-right" style='padding-right: 100px;'>
-            <div class="site-top-icons">
-              <ul>
-                <li><a href="#"><span class="icon icon-person"></span></a></li>
-                <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
-                <li>
-                  <a href="carrito.php" class="site-cart">
-                    <span class="icon icon-shopping_cart"></span>
-                    <span class="count" id="value">0</span>
-                    <span id="value"></span>
-                  </a>
-                </li> 
-                <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
-              </ul>
-            </div> 
-    </div>
-
-
-    
-  <nav class="navbar bg navbar-expand-lg navbar-dark site-navbar site-navbar-target d-none pl-1 pb-0 d-lg-block mb-0">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse mb-0" id="bs-example-navbar-collapse-1" >
-      <ul></ul>
-      <ul></ul>
-      <ul></ul>
-      <ul></ul>
-      <ul class="navbar-nav ml-auto pl-3 margen">
-          
-              <li  Style="font-size:23px; background: -webkit-linear-gradient(red,blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: tomato;font-family:roboto;"><a href="index.php" class="nav-link">Home</a></li>
-              <li  Style="font-size:23px;  background: -webkit-linear-gradient(red,blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: tomato;font-family:roboto;"><a href="productos.php" class="nav-link">Listado de Productos</a></li>
-              <li  Style="font-size:23px;  background: -webkit-linear-gradient(red,blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: tomato;font-family:roboto;"><a href="contacto.php" class="nav-link">Contacto</a></li>
-      </ul>
-
-<?php
-      if(empty($_SESSION["usuario"])):
-?>
-      <ul class="navbar-nav mr-5 pr-6 margen2">
-              <li style="font-size:18px; background: -webkit-linear-gradient(red,blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: tomato;font-family:roboto;"><a href="log.php" class="nav-link text-right">Ingresar</a></li>
-      </ul>
-
-<?php
-      else:
-      
-      if(!empty($_SESSION['usuario']['secciones'])){?>
-
-        <ul class="navbar-nav mr-5 pr-6">
-
-               <li style="font-size:18px; background: -webkit-linear-gradient(red,blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: tomato;font-family:roboto;">
-               <span class="nav-link"><?= $_SESSION["usuario"]["nombre"]; ?></span>
-               </li>
-             
-               <li style="font-size:18px; background: -webkit-linear-gradient(red,blue); -webkit-background-clip:text; -webkit-text-fill-color: transparent; color: tomato;font-family:roboto;"><a href="panel.php" class="nav-link text-right">Panel</a></li>
-              <li style="font-size:18px;background:-webkit-linear-gradient(red,blue);-webkit-background-clip:text;-webkit-text-fill-color:transparent;color:tomato;font-family:roboto;"><a href="logout.php" class="nav-link text-right">Logout</a></li>
-        </ul>
-         
-<?php
-          }
-      endif;
-?>
-<ul></ul>
-    </div>
-  </nav>
 
     
   <div class="site-wrap">
@@ -368,16 +243,16 @@ $preference->save();
 
             <div class="row mb-5">
               <div class="col-md-12">
-                <h2 class="h3 mb-3 text-black">Coupon Code</h2>
+              
+                <h2 class="h3 mb-3 text-black">Envio</h2>
                 <div class="p-3 p-lg-5 border">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <label><input type="radio" name="envio" value="0" id="radio2" checked> Retiro en Tienda</label>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <label><input type="radio" name="envio" value="1" required id="radio1" > Envio a Domicilio</label>   
+                </div>
                   
-                  <label for="c_code" class="text-black mb-3">Enter your coupon code if you have one</label>
-                  <div class="input-group w-75">
-                    <input type="text" class="form-control" id="c_code" placeholder="Coupon Code" aria-label="Coupon Code" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary btn-sm" type="button" id="button-addon2">Apply</button>
-                    </div>
-                  </div>
 
                 </div>
               </div>
@@ -385,12 +260,12 @@ $preference->save();
             
             <div class="row mb-5">
               <div class="col-md-12">
-                <h2 class="h3 mb-3 text-black">Your Order</h2>
+                <h2 class="h3 mb-3 text-black">Pedido</h2>
                 <div class="p-3 p-lg-5 border">
                 
                   <table class="table site-block-order-table mb-5">
                     <thead>
-                      <th>Product</th>
+                      <th>Productos</th>
                       <th>Total</th>
                     </thead>
                     <tbody>
@@ -400,7 +275,6 @@ $preference->save();
                     $total = 0;
                     $descuento=0;
                     $subtotal=0;
-                       
                         foreach($array as $row){
                           $subtotal += ($row['Cantidad'] * $row['Precio']);
                     ?>
@@ -408,12 +282,16 @@ $preference->save();
                         <td class="product-name">
                             <h2 class="h5 text-black"><?php echo $row['Nombre'];?></h2>
                         </td>
-                        <td>$<?php echo $row['Precio'];?></td>
+                        <td>$<?php echo $row['Cantidad'] * $row['Precio'];?></td>
                       </tr>
                       <?php } ?>
                       <tr>
-                        <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                        <td class="text-black font-weight-bold"><strong>$<?php echo $subtotal;?></strong></td>
+                        <td class="text-black font-weight-bold"><strong>Envio</strong></td>
+                        <td class="text-black font-weight-bold">$<span id="envio"></span></td>
+                      </tr>
+                      <tr>
+                        <td class="text-black font-weight-bold"><strong>Pedido Total</strong></td>
+                        <td class="text-black font-weight-bold"><strong>$<span id="subtotal"></span></strong></td>
                       </tr>
                       
                     </tbody>
@@ -426,7 +304,7 @@ $preference->save();
                     </div>
                 </form>-->
                 <div class="form-group text-center " style="font-size:20px;">
-                  <form action="https://localhost/wines/thankyou.php" method="POST">
+                  <form action="DuranBebidas/DuranBebidas/thankyou.php" method="POST">
                     <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>">
                     </script>
                   </form>
@@ -458,7 +336,8 @@ $preference->save();
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script type="text/javascript" src="js/iconoCarrito.js"></script>
   <script src="js/main.js"></script>
-   <script src="js/guardarVenta.js"></script>
+  <script src="js/guardarVenta.js"></script>
+  <script src="js/actualizarEnvio.js"></script>
   
 
   </body>

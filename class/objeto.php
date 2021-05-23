@@ -813,8 +813,11 @@ class Compra{
 
 	return $respuesta;
         
-    
     }
+
+	public function guardarDetalle($data){
+
+	}
 }
 
 ?>

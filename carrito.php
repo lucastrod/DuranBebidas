@@ -159,7 +159,7 @@ else{
         </div>
         
        
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-md-6 pl-5">
             <div class="row justify-content-end">
               <div class="col-md-7">
@@ -169,8 +169,7 @@ else{
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <div class="col-md-6">
-                  
+                  <div class="col-md-6">            
                     <span class="text">Subtotal</span>
                   </div>
                   <div class="col-md-6 text-right">
@@ -184,7 +183,7 @@ else{
                   <div class="col-md-6 text-right" >
                     <strong class="text">$<?php echo $descuento;?></strong>
                   </div>
-                </div>
+                </div> 
                 <div class="row mb-5" style="font-size: 20px;">
                   <div class="col-md-6">
                     <span class="text-black">Total</span>
@@ -201,8 +200,15 @@ else{
                   
                 </div>
               </div>
-            </div>
-          </div>
+            </div>-->
+                <div class="row" style="padding-bottom:25px;">
+                  <div class="col-md-9"></div>
+                  <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary btn-lg py-3 btn-block">Finalizar Compra</button>
+                  </div>
+                  
+                </div>
+          </div> 
           </form>
         </div>      
       </div>
