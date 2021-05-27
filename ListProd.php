@@ -65,20 +65,12 @@ endif;
 
 <div class="container-fluid">
       
-	  <?php $productsMenu = 'Productos';
-			
 
-	include_once('inc/side_bar.php');
-
-	if(!in_array('produ',$_SESSION['usuario']['secciones'])){
-		header('Location: panel.php');
-	}
-	 
-?>
 	        
         <div class="col-sm-9 col-md-10 main">
           
           <!--toggle sidebar button-->
+
           
 		 <div class="row">
 
@@ -90,16 +82,21 @@ endif;
 		  	</div>        
 		  
 		</div>
+	
+	<?php $productsMenu = 'Productos';
+			
 
+			include_once('inc/side_bar.php');
+		
+			if(!in_array('produ',$_SESSION['usuario']['secciones'])){
+				header('Location: panel.php');
+			}
+			 
+		?>
 
+		<div class="pt-3 col-2">
 
-	<div class="row">
-
-	<div class="col-4"></div>
-
-		<div class="text-center pt-3 col-2">
-
-          <h6>Categorias</h6>
+          <h6> Filtrar por categorias</h6>
 
           <form id="form" name="form" method="post" action="ordenar.php">
 
@@ -129,15 +126,9 @@ endif;
           </form>
 
 		  </div>
-
-	</div>
-
 		
-
-		 
 			 <a href="ListProd_ae.php" class="btn btn-md  mt-3 mb-5 mr-4" style="background-color:#A98307;font-family:Arial;color:white;margin-bottom:8px;">Nuevo Producto</a>
 		
- 
 		
 			  <div class="table-responsive">
 				<table class="table table-striped" style="table-layout: fixed; width: 99%;">

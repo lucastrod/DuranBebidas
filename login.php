@@ -1,5 +1,5 @@
 ﻿<?php 
-include_once('inc/header.php');
+include_once('inc/headerblack.php');
 include_once('inc/arrays.php');
 ?>
 
@@ -64,7 +64,8 @@ include_once('inc/arrays.php');
             </div>
           </div>
           
-          <form action="panel.php" method="post" class=" from-horizontal">
+          <!-- Solo si es user Admin -->
+          <form action="ListProd.php" method="post" class=" from-horizontal">
 
           <div class="col-2 registered-users"><strong>Usuarios Registrados</strong>
             <div class="content">

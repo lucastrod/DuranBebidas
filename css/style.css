@@ -258,16 +258,24 @@ button.button:hover {
 	display: inline-block;
 }
 /*----------- 3. Header --------------*/
-header {height: 5px;}
+header {height: 10px;}
 
 .logo {
-    position: absolute;
-	padding: 2em;
+	position: absolute;
+	padding: 1em;
     left: 50%;
     margin:30px 0 0 -90px;
 	z-index:100
-	
 }
+
+.centerLogo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	
+  }
+
+
 .header-top {
 	padding: 0px 0px 0px 0px;
 	
@@ -1302,6 +1310,15 @@ ul.vertnav-top li > a > span > .cat-label {
 }
 /* horizontal + mobile menu trigger */
 .nav > li > a {
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: 700;
+	transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s, background-position 300ms ease-in-out 0s;
+	color: #000;
+	letter-spacing: 2.2px
+}
+
+.nav > li > a.edit {
 	font-size: 12px;
 	text-transform: uppercase;
 	font-weight: 700;

@@ -88,7 +88,7 @@ if(isset($_POST['login'])){
               </div>
               <!-- End Header Currency -->
               
-              <div class="welcome-msg hidden-xs"> Bienvenido! "Usuario" </div>
+              <div class="welcome-msg hidden-xs"></div>
             </div>
             <div class="col-xs-5 col-sm-6"> 
               
@@ -96,7 +96,7 @@ if(isset($_POST['login'])){
             <!-- Top Cart -->
             <div class="mini-cart">
               <div class="basket dropdown-toggle">
-                <a href="carrito.php">  Carrito 
+                <a href="carrito.php">Carrito
                   <span class="count" id="value">0</span>
                   <span id="value"></span>
                 </a>
@@ -114,37 +114,10 @@ if(isset($_POST['login'])){
             </div>
           </div>
           
-          <div class="top-search">
-            <div class="block-icon pull-right"> <a data-target=".bs-example-modal-lg" data-toggle="modal" class="search-focus dropdown-toggle links"> <i class="fa fa-search"></i> </a>
-              <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button aria-label="Close" data-dismiss="modal" class="close" type="button"><img src="images/interstitial-close.png" alt="close"> </button>
-                    </div>
-                    <div class="modal-body">
-                      <form class="navbar-form">
-                        <div id="search">
-                          <div class="input-group">
-                            <input name="search" placeholder="Search" class="form-control" type="text">
-                            <button type="button" class="btn-search"><i class="fa fa-search"></i></button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
               <!-- Header Top Links -->
               <div class="toplinks">
                 <div class="links">
                 
-                  <div class="check"><a title="Checkout" href="checkout.php"><span class="hidden-xs">Checkout</span></a></div>
-                  <!-- Header Company -->
-                  
-                  <!-- End Header Company -->
                   <?php
                   if(empty($_SESSION["usuario"])):
                   ?>
@@ -154,11 +127,11 @@ if(isset($_POST['login'])){
                   
                   if(!empty($_SESSION['usuario']['secciones'])){?>
 
-                    <ul class="navbar-nav mr-5 pr-6">
-                          <span class="nav-link"><?= $_SESSION["usuario"]["nombre"]; ?></span>                                                
-                          <div class="login"><a href="panel.php"><span class="hidden-xs">Admin Panel</span></a></div>
+                        
+                          <div class="welcome-msg hidden-xs"> Bienvenido! <?= $_SESSION["usuario"]["nombre"]; ?></div>
+                          <div class="login"><a href="ListProd.php"><span class="hidden-xs">Admin Panel</span></a></div>
                           <div class="login"><a href="logout.php"><span class="hidden-xs">Logout</span></a></div>                    
-                        </ul>                    
+                                         
                   <?php
                   }
                   endif;

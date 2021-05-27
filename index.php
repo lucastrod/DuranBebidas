@@ -158,7 +158,7 @@
 
 									data-elementdelay="0.05" 
 									
-									style="z-index: 6; white-space: nowrap;">Mega Sale </div>
+									style="z-index: 6; white-space: nowrap;">HOLA </div>
               
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 

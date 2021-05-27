@@ -64,17 +64,17 @@ if(isset($_POST['login'])){
           <div class="row"> 
             <!-- Header Language -->
             <div class="col-xs-7 col-sm-6">
-              <div class="block-language-wrapper hidden-xs"> <a role="button" data-target="#" class="block-language " href="#">UBICACION  </a>
+              <div class="block-language-wrapper hidden-xs"> <a role="button" data-target="#" class="block-language " href="#">Paraguay 5261, Palermo </a>
               </div>
               <!-- End Header Language --> 
               
               <!-- Header Currency -->
-              <div class=" block-currency-wrapper hidden-xs"> <a role="button" data-target="#" class="block-currency" href="#"> TELEFONO </a>
+              <div class=" block-currency-wrapper hidden-xs"> <a role="button" target="_blank" class="block-currency" href="https://wa.me/541168463206">+54 11 6846-3206  </a>
                 
               </div>
               <!-- End Header Currency -->
               
-              <div class="welcome-msg hidden-xs"> Bienvenido! "Usuario" </div>
+              <div class="welcome-msg hidden-xs"> </div>
             </div>
             <div class="col-xs-5 col-sm-6"> 
               
@@ -100,35 +100,11 @@ if(isset($_POST['login'])){
             </div>
           </div>
           
-          <div class="top-search">
-            <div class="block-icon pull-right"> <a data-target=".bs-example-modal-lg" data-toggle="modal" class="search-focus dropdown-toggle links"> <i class="fa fa-search"></i> </a>
-              <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button aria-label="Close" data-dismiss="modal" class="close" type="button"><img src="images/interstitial-close.png" alt="close"> </button>
-                    </div>
-                    <div class="modal-body">
-                      <form class="navbar-form">
-                        <div id="search">
-                          <div class="input-group">
-                            <input name="search" placeholder="Search" class="form-control" type="text">
-                            <button type="button" class="btn-search"><i class="fa fa-search"></i></button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
               <!-- Header Top Links -->
               <div class="toplinks">
                 <div class="links">
-                
-                  <div class="check"><a title="Checkout" href="checkout.php"><span class="hidden-xs">Checkout</span></a></div>
-                  <!-- Header Company -->
+                                  <!-- Header Company -->
                   
                   <!-- End Header Company -->
                   <?php
@@ -140,11 +116,11 @@ if(isset($_POST['login'])){
                   
                   if(!empty($_SESSION['usuario']['secciones'])){?>
 
-                    <ul class="navbar-nav mr-5 pr-6">
-                          <span class="nav-link"><?= $_SESSION["usuario"]["nombre"]; ?></span>                                                
-                          <div class="login"><a href="panel.php"><span class="hidden-xs">Admin Panel</span></a></div>
+                          <div class="welcome-msg hidden-xs"> Bienvenido! <?= $_SESSION["usuario"]["nombre"]; ?></div>
+                          <span class="nav-link"></span>                                                
+                          <div class="login"><a href="ListProd.php"><span class="hidden-xs">Admin Panel</span></a></div>
                           <div class="login"><a href="logout.php"><span class="hidden-xs">Logout</span></a></div>                    
-                        </ul>                    
+                                          
                   <?php
                   }
                   endif;
@@ -164,8 +140,10 @@ if(isset($_POST['login'])){
 
     <!-- Logo -->
     <div class="container">
-      <div class="logo"><a title="DuranBebidas" styles="top:10px" href="index.php"><img alt="Duran" src="images/logo1.png"></a></div>
     </div>
+    <div class="logo">
+        <a title="DuranBebidas" styles="top:10px" href="index.php"><img class="center" alt="Duran" src="images/logo1.png"></a></div>
+
     <!-- End Logo -->
   
     <!-- Navbar -->
@@ -176,7 +154,8 @@ if(isset($_POST['login'])){
           <div class="mm-toggle"><i class="fa fa-reorder"></i><span class="mm-label">Menu</span> </div>
         </div>
 
-    <ul class="nav hidden-xs menu-item menu-item-left">
+<UL >
+      <ul class="nav hidden-xs menu-item menu-item-left" style="z-index: 5;background-color:rgba(0, 0, 0, 0.45);border-color:rgba(0, 0, 0, 0.50);">
             <li class="level0 parent drop-menu" ><a href="productos.php?cat=9"><span>Vinos</span></a>
               <ul class="level1" style="display: none;">
                   <li class="level1 first"><a href="productos.php?cat=34"><span>Cabernet</span></a></li>
@@ -226,8 +205,8 @@ if(isset($_POST['login'])){
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=18"> <span>Aperol</span> </a> </li>  
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=33"> <span>Dr Lemon</span> </a> </li>  
               </ul></li>
-            </ul>
-            <ul class="nav hidden-xs menu-item menu-item-right">         
+      </ul>
+      <ul class="nav hidden-xs menu-item menu-item rigth" style="z-index: 5;background-color:rgba(0, 0, 0, 0.45);border-color:rgba(0, 0, 0, 0.50);" >         
             <li class="level0 parent drop-menu"><a href="productos.php?cat=4" class="level-top"><span>Gin</span></a>              
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=19"> <span>Gin Gordons</span> </a> </li>
@@ -261,7 +240,10 @@ if(isset($_POST['login'])){
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=40"> <span>Alimentos</span> </a> </li>
               </ul></li>
-          </ul>
+            <li class="level0 parent drop-menu"><a href="productos.php?ofertas=1" class="level-top"><span>Ofertas</span></a>
+            </li>
+      </ul>
+      </UL>
           <!-- End Sections -->          
     </div>
   </nav>

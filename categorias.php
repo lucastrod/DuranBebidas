@@ -21,19 +21,7 @@ if(isset($_GET['del'])){
 ?> 
 
 <div class="container-fluid">
-      
-	  <?php $categoriasMenu = 'Categorias';
-	  
-	  
-	   if(!in_array('cat',$_SESSION['usuario']['secciones'])){ 
-				header('Location:panel.php');
-			}
-			
-
-	include_once('inc/side_bar.php');
-	 
-?>
-	        
+              
         <div class="col-sm-9 col-md-10 main">
           
           <!--toggle sidebar button-->
@@ -49,6 +37,17 @@ if(isset($_GET['del'])){
 		  
 		</div>
 		  
+		<?php $categoriasMenu = 'Categorias';
+	  
+	  
+	  if(!in_array('cat',$_SESSION['usuario']['secciones'])){ 
+			   header('Location:panel.php');
+		   }
+		   
+
+   include_once('inc/side_bar.php');
+	
+?>
 		 
 			<a href="categorias_ae.php?padre_id=0" class="btn btn-md bg-dark float-right mt-3 mb-4 mr-4" style="background-color:#A98307;font-family:Arial;color:white;margin-bottom:8px;">Nueva Categoria</a>
 		
