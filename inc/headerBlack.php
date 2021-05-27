@@ -20,6 +20,21 @@ if(isset($_POST['login'])){
  
 ?>
 <php lang="zxx" class="no-js">
+<style>
+  
+  .index .nav > li > a {
+    -webkit-transition: color 200ms ease-in-out;
+    transition: color 200ms ease-in-out;
+    }
+
+    .logo {
+      position: absolute;
+	    padding: 2em;
+      left: 50%;
+      margin:20px 0 0 -90px;
+	    z-index:100
+}
+</style>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +45,6 @@ if(isset($_POST['login'])){
     <meta name="author" content="">
 
     <!-- Favicons Icon -->
-
     <title>Duran Bebidas</title>
 
     <!-- Mobile Specific -->
@@ -164,7 +178,7 @@ if(isset($_POST['login'])){
 
     <!-- Logo -->
     <div class="container">
-      <div class="logo"><a title="DuranBebidas" styles="top:10px" href="index.php"><img alt="Duran" src="images/logo1.png"></a></div>
+      <div class="logo"><a title="DuranBebidas" styles="top:10px" href="index.php"><img alt="Duran" src="images/logonegro.png"></a></div>
     </div>
     <!-- End Logo -->
   
@@ -172,12 +186,9 @@ if(isset($_POST['login'])){
   <nav>
     <div class="container">
         <!-- Sections --> 
-        <div class="mm-toggle-wrap">
-          <div class="mm-toggle"><i class="fa fa-reorder"></i><span class="mm-label">Menu</span> </div>
-        </div>
 
     <ul class="nav hidden-xs menu-item menu-item-left">
-            <li class="level0 parent drop-menu" ><a href="productos.php?cat=9"><span>Vinos</span></a>
+            <li class="level0 parent drop-menu" ><a style="color: #000" href="productos.php?cat=9"><span>Vinos</span></a>
               <ul class="level1" style="display: none;">
                   <li class="level1 first"><a href="productos.php?cat=34"><span>Cabernet</span></a></li>
                   <li class="level1 nav-10-2"> <a href="productos.php?cat=36"> <span>Malbec</span> </a> </li>
@@ -186,7 +197,7 @@ if(isset($_POST['login'])){
                   <li class="level1 nav-10-4"> <a href="productos.php?cat=43"> <span>Tinto</span> </a> </li>
                 </ul>  
             </li>
-            <li class="level0 parent drop-menu"><a href="productos.php?cat=8"><span>Espumantes</span> </a>
+            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=8"><span>Espumantes</span> </a>
               <ul class="level1" style="display: none;">
                 <li class="level1 first"><a href="productos.php?cat=30"><span>Extra Brute</span></a></li>
                 <li class="level1 nav-10-2"> <a href="productos.php?cat=31"> <span>Demi Sec</span> </a> </li>
@@ -196,13 +207,13 @@ if(isset($_POST['login'])){
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=47"> <span>Pinot Noir</span> </a> </li>
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=56"> <span>Malbec</span> </a> </li>               
               </ul></li>
-            <li class="level0 parent drop-menu"><a href="productos.php?cat=7" class="level-top"><span>Whiskies</span></a>
+            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=7" class="level-top"><span>Whiskies</span></a>
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=27"> <span>Scotch</span> </a> </li>
                 <li class="level1 nav-10-2"> <a href="productos.php?cat=28"> <span>Bourbon</span></a> </li>
                 <li class="level1 nav-10-3"> <a href="productos.php?cat=29"> <span>Single Malt</span> </a> </li>               
               </ul></li>
-            <li class="level0 parent drop-menu"><a href="productos.php?cat=2" class="level-top"><span>Cervezas</span></a>
+            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=2" class="level-top"><span>Cervezas</span></a>
               <ul class="level1" style="display: none;">
                   <li class="level1 first"> <a href="productos.php?cat=13"> <span>Artesanal</span> </a> </li>
                   <li class="level1 nav-10-3"> <a href="productos.php?cat=48"> <span>Lager</span> </a> </li>
@@ -213,11 +224,11 @@ if(isset($_POST['login'])){
                   <li class="level1 nav-10-3"> <a href="productos.php?cat=53"> <span>APA</span> </a> </li>
                   <li class="level1 nav-10-3"> <a href="productos.php?cat=54"> <span>Negra</span> </a> </li>
                 </ul></li>
-            <li class="level0 parent drop-menu"><a href="productos.php?cat=6" class="level-top"><span>Licores</span></a>
+            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=6" class="level-top"><span>Licores</span></a>
               <ul class="level1" style="display: none;">
                     <li class="level1 first"> <a href="productos.php?cat=25"> <span>Baileys</span></a></li>
               </ul></li>
-            <li class="level0 parent drop-menu"><a href="productos.php?cat=3" class="level-top"><span>Aperitivos</span></a>
+            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=3" class="level-top"><span>Aperitivos</span></a>
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=14"> <span>Fernet</span> </a> </li>
                 <li class="level1 nav-10-2"> <a href="productos.php?cat=15"> <span>Bitter</span> </a> </li>
@@ -227,15 +238,16 @@ if(isset($_POST['login'])){
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=33"> <span>Dr Lemon</span> </a> </li>  
               </ul></li>
             </ul>
-            <ul class="nav hidden-xs menu-item menu-item-right">         
-            <li class="level0 parent drop-menu"><a href="productos.php?cat=4" class="level-top"><span>Gin</span></a>              
+            
+    <ul class="nav hidden-xs menu-item menu-item-right">         
+            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=4" class="level-top"><span>Gin</span></a>              
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=19"> <span>Gin Gordons</span> </a> </li>
                 <li class="level1 nav-10-2"> <a href="productos.php?cat=20"> <span>Gin Bombay</span> </a> </li>
                 <li class="level1 nav-10-3"> <a href="productos.php?cat=21"> <span>Gin Beefeter</span> </a> </li>
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=22"> <span>Gin Tanqueray</span> </a> </li>  
               </ul></li>
-            <li class="level0 parent drop-menu"><a href="productos.php?cat=5" class="level-top"><span>Destilados Varios</span></a>
+            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=5" class="level-top"><span>Destilados Varios</span></a>
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=23"> <span>Vodka</span> </a> </li>
                 <li class="level1 nav-10-2"> <a href="productos.php?cat=24"> <span>Ron</span> </a> </li>
@@ -243,7 +255,7 @@ if(isset($_POST['login'])){
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=55"> <span>Cachaca</span> </a> </li>  
               </ul></li>
             
-            <li class="level0 parent drop-menu"><a href="productos.php?cat=1" class="level-top"><span>Sin Alcohol</span></a>
+            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=1" class="level-top"><span>Sin Alcohol</span></a>
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=12"> <span>Malta</span> </a> </li>
                 <li class="level1 nav-10-2"> <a href="productos.php?cat=35"> <span>Jugos</span> </a> </li>
@@ -252,12 +264,12 @@ if(isset($_POST['login'])){
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=44"> <span>Granadina</span> </a> </li>  
               </ul></li>
             
-            <li class="level0 parent drop-menu"><a href="productos.php?cat=10" class="level-top"><span>Regaleria</span></a>
+            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=10" class="level-top"><span>Regaleria</span></a>
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=37"> <span>Estucheria</span> </a> </li>
               </ul></li>
             
-            <li class="level0 parent drop-menu"><a href="productos.php?cat=11" class="level-top"><span>Placeres</span></a>
+            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=11" class="level-top"><span>Placeres</span></a>
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=40"> <span>Alimentos</span> </a> </li>
               </ul></li>

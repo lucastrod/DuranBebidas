@@ -2,7 +2,7 @@
 
 <?php
 
-include_once('inc/header.php');
+include_once('inc/headerBlack.php');
 
 if(!isset($_SESSION['carrito'])){
     header('Location:productos.php');

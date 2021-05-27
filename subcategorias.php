@@ -1,5 +1,5 @@
 <?php
-include_once('inc/header.php');
+include_once('inc/headerBlack.php');
 
 
 $categoria = new Categoria($con);

@@ -1,5 +1,5 @@
 ﻿<?php 
-include_once('inc/header.php');
+include_once('inc/headerBlack.php');
 include_once('funciones.php');
 $categorias = new Categoria($con);
 ?>
@@ -13,6 +13,8 @@ $categorias = new Categoria($con);
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
+        <br>
+        <br>
 
 <ul class="breadcrumb">
 <?php $ofer = isset($_GET['oferta']) ? '&oferta='.$_GET['oferta']: ''; 
@@ -72,7 +74,7 @@ $oferIn =  isset($_GET['oferta']) ? '?oferta='.$_GET['oferta']: '';
 
 <section class="main-container col2-left-layout bounceInUp animated">
   <div class="container">
-    
+  <br>
     <div class="row">
       <div class="col-main col-sm-9 col-sm-push-3">
 	  

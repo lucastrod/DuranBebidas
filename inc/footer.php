@@ -2,59 +2,10 @@
   <footer>
     <div class="footer-inner">
       <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-xs-12 col-lg-8">
-            <div class="footer-column pull-left">
-              <h4>Servicios</h4>
-              <ul class="links">
-                <li class="first"><a href="#" title="Mi Cuenta">Mi Cuenta</a></li>
-              </ul>
-            </div>
-            <div class="footer-column pull-left">
-              <h4>Corporation</h4>
-              <ul class="links">
-                <li class="first"><a title="Your Account" href="#">Acerca de Nosotros</a></li>       
-              </ul>
-            </div>
-            <div class="footer-column pull-left">
-              <h4>Porque elegirnos?</h4>
-              <ul class="links">
-                <li class=" last"><a href="contact-us.html" title="Suppliers">Contactanos</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-xs-12 col-lg-4">
-            <div class="footer-column-last">
-              <div class="newsletter-wrap">
-                <h4>Suscribete para novedades!</h4>
-                <form id="newsletter-validate-detail" method="post" action="#">
-                  <div id="container_form_news">
-                    <div id="container_form_news2">
-                      <input type="text" class="input-text required-entry validate-email" value="Ingresa tu mail aqui" onFocus=" this.value='' " title="Sign up for our newsletter" id="newsletter" name="email">
-                      <button class="button subscribe" title="Subscribe" type="submit"><span>Subscribe</span></button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <br>
-              <div class="social">
-                <h4>Siguenos!</h4>
-                <ul class="link">
-                  <li class="fb pull-left"><a href="#"></a></li>
-                  <li class="tw pull-left"><a href="#"></a></li>
-                  <li class="fb pull-left"><a href="#"></a></li>
-                </ul>
-              </div>
-             
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-      <div class="col-sm-12 col-xs-12 footer-logo"><img alt="Datson" src="images/logo1.png"></div>
-      <div class="col-sm-12 col-xs-12 footer-logo"></div>
-      <address>
-          <i class="fa fa-map-marker"></i>Paraguay 5261, Palermo <i class="fa fa-mobile"></i><span> +54 11 6846-3206</span> <i class="fa fa-envelope"></i><span> correo@correo.com</span>
+        <div class="col-sm-12 col-xs-12 footer-logo"><img alt="Logo" src="images/logo1.png"></div> 
+
+          <address>
+            <i class="fa fa-map-marker"></i>Paraguay 5261, Palermo <i class="fa fa-mobile"></i><span> +54 11 6846-3206</span> <i class="fa fa-envelope"></i><span> correo@correo.com</span>
           </address>
       </div>
     </div>
@@ -67,7 +18,6 @@
       </div>
     </div>
   </footer>
-</div>
 <div id="mobile-menu">
   <ul>
     <li>

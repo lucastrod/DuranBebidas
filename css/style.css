@@ -92,8 +92,8 @@ button {
 }
 
 /* list/grid toolbar*/
-.toolbar span.button-active.button-grid, {
-background-color:#C2A476!important;
+.toolbar span.button-active.button-grid {
+background-color:#C2A476;
 }
 .toolbar a.button-grid {
 	background-color: #f4f4f4!important;
@@ -258,13 +258,13 @@ button.button:hover {
 	display: inline-block;
 }
 /*----------- 3. Header --------------*/
-header {height:40px}
+header {height: 5px;}
 
 .logo {
     position: absolute;
+	padding: 2em;
     left: 50%;
     margin:30px 0 0 -90px;
-	margin-top: 0px;
 	z-index:100
 	
 }
@@ -836,7 +836,7 @@ ul#cart-sidebar {
 	
 }
 .top-cart-content .product-details .btn-edit:hover {
-	color: #339bold;
+	color: #339;
 }
 .top-cart-content .actions {
 	padding: 25px;
@@ -1064,7 +1064,7 @@ nav {
 	z-index: 10;
 	-webkit-transform: translateZ(0);
 	margin: auto;
-	margin-top:140px;
+	margin-top:180px;
 
 
 }
@@ -1307,7 +1307,7 @@ ul.vertnav-top li > a > span > .cat-label {
 	font-weight: 700;
 	transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s, background-position 300ms ease-in-out 0s;
 	color: #000;
-	letter-spacing: 2px
+	letter-spacing: 2.2px
 }
 ul.level0 {
 	padding: 0
@@ -3470,7 +3470,7 @@ color: #000;
 }
 ul.products-grid {
 	padding: 0;
-margin:
+margin:0;
 }
 .category-products ul.products-grid li.item {
 	text-align: center;
@@ -8368,7 +8368,7 @@ font-size:24px
 .col-xs-12.right_menu {
 	padding-left: 4px;
 }
-.product-img-box. col-xs-12 {
+.product-img-box.col-xs-12 {
 width: 300px;
 }
 .product-next-prev {
