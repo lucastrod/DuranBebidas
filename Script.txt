@@ -1218,7 +1218,9 @@ CREATE TABLE `ventas` (
   `id_venta` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `retiro` tinyint(1) NOT NULL,
-  `total` float(8,2) NOT NULL
+  `total` float(8,2) NOT NULL,
+  `fecha` datetime NOT NULL,
+  `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
