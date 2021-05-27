@@ -78,12 +78,12 @@ if(isset($_POST['login'])){
           <div class="row"> 
             <!-- Header Language -->
             <div class="col-xs-7 col-sm-6">
-              <div class="block-language-wrapper hidden-xs"> <a role="button" data-target="#" class="block-language " href="#">UBICACION  </a>
+            <div class="block-language-wrapper hidden-xs"> <a role="button" data-target="#" class="block-language " href="contact_us.php">Paraguay 5261, Palermo </a>
               </div>
               <!-- End Header Language --> 
               
               <!-- Header Currency -->
-              <div class=" block-currency-wrapper hidden-xs"> <a role="button" data-target="#" class="block-currency" href="#"> TELEFONO </a>
+              <div class=" block-currency-wrapper hidden-xs"> <a role="button" target="_blank" class="block-currency" href="https://wa.me/541168463206">+54 11 6846-3206  </a>
                 
               </div>
               <!-- End Header Currency -->

@@ -64,7 +64,7 @@ if(isset($_POST['login'])){
           <div class="row"> 
             <!-- Header Language -->
             <div class="col-xs-7 col-sm-6">
-              <div class="block-language-wrapper hidden-xs"> <a role="button" data-target="#" class="block-language " href="#">Paraguay 5261, Palermo </a>
+              <div class="block-language-wrapper hidden-xs"> <a role="button" data-target="#" class="block-language " href="contact_us.php">Paraguay 5261, Palermo </a>
               </div>
               <!-- End Header Language --> 
               
