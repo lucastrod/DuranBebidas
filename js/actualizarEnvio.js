@@ -12,13 +12,12 @@ $(document).ready(function(){
           activo:activo
         },
         success: function(data) {
-          alert(data);
-
-            //$('#envio').text(data);
-            //$('#subtotal').text(data);
+          var jsonData = JSON.parse(data);
+            $('#envio').text(jsonData.envio);
+            $('#subtotal').text(jsonData.total);
         }
     });
 }
-//setInterval(actualizar, 0);
+setInterval(actualizar, 0);
 
 });

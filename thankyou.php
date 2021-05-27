@@ -1,5 +1,5 @@
 <?php
-include_once('inc/header.php');
+include_once('inc/headerBlack.php');
 
 if(!empty($_SESSION["usuario"] ["id_usuario"])){
   echo($_SESSION["usuario"] ["id_usuario"]);

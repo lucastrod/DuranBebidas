@@ -2,7 +2,7 @@
 
 <?php
 
-include_once('inc/header.php');
+include_once('inc/headerBlack.php');
 
 if(!isset($_SESSION['carrito'])){
     header('Location:productos.php');
@@ -27,7 +27,7 @@ $preference->back_urls = array(
 
 $preference->statement_descriptor = "DuranBebidas";
 $envio = new MercadoPago\shipments();
-$envio ->cost = 0;
+$envio ->cost = $_SESSION["usuario"] ["envio"];
 $envio ->mode = "not_specified";
 $preference->shipments = $envio;
 
@@ -244,14 +244,9 @@ $preference->save();
             <div class="row mb-5">
               <div class="col-md-12">
               
-                <h2 class="h3 mb-3 text-black">Envio</h2>
+                <!--<h2 class="h3 mb-3 text-black">Envio</h2>-->
                 <div class="p-3 p-lg-5 border">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <label><input type="radio" name="envio" value="0" id="radio2" checked> Retiro en Tienda</label>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <label><input type="radio" name="envio" value="1" required id="radio1" > Envio a Domicilio</label>   
-                </div>
+             
                   
 
                 </div>
@@ -287,11 +282,11 @@ $preference->save();
                       <?php } ?>
                       <tr>
                         <td class="text-black font-weight-bold"><strong>Envio</strong></td>
-                        <td class="text-black font-weight-bold">$<span id="envio"></span></td>
+                        <td class="text-black font-weight-bold">$<?php echo $_SESSION["usuario"] ["envio"];?></td>
                       </tr>
                       <tr>
                         <td class="text-black font-weight-bold"><strong>Pedido Total</strong></td>
-                        <td class="text-black font-weight-bold"><strong>$<span id="subtotal"></span></strong></td>
+                        <td class="text-black font-weight-bold"><strong>$ <?php echo $subtotal + $_SESSION["usuario"] ["envio"];?></strong></td>
                       </tr>
                       
                     </tbody>

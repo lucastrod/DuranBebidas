@@ -1255,6 +1255,7 @@ CREATE TABLE `usuarios` (
   `usuario` varchar(100) NOT NULL,
   `clave` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `direccion` varchar(100),
   `activo` tinyint(1) NOT NULL,
   `salt` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -1263,9 +1264,9 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `usuario`, `clave`, `email`, `activo`, `salt`) VALUES
-(18, 'Ventas', '', 'ventas', 'e2509ab087409dc5ecd88484eef4bf1a', 'ventas@vino.com', 1, '5ddda628a7983'),
-(19, 'Admin', '', 'admin', 'f002b6a33f98d8520a4f767c5c561a4a', 'admin@vino.com', 1, '5de014d119f70');
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `usuario`, `clave`, `email`,`direccion`,`activo`, `salt`) VALUES
+(18, 'Ventas', '', 'ventas', 'e2509ab087409dc5ecd88484eef4bf1a', 'ventas@vino.com','', 1, '5ddda628a7983'),
+(19, 'Admin', '', 'admin', 'f002b6a33f98d8520a4f767c5c561a4a', 'admin@vino.com','', 1, '5de014d119f70');
 
 -- --------------------------------------------------------
 
@@ -1503,7 +1504,7 @@ COMMIT;
 -- Filtros para la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  ADD CONSTRAINT `fk_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`);
+  ADD CONSTRAINT `fk_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `usuarios` (`id_usuario`);
 COMMIT;
 
 --

@@ -1,4 +1,5 @@
-<?php include_once('inc/header.php')?>
+<?php include_once('inc/headerBlack.php');?>
+
 
 <div class="container-fluid">
       
@@ -8,9 +9,8 @@
           
           <!--toggle sidebar button-->
 
-		  
-          
-      </div><!--/row-->
+        </div><!--/row-->
+        
   </div>
   
 </div><!--/.container-->

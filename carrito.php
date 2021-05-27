@@ -1,7 +1,6 @@
 <?php
 
-include_once('inc/header.php');
-
+include_once('inc/headerBlack.php');
 $productos = new Producto($con);
 
 if(isset($_POST['id'])){
@@ -202,10 +201,35 @@ else{
               </div>
             </div>-->
                 <div class="row" style="padding-bottom:25px;">
-                  <div class="col-md-9"></div>
+                  <div class="col-md-8"></div>
+                  <div class="col-md-4">
+                    <h2 class="h3 text-black">Envio</h2>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;">
+                      <label><input type="radio" name="envio" value="0" id="radio2" checked> Retiro en Tienda</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;">
+                      <label><input type="radio" name="envio" value="1" required id="radio1" > Envio a Domicilio</label>   
+                    </div>
+                    <table class="table site-block-order-table mb-5">
+                    <tbody>
+                    <tr>
+                        <td class="text-black font-weight-bold" style="max-width:5px;"><strong>Envio</strong></td>
+                        <td class="text-black font-weight-bold"style="max-width:5px;">$<span id="envio"></span></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                  </div>
+                </div>
+                
+               
+
+
+                <div class="row" style="padding-bottom:25px;">
+                  <div class="col-md-8"></div>
                   <div class="col-md-3">
                     <button type="submit" class="btn btn-primary btn-lg py-3 btn-block">Finalizar Compra</button>
                   </div>
+                  <div class="col-md-1"></div>
                   
                 </div>
           </div> 
@@ -224,5 +248,6 @@ else{
   <script src="js/bootstrap.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/carrito.js"></script>
+  <script src="js/actualizarEnvio.js"></script>
 
 

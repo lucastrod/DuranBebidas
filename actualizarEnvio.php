@@ -24,13 +24,14 @@ if(isset($_SESSION['carrito'])){
     for($i=0;$i<count($arrayProductos);$i++){
         $total += $arrayProductos[$i]['Precio'] * $arrayProductos[$i]['Cantidad'];
     }
-    $arrayRet['total'] = $total;
+    $arrayRet['total'] = $total + $arrayRet['envio'];
     
 }
 else{
 echo 0;
 }
-var_dump($arrayRet);
+
+echo json_encode($arrayRet);
 
 
 ?>
