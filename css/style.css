@@ -258,19 +258,11 @@ button.button:hover {
 	display: inline-block;
 }
 /*----------- 3. Header --------------*/
-<<<<<<< HEAD
-header {height: 5px;}
-
-.logo {
-    position: absolute;
-	padding: 2em;
-=======
 header {height: 10px;}
 
 .logo {
 	position: absolute;
 	padding: 1em;
->>>>>>> 2fec3f54bde397dd8e0d4a87bb82978d6692a511
     left: 50%;
     margin:30px 0 0 -90px;
 	z-index:100
@@ -1324,10 +1316,7 @@ ul.vertnav-top li > a > span > .cat-label {
 	transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s, background-position 300ms ease-in-out 0s;
 	color: #000;
 	letter-spacing: 2.2px
-<<<<<<< HEAD
-=======
 }
-
 .nav > li > a.edit {
 	font-size: 12px;
 	text-transform: uppercase;
@@ -1335,7 +1324,6 @@ ul.vertnav-top li > a > span > .cat-label {
 	transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s, background-position 300ms ease-in-out 0s;
 	color: #000;
 	letter-spacing: 2.2px
->>>>>>> 2fec3f54bde397dd8e0d4a87bb82978d6692a511
 }
 ul.level0 {
 	padding: 0

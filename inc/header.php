@@ -140,15 +140,10 @@ if(isset($_POST['login'])){
 
     <!-- Logo -->
     <div class="container">
-<<<<<<< HEAD
-      <div class="logo"><a title="DuranBebidas" styles="top:10px" href="index.php"><img alt="Duran" src="images/logo1.png"></a></div>
-    </div>
-=======
     </div>
     <div class="logo">
         <a title="DuranBebidas" styles="top:10px" href="index.php"><img class="center" alt="Duran" src="images/logo1.png"></a></div>
 
->>>>>>> 2fec3f54bde397dd8e0d4a87bb82978d6692a511
     <!-- End Logo -->
   
     <!-- Navbar -->
@@ -159,12 +154,8 @@ if(isset($_POST['login'])){
           <div class="mm-toggle"><i class="fa fa-reorder"></i><span class="mm-label">Menu</span> </div>
         </div>
 
-<<<<<<< HEAD
-    <ul class="nav hidden-xs menu-item menu-item-left">
-=======
 <UL >
       <ul class="nav hidden-xs menu-item menu-item-left" style="z-index: 5;background-color:rgba(0, 0, 0, 0.45);border-color:rgba(0, 0, 0, 0.50);">
->>>>>>> 2fec3f54bde397dd8e0d4a87bb82978d6692a511
             <li class="level0 parent drop-menu" ><a href="productos.php?cat=9"><span>Vinos</span></a>
               <ul class="level1" style="display: none;">
                   <li class="level1 first"><a href="productos.php?cat=34"><span>Cabernet</span></a></li>
@@ -214,13 +205,8 @@ if(isset($_POST['login'])){
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=18"> <span>Aperol</span> </a> </li>  
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=33"> <span>Dr Lemon</span> </a> </li>  
               </ul></li>
-<<<<<<< HEAD
-            </ul>
-            <ul class="nav hidden-xs menu-item menu-item-right">         
-=======
       </ul>
       <ul class="nav hidden-xs menu-item menu-item rigth" style="z-index: 5;background-color:rgba(0, 0, 0, 0.45);border-color:rgba(0, 0, 0, 0.50);" >         
->>>>>>> 2fec3f54bde397dd8e0d4a87bb82978d6692a511
             <li class="level0 parent drop-menu"><a href="productos.php?cat=4" class="level-top"><span>Gin</span></a>              
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=19"> <span>Gin Gordons</span> </a> </li>
@@ -254,14 +240,10 @@ if(isset($_POST['login'])){
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=40"> <span>Alimentos</span> </a> </li>
               </ul></li>
-<<<<<<< HEAD
-          </ul>
-=======
             <li class="level0 parent drop-menu"><a href="productos.php?ofertas=1" class="level-top"><span>Ofertas</span></a>
             </li>
       </ul>
       </UL>
->>>>>>> 2fec3f54bde397dd8e0d4a87bb82978d6692a511
           <!-- End Sections -->          
     </div>
   </nav>
