@@ -17,10 +17,10 @@
             </a>
             <?php }?>
 
-            <?php if(in_array('perf',$_SESSION['usuario']['secciones'])){?>
-            <a class="<?=isset($perfilMenu)?'active':''?> bg-dark list-group-item list-group-item-action" href="perfiles.php">
+            <?php if(in_array('ent',$_SESSION['usuario']['secciones'])){?>
+            <a class="<?=isset($entregaMenu)?'active':''?> bg-dark list-group-item list-group-item-action" href="entregas.php">
             <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="menu-collapsed" style="font-family:Montserrat">Perfiles</span>
+                    <span class="menu-collapsed" style="font-family:Montserrat">Entregas</span>
                 </div>
             </a>
             <?php }?>
