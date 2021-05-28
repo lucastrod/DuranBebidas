@@ -160,7 +160,7 @@ endif;
                                     
                                             
                                                 
-                                                    <img src="<?= $imagen; ?>" alt="" class="img-fluid" width="45" height="90">
+                                                    <img src="<?= $imagen; ?>" alt="" class="img-fluid" width="auto" height="90">
                                                 
                                             
                                         
