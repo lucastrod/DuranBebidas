@@ -1,5 +1,5 @@
 <?php
-include_once('inc/header.php');
+include_once('inc/headerblack.php');
 
 if(isset($_POST['submit'])){ 
 	if($_POST['id_usuario'] > 0){
@@ -18,17 +18,6 @@ if(isset($_GET['del'])){
 
 <div class="container-fluid">
       
-	  <?php $userMenu = 'Usuarios';
-	  		
-	include_once('inc/side_bar.php');
-
-	if(!in_array('usu',$_SESSION['usuario']['secciones'])){ 
-		header('Location:panel.php');
-	}
-        ?>
-	  
-	  
-        
         <div class="col-sm-9 col-md-10 main">
           
           <!--toggle sidebar button-->
@@ -37,29 +26,34 @@ if(isset($_GET['del'])){
 
 			<div class="col-4"></div>
 		  	<div>
-		  			<h1 class="page-header text-center subtitulo ml-4">
+		  			<h1 class="page-header text-center subtitulo ml-4" style="font-family:Montserrat,sans-serif">
             			Usuarios
           			</h1>
 		  	</div>        
 		  
 		</div>
  
-
+		<?php $userMenu = 'Usuarios';
+	  		
+			  include_once('inc/side_bar.php');
+		  
+			  if(!in_array('usu',$_SESSION['usuario']['secciones'])){ 
+				  header('Location:panel.php');
+			  }
+				  ?>
           
 		  
-			<a href="usuarios_ae.php" class="btn btn-md bg-dark float-right mt-3 mb-4 mr-4" style="color:rgb(243, 234, 234);font-family:Arial;">Nuevo Usuario</a>
-		
-		  
-		   
+		  <a href="categorias_ae.php?padre_id=0" class="btn btn-md bg-dark float-right mt-3 mb-4 mr-4" style="background-color:#A98307;font-family:Arial;color:white;margin-bottom:8px;">Nuevo Usuario</a>
+				  
 			  <div class="table-responsive">
-				<table class="table table-striped">
+				<table class="table table-striped" >
 				  <thead>
-					<tr class="bg-dark" style="font-family:Arial;">
+					<tr class="bg-dark" style="font-family:Arial; background-color:#A98307;">
 					  <th style="color:rgb(243, 234, 234);">Email</th>
 					  <th style="color:rgb(243, 234, 234);">Usuario</th>
 					  <th style="color:rgb(243, 234, 234);" class="text-center">Perfil</th>
 					  <th style="color:rgb(243, 234, 234);" class="text-center pl-3">Activo</th>
-					  <th style="color:rgb(243, 234, 234);" >Acciones</th>
+					  <th style="color:rgb(243, 234, 234);" class="text-center pl-3">Acciones</th>
 					</tr>
 				  </thead>
 				  <tbody>
@@ -75,27 +69,21 @@ if(isset($_GET['del'])){
 							  <td>
                                    <div class="row">
 
-                                        <div class="col-4"></div>
                                         <div class="col-2">
-
                                             <a href="activar.php?activo=1&id_usuario=<?=$usuario['id_usuario']?>" class=" <?=$usuario['activo'] == 1 ?'active':''?> list-group-item list-group-item-action text-center pl-2 py-1" style="font-size:16px;">Si</a>
                                         </div>
 
                                         <div class="col-2">
-
-                                        <a href="activar.php?activo=0&id_usuario=<?=$usuario['id_usuario']?>" class=" <?=$usuario['activo'] == 0 ?'active':''?> list-group-item list-group-item-action text-center  pl-1 pr-4 py-1" style="font-size:16px;">No</a>
-
+                                        	<a href="activar.php?activo=0&id_usuario=<?=$usuario['id_usuario']?>" class=" <?=$usuario['activo'] == 0 ?'active':''?> list-group-item list-group-item-action text-center  pl-1 pr-4 py-1" style="font-size:16px;">No</a>
                                         </div>
 
                                    </div>
-                        
                               </td>
-							  <td>
-								  
-										<a href="usuarios_ae.php?edit=<?=$usuario['id_usuario']?>"><button type="button" class="btn btn-success" title="Editar">E</button></a>
-								  
-								   
+							  <td>	  
+							  		<div class="col-2 " style="text-align: center">
+										<a href="usuarios_ae.php?edit=<?=$usuario['id_usuario']?>"><button type="button" class="btn btn-success" title="Editar">E</button></a>								   
 										<a href="usuarios.php?del=<?=$usuario['id_usuario']?>"><button type="button" class="btn btn-danger" title="Borrar">X</button></a>
+									</div>
 								
 							  </td>
 							</tr>

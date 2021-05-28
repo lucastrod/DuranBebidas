@@ -78,17 +78,29 @@ if(isset($_POST['login'])){
           <div class="row"> 
             <!-- Header Language -->
             <div class="col-xs-7 col-sm-6">
+<<<<<<< HEAD
               <div class="block-language-wrapper hidden-xs"> <a role="button" data-target="#" class="block-language " href="#">UBICACION  </a>
+=======
+            <div class="block-language-wrapper hidden-xs"> <a role="button" data-target="#" class="block-language " href="contact_us.php">Paraguay 5261, Palermo </a>
+>>>>>>> 2fec3f54bde397dd8e0d4a87bb82978d6692a511
               </div>
               <!-- End Header Language --> 
               
               <!-- Header Currency -->
+<<<<<<< HEAD
               <div class=" block-currency-wrapper hidden-xs"> <a role="button" data-target="#" class="block-currency" href="#"> TELEFONO </a>
+=======
+              <div class=" block-currency-wrapper hidden-xs"> <a role="button" target="_blank" class="block-currency" href="https://wa.me/541168463206">+54 11 6846-3206  </a>
+>>>>>>> 2fec3f54bde397dd8e0d4a87bb82978d6692a511
                 
               </div>
               <!-- End Header Currency -->
               
+<<<<<<< HEAD
               <div class="welcome-msg hidden-xs"> Bienvenido! "Usuario" </div>
+=======
+              <div class="welcome-msg hidden-xs"></div>
+>>>>>>> 2fec3f54bde397dd8e0d4a87bb82978d6692a511
             </div>
             <div class="col-xs-5 col-sm-6"> 
               
@@ -96,7 +108,11 @@ if(isset($_POST['login'])){
             <!-- Top Cart -->
             <div class="mini-cart">
               <div class="basket dropdown-toggle">
+<<<<<<< HEAD
                 <a href="carrito.php">  Carrito 
+=======
+                <a href="carrito.php">Carrito
+>>>>>>> 2fec3f54bde397dd8e0d4a87bb82978d6692a511
                   <span class="count" id="value">0</span>
                   <span id="value"></span>
                 </a>
@@ -114,6 +130,7 @@ if(isset($_POST['login'])){
             </div>
           </div>
           
+<<<<<<< HEAD
           <div class="top-search">
             <div class="block-icon pull-right"> <a data-target=".bs-example-modal-lg" data-toggle="modal" class="search-focus dropdown-toggle links"> <i class="fa fa-search"></i> </a>
               <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
@@ -137,14 +154,19 @@ if(isset($_POST['login'])){
               </div>
             </div>
           </div>
+=======
+>>>>>>> 2fec3f54bde397dd8e0d4a87bb82978d6692a511
               <!-- Header Top Links -->
               <div class="toplinks">
                 <div class="links">
                 
+<<<<<<< HEAD
                   <div class="check"><a title="Checkout" href="checkout.php"><span class="hidden-xs">Checkout</span></a></div>
                   <!-- Header Company -->
                   
                   <!-- End Header Company -->
+=======
+>>>>>>> 2fec3f54bde397dd8e0d4a87bb82978d6692a511
                   <?php
                   if(empty($_SESSION["usuario"])):
                   ?>
@@ -154,11 +176,19 @@ if(isset($_POST['login'])){
                   
                   if(!empty($_SESSION['usuario']['secciones'])){?>
 
+<<<<<<< HEAD
                     <ul class="navbar-nav mr-5 pr-6">
                           <span class="nav-link"><?= $_SESSION["usuario"]["nombre"]; ?></span>                                                
                           <div class="login"><a href="panel.php"><span class="hidden-xs">Admin Panel</span></a></div>
                           <div class="login"><a href="logout.php"><span class="hidden-xs">Logout</span></a></div>                    
                         </ul>                    
+=======
+                        
+                          <div class="welcome-msg hidden-xs"> Bienvenido! <?= $_SESSION["usuario"]["nombre"]; ?></div>
+                          <div class="login"><a href="ListProd.php"><span class="hidden-xs">Admin Panel</span></a></div>
+                          <div class="login"><a href="logout.php"><span class="hidden-xs">Logout</span></a></div>                    
+                                         
+>>>>>>> 2fec3f54bde397dd8e0d4a87bb82978d6692a511
                   <?php
                   }
                   endif;

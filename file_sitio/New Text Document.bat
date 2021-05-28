@@ -1,1 +1,0 @@
-FOR /R %f IN (*.jpg) DO REN "%f" 0.png
