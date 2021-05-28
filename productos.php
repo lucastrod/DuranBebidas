@@ -236,10 +236,13 @@ $oferIn =  isset($_GET['oferta']) ? '?oferta='.$_GET['oferta']: '';
             
            ?>
             <li class="item first">
+              <div class="row">
+                <div class="col-md-4">
               <div class="product-image"> <img class="small-image" style="height:200px; width:auto" src="file_sitio/<?php echo $row->producto_id;?>/0.png"></div>
-            
+                </div>
+                <div class="col-md-8">
             <div class="product-shop">
-              <h2 class="product-name"><a href="#/htc-rhyme-sense.html" title="HTC Rhyme Sense"><?php echo utf8_decode($row->nombre)?></a></h2>
+              <h2 class="product-name"><a title="HTC Rhyme Sense"><?php echo utf8_decode($row->nombre)?></a></h2>
               
               <div class="desc std">
                 <p><?php echo utf8_decode(utf8_encode($row->descripcion))?> </p>
@@ -263,6 +266,8 @@ $oferIn =  isset($_GET['oferta']) ? '?oferta='.$_GET['oferta']: '';
               <div class="actions">
                 <button class="button btn-cart ajx-cart btnAgregar" title="Add to Cart" type="button" data-id="<?php echo $row->producto_id;?>" style="margin-top:5px;"><span>Agregar</span></button>
               </div>
+            </div>
+            </div>
             </div>
           </li>
           <?php }
