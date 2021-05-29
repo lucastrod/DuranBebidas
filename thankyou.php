@@ -14,6 +14,9 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
     $total+= $cantidad * $precio;
   }
   echo($total);
+
+
+  
   }
 }
 ?>
@@ -38,7 +41,9 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
     
   </head>
   <body>
-  
+  <?php// sendMail(); ?>
+
+
   <div class="site-wrap">
    
 

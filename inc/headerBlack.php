@@ -1,6 +1,7 @@
 <!DOCTYPE php>
 <?php
 session_start();
+include('PHPMailer/index.php');
 include('config.php');
 require('inc/db_data.php');
 include('inc/arrays.php');
@@ -22,7 +23,8 @@ if(isset($_POST['login'])){
 <php lang="zxx" class="no-js">
 <style>
   
-  .index .nav > li > a {
+  .nav > li > a {
+    padding: 2px;
     -webkit-transition: color 200ms ease-in-out;
     transition: color 200ms ease-in-out;
     }
@@ -66,7 +68,9 @@ if(isset($_POST['login'])){
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,600,600italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css"> 
+  </head>
 
 <body class="cms-index-index index">
 <div id="page">       
@@ -78,12 +82,12 @@ if(isset($_POST['login'])){
           <div class="row"> 
             <!-- Header Language -->
             <div class="col-xs-7 col-sm-6">
-            <div class="block-language-wrapper hidden-xs"> <a role="button" data-target="#" class="block-language " href="contact_us.php">Paraguay 5261, Palermo </a>
+            <div class="block-language-wrapper hidden-xs"> <a role="button" data-target="#" class="block-currency " href="contact_us.php"><i class="fa fa-map-marker"></i>  Paraguay 5261, Palermo </a>
               </div>
               <!-- End Header Language --> 
               
               <!-- Header Currency -->
-              <div class=" block-currency-wrapper hidden-xs"> <a role="button" target="_blank" class="block-currency" href="https://wa.me/541168463206">+54 11 6846-3206  </a>
+              <div class=" block-currency-wrapper hidden-xs"> <a role="button" target="_blank" class="block-currency >" href="https://wa.me/541168463206"> <i class="fa fa-whatsapp" ></i> +54 11 6846-3206  </a>
                 
               </div>
               <!-- End Header Currency -->
@@ -96,7 +100,7 @@ if(isset($_POST['login'])){
             <!-- Top Cart -->
             <div class="mini-cart">
               <div class="basket dropdown-toggle">
-                <a href="carrito.php">Carrito
+              <a href="carrito.php"><i class="fa fa-shopping-cart"style="font-size:12.5px" ></i> 
                   <span class="count" id="value">0</span>
                   <span id="value"></span>
                 </a>
@@ -150,17 +154,16 @@ if(isset($_POST['login'])){
   <!-- end header --> 
 
     <!-- Logo -->
-    <div class="container">
-      <div class="logo"><a title="DuranBebidas" styles="top:10px" href="index.php"><img alt="Duran" src="images/logonegro.png"></a></div>
-    </div>
+      <div class="logo"><a title="DuranBebidas" styles="heigth:20px" href="index.php"><img alt="Duran" src="images/logonegro.png"></a></div>
+    
     <!-- End Logo -->
   
     <!-- Navbar -->
   <nav>
-    <div class="container">
+    <div class="container"> 
         <!-- Sections --> 
 
-    <ul class="nav hidden-xs menu-item menu-item-left">
+        <ul class="nav hidden-xs menu-item menu-item" style="margin-top:120px;z-index: 5;background-color:rgba(0, 0, 0, 0.20);border-color:rgba(0, 0, 0, 0.50);">                  
             <li class="level0 parent drop-menu" ><a style="color: #000" href="productos.php?cat=9"><span>Vinos</span></a>
               <ul class="level1" style="display: none;">
                   <li class="level1 first"><a href="productos.php?cat=34"><span>Cabernet</span></a></li>
@@ -210,17 +213,14 @@ if(isset($_POST['login'])){
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=18"> <span>Aperol</span> </a> </li>  
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=33"> <span>Dr Lemon</span> </a> </li>  
               </ul></li>
-            </ul>
-            
-    <ul class="nav hidden-xs menu-item menu-item-right">         
-            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=4" class="level-top"><span>Gin</span></a>              
+              <li class="level0 parent drop-menu px3"><a style="color: #000" href="productos.php?cat=4" class="level-top"><span>Gin   </span></a>              
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=19"> <span>Gin Gordons</span> </a> </li>
                 <li class="level1 nav-10-2"> <a href="productos.php?cat=20"> <span>Gin Bombay</span> </a> </li>
                 <li class="level1 nav-10-3"> <a href="productos.php?cat=21"> <span>Gin Beefeter</span> </a> </li>
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=22"> <span>Gin Tanqueray</span> </a> </li>  
               </ul></li>
-            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=5" class="level-top"><span>Destilados Varios</span></a>
+            <li class="level0 parent drop-menu px3"><a style="color: #000" href="productos.php?cat=5" class="level-top"><span>Destilados</span></a>
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=23"> <span>Vodka</span> </a> </li>
                 <li class="level1 nav-10-2"> <a href="productos.php?cat=24"> <span>Ron</span> </a> </li>
@@ -228,25 +228,27 @@ if(isset($_POST['login'])){
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=55"> <span>Cachaca</span> </a> </li>  
               </ul></li>
             
-            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=1" class="level-top"><span>Sin Alcohol</span></a>
+            <li class="level0 parent drop-menu px3"><a style="color: #000" href="productos.php?cat=1" class="level-top"><span>Sin Alcohol</span></a>
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=12"> <span>Malta</span> </a> </li>
                 <li class="level1 nav-10-2"> <a href="productos.php?cat=35"> <span>Jugos</span> </a> </li>
                 <li class="level1 nav-10-3"> <a href="productos.php?cat=39"> <span>Aguas y Gaseosas</span> </a> </li>
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=41"> <span>Energizantes</span> </a> </li>
                 <li class="level1 nav-10-4"> <a href="productos.php?cat=44"> <span>Granadina</span> </a> </li>  
-              </ul></li>
-            
-            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=10" class="level-top"><span>Regaleria</span></a>
+              </ul></li>  
+            <li class="level0 parent drop-menu px3"><a style="color: #000" href="productos.php?cat=10" class="level-top"><span>Regaleria</span></a>
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=37"> <span>Estucheria</span> </a> </li>
               </ul></li>
             
-            <li class="level0 parent drop-menu"><a style="color: #000" href="productos.php?cat=11" class="level-top"><span>Placeres</span></a>
+            <li class="level0 parent drop-menu px3"><a style="color: #000" href="productos.php?cat=11" class="level-top"><span>Placeres</span></a>
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=40"> <span>Alimentos</span> </a> </li>
               </ul></li>
-          </ul>
+            <li class="level0 parent drop-menu px3"><a style="color: #000" href="productos.php?ofertas=1" class="level-top"><span>Ofertas</span></a></li>
+            </ul>
+            
+    
           <!-- End Sections -->          
     </div>
   </nav>

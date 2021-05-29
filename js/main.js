@@ -1,3 +1,6 @@
+import {AOS} from 'aos.js';
+
+ 
  AOS.init({
  	duration: 800,
  	easing: 'slide',

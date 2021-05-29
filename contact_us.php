@@ -29,6 +29,8 @@
 <link rel="stylesheet" type="text/css" href="css/owl.theme.css">
 <link rel="stylesheet" type="text/css" href="css/flexslider.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.mobile-menu.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css"> 
 
 <!-- Google Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
@@ -70,78 +72,59 @@
     </script>
   </head>
   <body>
-    <h3>My Google Maps Demo</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-
+<!--     <h3>My Google Maps Demo</h3>
+    The div element for the map -->
+<!--     <div id="map"></div>
+ -->
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
+ <!--    <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCokftS9CBTuKGKePMOebIaWTo3Yj-z38Q&callback=initMap&libraries=&v=weekly"
       async
-    ></script>
-
-
+    ></script> -->
 
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOzN0dUthH6Cb8QY_anSYgGWRJg82lKeY&callback=initMap"
       async
-    ></script>
-
+    ></script> -->
 
 
   <!-- Main Container --> 
+  <div class="row">
+
+</div>
+<br>
   <section class="main-container col2-right-layout">
   
     <div class="main container">
-      <div class="row">
+
         <section class="col-main col-sm-9">
           <div class="page-title">
-            <h1>Contact Us</h1>
+          <div class="row">
+            <h1>Contactanos!</h1>
           </div>
           <div class="static-contain">
             <fieldset class="group-select">
               <ul>
                 <li id="billing-new-address-form">
                   <fieldset>
-                    <legend>New Address</legend>
                     <input type="hidden"  id="billing:address_id">
                     <ul>
                       <li>
                         <div class="customer-name">
                           <div class="input-box name-firstname">
-                            <label for="billing:firstname"> First Name<span class="required">*</span></label>
+                            <label for="billing:firstname"> Nombre<span class="required">*</span></label>
                             <br>
                             <input type="text" id="billing:firstname" name="" title="First Name" class="input-text ">
                           </div>
                           <div class="input-box name-lastname">
-                            <label for="billing:lastname"> Email Address <span class="required">*</span> </label>
+                            <label for="billing:lastname"> Email <span class="required">*</span> </label>
                             <br>
                             <input type="text" id="billing:lastname" name="" title="Last Name" class="input-text">
                           </div>
                         </div>
-                      </li>
-                      <li>
-                        <div class="input-box">
-                          <label for="billing:company">Company</label>
-                          <br>
-                          <input type="text" id="billing:company" name="" title="Company" class="input-text">
-                        </div>
-                        <div class="input-box">
-                          <label for="billing:email">Telephone <span class="required">*</span></label>
-                          <br>
-                          <input type="text" name="" id="billing:email" title="Email Address" class="input-text">
-                        </div>
-                      </li>
-                      <li>
-                        <label for="billing:street1">Address <span class="required">*</span></label>
-                        <br>
-                        <input type="text" title="Street Address" name="" class="input-text">
-                      </li>
-                      <li>
-                        <input type="text" title="Street Address 2" name="" class="input-text">
-                      </li>
+                      </li>         
                       <li class="">
-                        <label for="comment">Comment<em class="required">*</em></label>
+                        <label for="comment">Comentario<em class="required">*</em></label>
                         <br>
                         <div style="float:none" class="">
                           <textarea name="" id="comment" title="Comment" class="input-text" cols="5" rows="3"></textarea>
@@ -150,9 +133,9 @@
                     </ul>
                   </fieldset>
                 </li>
-                <span class="require"><em class="required">* </em>Required Fields</span>
+                <span class="require"><em class="required">* </em>Campos requeridos</span>
                 <div class="buttons-set">
-                  <button type="submit" title="Submit" class="button submit"> <span> Submit </span> </button>
+                  <button type="submit" title="Submit" class="button submit"> <span> Enviar </span> </button>
                 </div>
               </ul>
             </fieldset>
@@ -164,7 +147,7 @@
             <div class="block-title">Datos de contacto</div>
             <div class="block-content">
               <ol id="recently-viewed-items">
-                <li><span><i class="fa fa-whatsapp"></i> WhatsApp</span>+5411999999999</li>
+                <li><span><i class="fa fa-whatsapp"></i>     WhatsApp</span>+5411999999999</li>
                 <li><span><i class="fa fa fa-phone"></i> Teléfono</span>+54119999999</li> 
                 <li><span><i class="fa fa-envelope"></i> Correo</span>correo@correo.com</li> 
                 <li><span><i class="fa fa-map-marker"></i> Ubicación</span>Calle Falsa 123, CABA</li> 

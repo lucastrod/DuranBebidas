@@ -99,8 +99,8 @@ else{
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th class="product-thumbnail">Imagen</th>
-                    <th class="product-name">Producto</th>
+                    <th class="product-thumbnail">Producto</th>
+                    <th class="product-name">Nombre</th>
                     <th class="product-price">Precio</th>
                     <th class="product-quantity">Cantidad</th>
                     <th class="product-total">Total</th>
