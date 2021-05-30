@@ -161,7 +161,7 @@ Class Usuario{
 
 			
 
-            $sql = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt
+            $sql = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,direccion
 		           FROM usuarios WHERE activo = 1 AND email = '".$data['email']."'";
 			$datos = $this->con->query($sql)->fetch(PDO::FETCH_ASSOC);
  			if(isset($datos['id_usuario'])){
@@ -214,7 +214,29 @@ Class Usuario{
 				}
 		}
 
+		public function validarDatos($email,$usuario){
+       
+			$query = 'SELECT count(1) as cantidad FROM usuarios WHERE email like "'.$email.'"';
 
+			$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
+
+			$query2 = 'SELECT count(1) as cantidad2 FROM usuarios WHERE usuario like "'.$usuario.'"';
+			$consulta2 = $this->con->query($query2)->fetch(PDO::FETCH_OBJ);
+
+			$resp = '';
+
+			if($consulta->cantidad == 1){
+				$resp .= 'Email ya registrado';
+			}
+
+			if($consulta2->cantidad2 == 1 && $resp!=''){
+				$resp .= 'y Usuario ya registrado';
+			}
+			elseif($consulta2->cantidad2 == 1){
+				$resp .= 'Usuario ya registrado';
+			}
+			return $resp;
+		}
 }
 
 Class UsuarioTipos{
@@ -848,16 +870,43 @@ class Compra{
 				$est = 1;
 			}
 
-			$estado = ' WHERE estado = '.$est;
+			$estado = ' WHERE estado = '.$est.' order by fecha desc';
 		}
 		else{
-			$estado = '';
+			$estado = ' order by fecha desc';
 		}
 
 		$query = "SELECT id_venta, id_cliente, envio, total, fecha, estado
 		           FROM ventas".$estado;
 
         return $this->con->query($query);
+	}
+
+	public function actualizar($estado,$venta){
+
+		$sql = "UPDATE ventas SET estado=$estado WHERE id_venta = ".$venta;
+           
+		$this->con->exec($sql);
+	}
+
+	public function getDetalleVenta($venta){
+
+		$query = 'SELECT detalle_venta.id_venta, detalle_venta.id_producto, productos.nombre, productos.descripcion, detalle_venta.cantidad
+		FROM detalle_venta
+		INNER JOIN productos on (detalle_venta.id_producto = productos.producto_id)
+		WHERE detalle_venta.id_venta = '.$venta;
+
+		return $this->con->query($query);	
+	}
+
+	public function getCliente($venta){
+
+		$query = 'SELECT usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.direccion
+		FROM ventas
+		INNER JOIN usuarios on (ventas.id_cliente = usuarios.id_usuario)
+		WHERE ventas.id_venta = '.$venta;
+
+		return $this->con->query($query);	
 	}
 }
 

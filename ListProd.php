@@ -1,4 +1,14 @@
 <?php
+
+
+error_reporting(0);
+session_start();
+
+if(!isset($_SESSION['usuario']) || $_SESSION['usuario']['usuario'] != 'admin' ){
+	header('Location: productos.php');
+}			 
+		
+
 include_once('inc/headerBlack.php');
 include_once('funciones.php');
 
@@ -63,6 +73,7 @@ endif;
 //header("Location:ListProd.php?estado=ok&ok=alta");
 ?> 
 
+
 <div class="container-fluid">
       
 
@@ -83,16 +94,13 @@ endif;
 		  
 		</div>
 	
-	<?php $productsMenu = 'Productos';
+		<?php $productsMenu = 'Productos';
 			
 
 			include_once('inc/side_bar.php');
 		
-			if(!in_array('produ',$_SESSION['usuario']['secciones'])){
-				header('Location: panel.php');
-			}
-			 
-		?>
+			
+?>
 
 		<div class="pt-3 col-2">
 

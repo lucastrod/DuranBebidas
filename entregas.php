@@ -43,10 +43,10 @@ $compra = new Compra($con);
 				<table class="table table-striped" >
 				  <thead>
 					<tr class="bg-dark" style="font-family:Arial; background-color:#A98307;">
-					  <th style="color:rgb(243, 234, 234);">Pedido</th>
-					  <th style="color:rgb(243, 234, 234);" class="text-center">Entrega</th>
-					  <th style="color:rgb(243, 234, 234);" class="text-center pl-3">Finalizado</th>
-					  <th style="color:rgb(243, 234, 234);" class="text-center pl-3">Fecha Pedido</th>
+					  <th style="width:10%;color:rgb(243, 234, 234);" class="text-center">Pedido</th>
+					  <th style="width:10%;color:rgb(243, 234, 234);" class="text-center">Entrega</th>
+					  <th style="width:10%;color:rgb(243, 234, 234);" class="text-center pl-3">Finalizado</th>
+					  <th style="width:17%;color:rgb(243, 234, 234);" class="text-center pl-3">Fecha Pedido</th>
 					</tr>
 				  </thead>
 				  <tbody>
@@ -55,9 +55,9 @@ $compra = new Compra($con);
 				  
 							<tr>
 							  
-							  <td><a href="detalleVenta.php?venta_id=<?=$com['id_venta']?>"><?= $com['id_venta'];?></a></td>
+							  <td class="text-center"><a href="detalleVenta.php?venta_id=<?=$com['id_venta']?>"><?= $com['id_venta'];?></a></td>
 							  <td class="text-center"><?= $com['envio']==0?'Retiro en Tienda':'Envio'?></td>
-							  <td class="text-center"><input type="checkbox" name="venta" data-id="<?php $com['id_venta']?>" data-estado="<?php $com['estado']?>" value="first_checkbox" <?= $com['estado']==1?'checked':''?>></td>
+							  <td class="text-center"><input type="checkbox" name="venta" data-id="<?php echo $com['id_venta']?>" data-estado="<?php echo $com['estado']?>" value="first_checkbox" <?= $com['estado']==1?'checked':''?>></td>
 							  	<?php $originalDate = $com['fecha'];
 								$newDate = date("d/m/Y H:i:s", strtotime($originalDate)); ?>
 							  <td class="text-center"><?=$newDate?></td>
