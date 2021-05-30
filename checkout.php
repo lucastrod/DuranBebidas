@@ -2,11 +2,12 @@
 
 <?php
 
-include_once('inc/headerBlack.php');
+
 
 if(!isset($_SESSION['carrito'])){
     header('Location:productos.php');
 }
+include_once('inc/headerBlack.php');
 
 $array = $_SESSION['carrito'];
 
@@ -20,7 +21,7 @@ MercadoPago\SDK::setAccessToken('TEST-6760243392925397-042116-b5fa11a3fd3a9e2bb4
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 $preference->back_urls = array(
-    "success" => "https://localhost/DuranBebidas/thankyou.php",
+    "success" => "https://localhost/DuranBebidas/DuranBebidas/thankyou.php",
     "failure" => "https://localhost/DuranBebidas/errorPago.php?error=error",
     "pending" => "https://localhost/DuranBebidas/errorPago.php?error=pendiente"
 );
@@ -218,8 +219,7 @@ $preference->save();
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script type="text/javascript" src="js/iconoCarrito.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/guardarVenta.js"></script>
-  <script src="js/actualizarEnvio.js"></script>
+
   
 
   </body>

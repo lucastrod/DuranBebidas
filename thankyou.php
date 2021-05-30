@@ -2,21 +2,40 @@
 include_once('inc/headerBlack.php');
 
 if(!empty($_SESSION["usuario"] ["id_usuario"])){
-  echo($_SESSION["usuario"] ["id_usuario"]);
+
   if(!empty($_SESSION['carrito'])){
   $array = $_SESSION['carrito'];
+  $subtotal = 0;
   $total = 0;
   $cantidad = 0;
   $precio = 0;
+  $datos = array();
+  $productos = array();
   foreach ($array as $colum) {
     $cantidad = $colum['Cantidad'];
     $precio = $colum['Precio'];
-    $total+= $cantidad * $precio;
+    $subtotal+= $cantidad * $precio;
   }
-  echo($total);
+  $total = $subtotal + $_SESSION["usuario"] ["envio"];
 
+  $datos['total'] = $total;
+  $datos['id_cliente'] = $_SESSION["usuario"] ["id_usuario"];
+  $datos['fecha'] = date("Y-m-d H:i:s");
+  $datos['estado'] = 0;
+  $datos['envio'] = $_SESSION["usuario"] ["envio"] == 0? 0 : 1;
 
+  $compra = new Compra($con);
+  $id_Venta = $compra->guardarVenta($datos);
   
+  foreach ($array as $colum) {
+    $productos['id_venta'] = $id_Venta;
+    $productos['id_producto'] = $colum['Id'];
+    $productos['cantidad'] = $colum['Cantidad'];
+
+    $compra->guardarDetalle($productos);
+
+  }
+  unset($_SESSION['carrito']);
   }
 }
 ?>

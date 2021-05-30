@@ -792,7 +792,7 @@ class Compra{
 	}
 
 	public function guardarVenta($data){
-        
+  
         foreach($data as $key => $value){
             if(!is_array($value)){
                 if($value != null){
@@ -805,7 +805,7 @@ class Compra{
 
 	try{
 		$this->con->exec($sql);
-		$respuesta = 1;
+		$respuesta = $this->con->lastInsertId();
 	}
 	catch(PDOException $e){
 		$respuesta = 0;
@@ -816,7 +816,48 @@ class Compra{
     }
 
 	public function guardarDetalle($data){
+		
+		foreach($data as $key => $value){
+            if(!is_array($value)){
+                if($value != null){
+                    $columns[]=$key;
+                    $datos[]=$value;
+                }
+            }
+        }
+        $sql = "INSERT INTO detalle_venta(".implode(',',$columns).") VALUES('".implode("','",$datos)."')";
 
+		try{
+			$this->con->exec($sql);
+		}
+		catch(PDOException $e){
+
+		}
+
+	}
+
+	public function mostrarVenta($parametros = array()){
+
+		
+		if(!empty($parametros['enCurso'])){
+
+			if($parametros['enCurso'] == 'si'){
+				$est = 0;
+			}
+			else{
+				$est = 1;
+			}
+
+			$estado = ' WHERE estado = '.$est;
+		}
+		else{
+			$estado = '';
+		}
+
+		$query = "SELECT id_venta, id_cliente, envio, total, fecha, estado
+		           FROM ventas".$estado;
+
+        return $this->con->query($query);
 	}
 }
 
