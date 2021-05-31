@@ -4,25 +4,73 @@ require_once("funciones.php");
 
 if(isset($_POST['submit'])){
 
-if(!empty($_POST["email"]) && !empty($_POST["password"])){
+if(!empty($_POST["email"]) && !empty($_POST["clave"])){
   
+if(strcmp($_POST["clave"],$_POST["confirmar_clave"]) !==0){
+    echo 'ERROR, CLAVES NO COINCIDEN';
+    exit;
+} 
+
 $resp = $user->validarDatos($_POST["email"], $_POST["usuario"]);
 
 if($resp ==''){
-    //$user->guardarUsuario($_POST);
+
     //mostrar cartel de usuario creado
+
+
+    
+    $datos=array();
+    
+    $email = $_POST["email"];
+    $clave = $_POST["clave"];
+    $usuario = $_POST['usuario'];
+    $nombre = $_POST["nombre"];
+    $apellido = $_POST["apellido"];
+    $direccion = $_POST["direccion"];
+
+    $token = generarToken();
+
+    $datos = array(
+        'email'=> $email,
+        'clave'=> $clave,
+        'usuario'=> $usuario,
+        'nombre'=> $nombre,
+        'apellido'=> $apellido,
+        'direccion'=> $direccion,
+        'token'=> $token,
+        'salt'=>''
+    );
+
+
+    $registro = $user->save($datos);
+
+    if($registro > 0){
+
+    $url = 'https://'.$_SERVER["SERVER_NAME"].'/DuranBebidas/DuranBebidas/validar.php?id='.$registro.'&val='.$token;
+
+
+    $asunto = 'Activar Cuenta - Sistema de Usuarios';
+
+    $cuerpo = "Estimado $nombre: <br/> <br/> Para continuar con el proceso de registro, es necesario que ingrese al siguiente link  <a href='$url'>Activar Cuenta</a>"; 
+
+        if(confirmarUsuario($email, $nombre, $asunto, $cuerpo)){
+            echo "Para terminar el proceso del registro siga las instrucciones que le enviamos a la dirección
+            de correo electrónico: $email";
+            echo "<br> <a href='login.php'> Iniciar Sesion </a>";
+            exit;
+        }
+        else{
+            Echo 'Falló el envío del email';
+        } 
+
+    }
 
 }
 else{
     echo $resp;
     //muestro error de usuario existente
 }
-$email = $_POST["email"];
-$password = $_POST["password"];
-$usuario = $_POST['usuario'];
-$nombre = $_POST["nombre"];
-$apellido = $_POST["apellido"];
-$direccion = $_POST["direccion"];
+
 
 }
 }
@@ -71,9 +119,15 @@ $direccion = $_POST["direccion"];
              <div class="row" style="margin:15px;">
                  <div class="col-md-2"></div>
                  <div class="form-group col-md-4">
-                    <label for="password" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Contraseña</label>
+                    <label for="clave" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Contraseña</label>
                      <div class="col-md-12">
-                        <input type="password" class="form-control text-center" id="password" name="password" placeholder="Contraseña" value="" required>
+                        <input type="password" class="form-control text-center" id="clave" name="clave" placeholder="Contraseña" value="" required>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="confirmar_clave" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Confirmar Contraseña</label>
+                     <div class="col-md-12">
+                        <input type="password" class="form-control text-center" id="confirmar_clave" name="confirmar_clave" placeholder="Confirmar Contraseña" value="" required>
                     </div>
                 </div>
                 <div class="col-md-2"></div> 

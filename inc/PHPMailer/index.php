@@ -88,5 +88,27 @@ function sendMail(){
 
 }
 
+function confirmarUsuario($email, $nombre, $asunto, $cuerpo){
+
+    $mail = new PHPMailer();
+    $mail->isSMTP();
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = 'tls';
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = "587";
+    $mail->Username = "santiago.linares@davinci.edu.ar";
+    $mail->Password = "34585070";
+    $mail->setFrom("santiago.linares@davinci.edu.ar", 'Sistema de Usuarios');
+    $mail->addAddress($email,$nombre);
+    $mail->Subject = $asunto;
+    $mail->Body = $cuerpo;
+    $mail->isHTML(true);
+
+    if($mail->send())
+    return true;
+    else
+    return false;
+}
+
 
 ?>

@@ -60,6 +60,7 @@ Class Usuario{
 	* Guardo los datos en la base de datos
 	*/
 	public function save($data){
+
 			$data['salt'] = uniqid();
             // $data['salt'] = md5(date("Y-m-d H:i:s"));
             $data['clave'] = $this->encrypt($data['clave'],$data['salt']);
@@ -86,6 +87,10 @@ Class Usuario{
 				}
 				 $this->con->exec($sql);
 			}
+
+				return $id_usuario;
+		
+			
 	} 
 	
 	/**
@@ -236,6 +241,10 @@ Class Usuario{
 				$resp .= 'Usuario ya registrado';
 			}
 			return $resp;
+		}
+
+		public function registrarUsuario($data,$token){
+
 		}
 }
 
