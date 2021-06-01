@@ -243,8 +243,25 @@ Class Usuario{
 			return $resp;
 		}
 
-		public function registrarUsuario($data,$token){
+		public function validarIdToken($id,$token){
 
+			$query = 'SELECT activo as Activo FROM usuarios WHERE id_usuario = '.$id.' AND token = "'.$token.'"';
+
+			
+			$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
+	
+			$resp = '';
+
+			if($consulta->Activo == 1){
+				$resp .= 'La cuenta ya se encuentra activada';
+			}
+			else{
+				$sql = "UPDATE usuarios SET activo = 1 WHERE id_usuario = ".$id.' AND token = "'.$token.'"';
+				$this->con->exec($sql);
+				$resp .= 'La cuenta se activo correctamente';
+			}
+
+			return $resp;
 		}
 }
 

@@ -51,7 +51,7 @@ if($resp ==''){
 
     $asunto = 'Activar Cuenta - Sistema de Usuarios';
 
-    $cuerpo = "Estimado $nombre: <br/> <br/> Para continuar con el proceso de registro, es necesario que ingrese al siguiente link  <a href='$url'>Activar Cuenta</a>"; 
+    $cuerpo = "Estimado $nombre: <br/> <br/> Para continuar con el proceso de registro, es necesario que ingreses al siguiente link  <a href='$url'>Activar Cuenta</a>"; 
 
         if(confirmarUsuario($email, $nombre, $asunto, $cuerpo)){
             echo "Para terminar el proceso del registro siga las instrucciones que le enviamos a la dirección
