@@ -1,4 +1,10 @@
 <?php
+
+if(!isset($_GET['id']) && !isset($_GET['val'])){
+  header("Location:index.php");
+  die();
+}
+
 include_once('inc/headerBlack.php');
 require_once("funciones.php");
 
@@ -42,42 +48,10 @@ if(isset($_GET['id']) && isset($_GET['val'])){
                 </div> 
             </div>
     </div>
-<div><button><a href="login.php">Iniciar Sesion</a></button></div>    
 </body>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-<script type="text/javascript">
-
-
-$(document).ready(function() {
-        //value = $('#mensaje').text();
-        var mensaje = $('#mensaje').data('id');
-
-    if(mensaje.includes('correctamente'))
-    {       
-       Swal.fire({
-       position: 'center',
-       icon: 'success',
-       title: mensaje,
-       showConfirmButton: false,
-       timer: 2500,
-       customClass:'modal2'
-        });
-    }
-    else{
-        Swal.fire({
-       position: 'center',
-       icon: 'error',
-       title: mensaje,
-       showConfirmButton: false,
-       timer: 2500,
-       customClass:'modal2'
-        });
-    }
-
-});
-
-</script>
+<script src="js/validar.js"></script>
 
 <?php include('inc/footer.php');?>

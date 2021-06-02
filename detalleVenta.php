@@ -63,7 +63,8 @@ $compra = new Compra($con);
                       <th style="width:10%;color:rgb(243, 234, 234);" class="">Nombre</th>
                       <th style="width:10%;color:rgb(243, 234, 234);" class="">Apellido</th>
 					  <th style="width:10%;color:rgb(243, 234, 234);" class="">Usuario</th>
-					  <th style="width:17%;color:rgb(243, 234, 234);" class="">Direccion</th>				  
+					  <th style="width:17%;color:rgb(243, 234, 234);" class="">Direccion</th>
+					  <th style="width:12%;color:rgb(243, 234, 234);" class="">Telefono</th>					  
 					</tr>
 				  </thead>
 				  <tbody>
@@ -77,6 +78,7 @@ $compra = new Compra($con);
 							  <td style="width:40%;word-wrap: break-word;"><?= utf8_decode(utf8_encode($client['apellido']));?></td>
                               <td class=""><?= utf8_decode(utf8_encode($client['usuario']));?></td>
                               <td class=""><?= utf8_decode(utf8_encode($client['direccion']));?></td>
+							  <td class=""><?= utf8_decode(utf8_encode($client['telefono']));?></td>
 						    </tr>
 						<?php }?>                
 				  </tbody>

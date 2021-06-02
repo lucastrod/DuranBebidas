@@ -7,6 +7,9 @@ session_start();
 if(!isset($_SESSION['carrito'])){
     header('Location:productos.php');
 }
+if(!isset($_SESSION['usuario'])){
+  header('Location:carrito.php?login=1');
+}
 include_once('inc/headerBlack.php');
 
 $array = $_SESSION['carrito'];

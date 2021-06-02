@@ -193,6 +193,24 @@ Class Usuario{
 				return 'Error';
 			} 
         }
+
+		public function consultarExiste($data){
+
+            $sql = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,direccion
+		           FROM usuarios WHERE activo = 0 AND email = '".$data['email']."'";
+			$datos = $this->con->query($sql)->fetch(PDO::FETCH_ASSOC);
+ 			if(isset($datos['id_usuario'])){
+				if($this->encrypt($data['clave'],$datos['salt']) == $datos['clave']){	
+					return 1;
+				}
+				else{
+					return 0;
+				}
+			}
+			else{
+				return 0;
+			} 
+        }
 		
 		/**
 	* Login de usuario
@@ -927,7 +945,7 @@ class Compra{
 
 	public function getCliente($venta){
 
-		$query = 'SELECT usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.direccion
+		$query = 'SELECT usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.direccion,usuarios.telefono
 		FROM ventas
 		INNER JOIN usuarios on (ventas.id_cliente = usuarios.id_usuario)
 		WHERE ventas.id_venta = '.$venta;
