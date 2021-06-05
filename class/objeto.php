@@ -166,7 +166,7 @@ Class Usuario{
 
 			
 
-            $sql = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,direccion
+            $sql = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,direccion,telefono
 		           FROM usuarios WHERE activo = 1 AND email = '".$data['email']."'";
 			$datos = $this->con->query($sql)->fetch(PDO::FETCH_ASSOC);
  			if(isset($datos['id_usuario'])){
@@ -221,6 +221,12 @@ Class Usuario{
 				return true;
 			}
 			return false;
+		}
+
+		public function actualizarDireccion($id,$direccion){
+       
+			$sql = 'UPDATE usuarios SET direccion="'.$direccion.'" WHERE id_usuario = '.$id;
+			$this->con->exec($sql);	
 		}
 		
 		public function activarUsuario($data){
