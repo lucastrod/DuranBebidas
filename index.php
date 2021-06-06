@@ -1,5 +1,6 @@
-<?php include_once('inc/header.php');?>
-
+<?php
+  include_once('inc/header.php');
+?>  
 
 <!-- Slider -->
 <div id="thm-slideshow" class="thm-slideshow">
@@ -238,7 +239,9 @@
   </div>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script type="text/javascript" src="js/validarEdad.js"></script>
+<?php if(!isset($_COOKIE['contador'])){?>
+<script type="text/javascript" src="js/validarEdad.js"></script> 
+<?php } ?>
 <?php include_once('inc/footer.php'); ?>
 
 
