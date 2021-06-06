@@ -137,7 +137,7 @@ if(isset($_POST['login'])){
 
     <!-- Logo -->
     <div class="logo">
-        <a title="DuranBebidas" styles="top:20px" href="index.php"><img alt="Duran" src="images/logo1.png"></a>
+        <a title="DuranBebidas" href="index.php"><img alt="Duran" src="images/logo1.png"></a>
     </div> 
     <!-- End Logo -->
   

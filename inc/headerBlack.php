@@ -21,22 +21,6 @@ if(isset($_POST['login'])){
  
 ?>
 <php lang="zxx" class="no-js">
-<style>
-  
-  .nav > li > a {
-    padding: 2px;
-    -webkit-transition: color 200ms ease-in-out;
-    transition: color 200ms ease-in-out;
-    }
-
-    .logo {
-      position: absolute;
-	    padding: 2em;
-      left: 50%;
-      margin:20px 0 0 -90px;
-	    z-index:100
-}
-</style>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -154,7 +138,7 @@ if(isset($_POST['login'])){
   <!-- end header --> 
 
     <!-- Logo -->
-      <div class="logo"><a title="DuranBebidas" styles="heigth:20px" href="index.php"><img alt="Duran" src="images/logonegro.png"></a></div>
+      <div class="logoNegro"><a title="DuranBebidas"  href="index.php"><img styles="heigth:20px; display:flex;margin-top:10px;" alt="Duran" src="images/logonegro.png"></a></div>
     
     <!-- End Logo -->
   
@@ -163,7 +147,7 @@ if(isset($_POST['login'])){
     <div class="container"> 
         <!-- Sections --> 
 
-        <ul class="nav hidden-xs menu-item menu-item" style="margin-top:120px;z-index: 5;background-color:rgba(0, 0, 0, 0.20);border-color:rgba(0, 0, 0, 0.50);">                  
+        <ul class="nav hidden-xs menu-item menu-item" style="margin-top:110px;z-index: 5;background-color:rgba(0, 0, 0, 0.20);border-color:rgba(0, 0, 0, 0.50);">                  
             <li class="level0 parent drop-menu" ><a style="color: #000" href="productos.php?cat=9"><span>Vinos</span></a>
               <ul class="level1" style="display: none;">
                   <li class="level1 first"><a href="productos.php?cat=34"><span>Cabernet</span></a></li>
@@ -253,6 +237,12 @@ if(isset($_POST['login'])){
     </div>
   </nav>
   <!-- end nav --> 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </body>
 </php>
 

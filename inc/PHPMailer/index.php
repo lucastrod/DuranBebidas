@@ -23,25 +23,18 @@ function sendMail(){
    
   $message .= "<thead>
      <tr height='80'>
-      <th colspan='4' style='background-color:#f5f5f5; border-bottom:solid 1px #bdbdbd; font-family:Verdana, Geneva, sans-serif; color:#333; font-size:34px;' >Programacion.net</th>
+      <th colspan='4' style='background-color:#f5f5f5; border-bottom:solid 1px #bdbdbd; font-family:Verdana, Geneva, sans-serif; color:#333; font-size:34px;' >Duran Bebidas</th>
      </tr>
      </thead>";
    
   $message .= "<tbody>
-     <tr align='center' height='50' style='font-family:Verdana, Geneva, sans-serif;'>
-      <td style='background-color:#00a2d1; text-align:center;'><a href='http://programacion.net/articulos/c' style='color:#fff; text-decoration:none;'>C</a></td>
-      <td style='background-color:#00a2d1; text-align:center;'><a href='http://programacion.net/articulos/php' style='color:#fff; text-decoration:none;'>PHP</a></td>
-      <td style='background-color:#00a2d1; text-align:center;'><a href='http://programacion.net/articulos/ASP' style='color:#fff; text-decoration:none;' >ASP</a></td>
-      <td style='background-color:#00a2d1; text-align:center;'><a href='http://programacion.net/articulos/java' style='color:#fff; text-decoration:none;' >Java</a></td>
-     </tr>
-     
      <tr>
       <td colspan='4' style='padding:15px;'>
-       <p style='font-size:20px;'>Hi Lucas </p>
+       <p style='font-size:20px;'>Pedido N# </p>
        <hr />
-       <p style='font-size:25px;'>Sending HTML eMail using PHPMailer</p>
+       <p style='font-size:25px;'>El pedido realizado fue el siguiente :</p>
        <img src='https://4.bp.blogspot.com/-rt_1MYMOzTs/VrXIUlYgaqI/AAAAAAAAAaI/c0zaPtl060I/s1600/Image-Upload-Insert-Update-Delete-PHP-MySQL.png' alt='Sending HTML eMail using PHPMailer in PHP' title='Sending HTML eMail using PHPMailer in PHP' style='height:auto; width:100%; max-width:100%;' />
-       <p style='font-size:15px; font-family:Verdana, Geneva, sans-serif;'>Aca</p>
+       <p style='font-size:15px; font-family:Verdana, Geneva, sans-serif;'>Atte Pegasus</p>
       </td>
      </tr>
      
@@ -65,9 +58,9 @@ function sendMail(){
     $mail->Port = "587";
     $mail->Username = "lucas.castro45@davinci.edu.ar";
     $mail->Password = "39464303";
-    $mail->Subject = "Asunto de prueba";
-    $mail->setFrom("lucasderiver@gmail.com");
-    $mail->addAddress("lucasderiver@gmail.com");
+    $mail->Subject = "Pedido Confirmado N#";
+    //$mail->setFrom("Duranalmacendebebidas@gmail.com");
+    //$mail->addAddress("Duranalmacendebebidas@gmail.com");
     $mail->Body = $message;
     
 /*     if( $mail->Send() ) {
