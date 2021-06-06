@@ -1,4 +1,7 @@
 <?php
+require_once('inc/PHPMailer/includes/PHPMailer.php');
+require_once('inc/PHPMailer/includes/SMTP.php');
+require_once('inc/PHPMailer/includes/Exception.php');
 
 function generar_categorias($padre_id, $con,$data)
     {  
@@ -81,6 +84,11 @@ function generar_categorias($padre_id, $con,$data)
      function moverImagen($imagen,$nombre){
 
         move_uploaded_file($imagen["tmp_name"],RUTA_IMAGENES."$nombre/0.png");
+    }
+
+    function generarToken(){
+        $gen = md5(uniqid(mt_rand(),false));
+        return $gen;
     }
     
 

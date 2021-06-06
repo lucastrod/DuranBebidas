@@ -61,6 +61,15 @@ if(!empty($_POST)):
     
         header("Location:ListProd.php?cat=$cat");
     }
-   
+    elseif(isset($_POST["pedido"])){
+        if(!empty($_POST["pedido"])):
+
+            $ped = $_POST["pedido"];
+        else:
+            $ped = '';
+        endif;
+    
+        header("Location:entregas.php?enCurso=$ped");
+    }
 
 endif;

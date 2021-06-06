@@ -2,21 +2,40 @@
 include_once('inc/headerBlack.php');
 
 if(!empty($_SESSION["usuario"] ["id_usuario"])){
-  echo($_SESSION["usuario"] ["id_usuario"]);
+
   if(!empty($_SESSION['carrito'])){
   $array = $_SESSION['carrito'];
+  $subtotal = 0;
   $total = 0;
   $cantidad = 0;
   $precio = 0;
+  $datos = array();
+  $productos = array();
   foreach ($array as $colum) {
     $cantidad = $colum['Cantidad'];
     $precio = $colum['Precio'];
-    $total+= $cantidad * $precio;
+    $subtotal+= $cantidad * $precio;
   }
-  echo($total);
+  $total = $subtotal + $_SESSION["usuario"] ["envio"];
 
+  $datos['total'] = $total;
+  $datos['id_cliente'] = $_SESSION["usuario"] ["id_usuario"];
+  $datos['fecha'] = date("Y-m-d H:i:s");
+  $datos['estado'] = 0;
+  $datos['envio'] = $_SESSION["usuario"] ["envio"] == 0? 0 : 1;
 
+  $compra = new Compra($con);
+  $id_Venta = $compra->guardarVenta($datos);
   
+  foreach ($array as $colum) {
+    $productos['id_venta'] = $id_Venta;
+    $productos['id_producto'] = $colum['Id'];
+    $productos['cantidad'] = $colum['Cantidad'];
+
+    $compra->guardarDetalle($productos);
+
+  }
+  unset($_SESSION['carrito']);
   }
 }
 ?>
@@ -54,7 +73,7 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
             <span class="icon-check_circle display-3 text-success"></span>
             <h2 class="display-3 text-black">Gracias!</h2>
             <p class="lead mb-5">Su pedido se completó correctamente..</p>
-            <p><a href="productos.php" class="btn btn-sm btn-primary">Volver a la tienda</a></p>
+            <button  class="btn btn-default  bg-dark"  style="background-color:#A98307;color:rgb(243, 234, 234);font-family:Arial;font-size:17px;margin-bottom:35px;"><a href="productos.php" class="btn btn-sm ">Volver a la tienda</a></button>
           </div>
         </div>
       </div>

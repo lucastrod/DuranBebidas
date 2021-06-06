@@ -4,7 +4,8 @@
 $errores = [
 
     "completarDatos" => "Los campos <b>Email</b> y <b>Comentario</b> son obligatorios",
-    "datosErroneos" => "Los datos ingresados no son correctos.",
+    "datosErroneos" => "* Usuario o contraseña incorrecta",
+    "sinValidar" => "* Debe activar la cuenta",
     "permisos" => "No tenés permisos para ingresar a esa sección",
     "noExisteUsuario" => "El usuario no existe",
     "yaComentaste" => "No puedes realizar más de un comentario por día",

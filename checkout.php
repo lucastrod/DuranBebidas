@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 
 <?php
-
-include_once('inc/headerBlack.php');
+error_reporting(0);
+session_start();
 
 if(!isset($_SESSION['carrito'])){
     header('Location:productos.php');
 }
+if(!isset($_SESSION['usuario'])){
+  header('Location:carrito.php?login=1');
+}
+include_once('inc/headerBlack.php');
+
+$user->actualizarDireccion($_SESSION['usuario']['id_usuario'], $_SESSION['usuario']['direccion']);
 
 $array = $_SESSION['carrito'];
 
@@ -20,7 +26,7 @@ MercadoPago\SDK::setAccessToken('TEST-6760243392925397-042116-b5fa11a3fd3a9e2bb4
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 $preference->back_urls = array(
-    "success" => "https://localhost/DuranBebidas/thankyou.php",
+    "success" => "https://localhost/DuranBebidas/DuranBebidas/thankyou.php",
     "failure" => "https://localhost/DuranBebidas/errorPago.php?error=error",
     "pending" => "https://localhost/DuranBebidas/errorPago.php?error=pendiente"
 );
@@ -67,62 +73,45 @@ $preference->save();
             <br>
             <br>
             <br>
-            <div class="border p-4 rounded" role="alert">
-              Returning customer? <a href="#">Click here</a> to login
-            </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-5 mb-md-0">
-            <h2 class="h3 mb-3 text-black">Billing Details</h2>
+            <h2 class="h3 mb-3 text-black">Datos</h2>
             <div class="p-3 p-lg-5 border">
 
               <div class="form-group row">
                 <div class="col-md-6">
-                  <label for="c_fname" class="text-black">Nombre <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_fname" name="c_fname">
+                  <label for="c_fname" class="text-black">Nombre</label>
+                  <label for="c_lname" class="form-control"><?= $_SESSION['usuario']['nombre'];?></label>
                 </div>
                 <div class="col-md-6">
-                  <label for="c_lname" class="text-black">Apellido <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_lname" name="c_lname">
+                  <label for="c_lname" class="text-black">Apellido</label>
+                  <label for="c_lname" class="form-control"><?= $_SESSION['usuario']['apellido'];?></label>
                 </div>
               </div>
 
               <div class="form-group row">
                 <div class="col-md-12">
-                  <label for="c_address" class="text-black">Address <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_address" name="c_address" placeholder="Street address">
+                  <label for="c_address" class="text-black">Dirección de Envío</label>
+                  <label for="c_lname" class="form-control"><?= $_SESSION['usuario']['direccion'];?></label>
+                  <!--<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direccion de envío" required value="<?= $_SESSION['usuario']['direccion'];?>">-->
+                  <span class="text-danger">* Puede modificar la dirección de envío</span>
+                  <a title="Cambiar" href="javascript:void(null)"><img alt="Cambiar" src="images/lapiz.png" width="10" height="20" onClick="cambiar(<?php echo $_SESSION['usuario']['id_usuario']?>, '<?php echo $_SESSION['usuario']['direccion'] ?>');"></a>
                 </div>
               </div>
 
               <div class="form-group row mb-5">
                 <div class="col-md-6">
-                  <label for="c_email_address" class="text-black">Email <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_email_address" name="c_email_address">
+                  <label for="c_email_address" class="text-black">Email</label>
+                  <label for="c_lname" class="form-control"><?= $_SESSION['usuario']['email'];?></label>
                 </div>
                 <div class="col-md-6">
-                  <label for="c_phone" class="text-black">Telefono <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_phone" name="c_phone" placeholder="Phone Number">
+                  <label for="c_phone" class="text-black">Telefono</label>
+                  <label for="c_lname" class="form-control"><?= $_SESSION['usuario']['telefono'];?></label>
                 </div>
               </div>
 
-              <div class="form-group">
-                <label for="c_create_account" class="text-black" data-toggle="collapse" href="#create_an_account" role="button" aria-expanded="false" aria-controls="create_an_account"><input type="checkbox" value="1" id="c_create_account"> Crear cuenta?</label>
-                <div class="collapse" id="create_an_account">
-                  <div class="py-2">
-                    <p class="mb-3">Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
-                    <div class="form-group">
-                      <label for="c_account_password" class="text-black">Account Password</label>
-                      <input type="email" class="form-control" id="c_account_password" name="c_account_password" placeholder="">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="c_order_notes" class="text-black">Notas del pedido</label>
-                <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="Write your notes here..."></textarea>
-              </div>
 
             </div>
           </div>
@@ -217,10 +206,10 @@ $preference->save();
   <script src="js/aos.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script type="text/javascript" src="js/iconoCarrito.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script type="text/javascript" src="js/actualizarDireccion.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/guardarVenta.js"></script>
-  <script src="js/actualizarEnvio.js"></script>
-  
+
 
   </body>
 </html>

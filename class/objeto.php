@@ -60,6 +60,7 @@ Class Usuario{
 	* Guardo los datos en la base de datos
 	*/
 	public function save($data){
+
 			$data['salt'] = uniqid();
             // $data['salt'] = md5(date("Y-m-d H:i:s"));
             $data['clave'] = $this->encrypt($data['clave'],$data['salt']);
@@ -86,6 +87,10 @@ Class Usuario{
 				}
 				 $this->con->exec($sql);
 			}
+
+				return $id_usuario;
+		
+			
 	} 
 	
 	/**
@@ -161,7 +166,7 @@ Class Usuario{
 
 			
 
-            $sql = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt
+            $sql = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,direccion,telefono
 		           FROM usuarios WHERE activo = 1 AND email = '".$data['email']."'";
 			$datos = $this->con->query($sql)->fetch(PDO::FETCH_ASSOC);
  			if(isset($datos['id_usuario'])){
@@ -188,6 +193,24 @@ Class Usuario{
 				return 'Error';
 			} 
         }
+
+		public function consultarExiste($data){
+
+            $sql = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,direccion
+		           FROM usuarios WHERE activo = 0 AND email = '".$data['email']."'";
+			$datos = $this->con->query($sql)->fetch(PDO::FETCH_ASSOC);
+ 			if(isset($datos['id_usuario'])){
+				if($this->encrypt($data['clave'],$datos['salt']) == $datos['clave']){	
+					return 1;
+				}
+				else{
+					return 0;
+				}
+			}
+			else{
+				return 0;
+			} 
+        }
 		
 		/**
 	* Login de usuario
@@ -198,6 +221,12 @@ Class Usuario{
 				return true;
 			}
 			return false;
+		}
+
+		public function actualizarDireccion($id,$direccion){
+       
+			$sql = 'UPDATE usuarios SET direccion="'.$direccion.'" WHERE id_usuario = '.$id;
+			$this->con->exec($sql);	
 		}
 		
 		public function activarUsuario($data){
@@ -214,7 +243,50 @@ Class Usuario{
 				}
 		}
 
+		public function validarDatos($email,$usuario){
+       
+			$query = 'SELECT count(1) as cantidad FROM usuarios WHERE email like "'.$email.'"';
 
+			$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
+
+			$query2 = 'SELECT count(1) as cantidad2 FROM usuarios WHERE usuario like "'.$usuario.'"';
+			$consulta2 = $this->con->query($query2)->fetch(PDO::FETCH_OBJ);
+
+			$resp = '';
+
+			if($consulta->cantidad == 1){
+				$resp .= 'Email ya registrado';
+			}
+
+			if($consulta2->cantidad2 == 1 && $resp!=''){
+				$resp .= 'y Usuario ya registrado';
+			}
+			elseif($consulta2->cantidad2 == 1){
+				$resp .= 'Usuario ya registrado';
+			}
+			return $resp;
+		}
+
+		public function validarIdToken($id,$token){
+
+			$query = 'SELECT activo as Activo FROM usuarios WHERE id_usuario = '.$id.' AND token = "'.$token.'"';
+
+			
+			$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
+	
+			$resp = '';
+
+			if($consulta->Activo == 1){
+				$resp .= 'La cuenta ya se encuentra activada';
+			}
+			else{
+				$sql = "UPDATE usuarios SET activo = 1 WHERE id_usuario = ".$id.' AND token = "'.$token.'"';
+				$this->con->exec($sql);
+				$resp .= 'La cuenta se activo correctamente';
+			}
+
+			return $resp;
+		}
 }
 
 Class UsuarioTipos{
@@ -792,7 +864,7 @@ class Compra{
 	}
 
 	public function guardarVenta($data){
-        
+  
         foreach($data as $key => $value){
             if(!is_array($value)){
                 if($value != null){
@@ -805,7 +877,7 @@ class Compra{
 
 	try{
 		$this->con->exec($sql);
-		$respuesta = 1;
+		$respuesta = $this->con->lastInsertId();
 	}
 	catch(PDOException $e){
 		$respuesta = 0;
@@ -816,7 +888,75 @@ class Compra{
     }
 
 	public function guardarDetalle($data){
+		
+		foreach($data as $key => $value){
+            if(!is_array($value)){
+                if($value != null){
+                    $columns[]=$key;
+                    $datos[]=$value;
+                }
+            }
+        }
+        $sql = "INSERT INTO detalle_venta(".implode(',',$columns).") VALUES('".implode("','",$datos)."')";
 
+		try{
+			$this->con->exec($sql);
+		}
+		catch(PDOException $e){
+
+		}
+
+	}
+
+	public function mostrarVenta($parametros = array()){
+
+		
+		if(!empty($parametros['enCurso'])){
+
+			if($parametros['enCurso'] == 'si'){
+				$est = 0;
+			}
+			else{
+				$est = 1;
+			}
+
+			$estado = ' WHERE estado = '.$est.' order by fecha desc';
+		}
+		else{
+			$estado = ' order by fecha desc';
+		}
+
+		$query = "SELECT id_venta, id_cliente, envio, total, fecha, estado
+		           FROM ventas".$estado;
+
+        return $this->con->query($query);
+	}
+
+	public function actualizar($estado,$venta){
+
+		$sql = "UPDATE ventas SET estado=$estado WHERE id_venta = ".$venta;
+           
+		$this->con->exec($sql);
+	}
+
+	public function getDetalleVenta($venta){
+
+		$query = 'SELECT detalle_venta.id_venta, detalle_venta.id_producto, productos.nombre, productos.descripcion, detalle_venta.cantidad
+		FROM detalle_venta
+		INNER JOIN productos on (detalle_venta.id_producto = productos.producto_id)
+		WHERE detalle_venta.id_venta = '.$venta;
+
+		return $this->con->query($query);	
+	}
+
+	public function getCliente($venta){
+
+		$query = 'SELECT usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.direccion,usuarios.telefono
+		FROM ventas
+		INNER JOIN usuarios on (ventas.id_cliente = usuarios.id_usuario)
+		WHERE ventas.id_venta = '.$venta;
+
+		return $this->con->query($query);	
 	}
 }
 

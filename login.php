@@ -51,9 +51,9 @@ include_once('inc/arrays.php');
       <div class="account-login">
         <div class="page-title">
         <br>
-  <br>
-  <br>
-          <h1>Login </h1>
+          
+          <h1>Logueate o Create una Cuenta</h1>
+
         </div>
         <fieldset class="col2-set">
           <legend>Login</legend>
@@ -62,7 +62,9 @@ include_once('inc/arrays.php');
             <div class="content">
               <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
               <div class="buttons-set">
-                <button class="button create-account"><span>Registrarse</span></button>
+
+              <a href="registro.php"><button class="button create-account">Regristrarse</button></a>
+
               </div>
             </div>
           </div>
@@ -99,7 +101,7 @@ if(!empty($_GET["estado"])){
             
             if(array_key_exists($error,$errores)):
             ?>
-         <p class="required">* Usuario o contraseña incorrecta</p>
+         <p class="required"><?= $errores[$error]; ?></p>
             <?php
             endif;
 
@@ -115,7 +117,7 @@ if(!empty($_GET["estado"])){
               
               <div class="buttons-set">
                 <button id="send2" name="login" type="submit" class="button login"><span>Login</span></button>
-                <a class="forgot-word" href="#">Forgot Your Password?</a> </div>
+                <a class="forgot-word" href="#">Olvidaste tu contraseña?</a> </div>
             </div>
           </div>
                             
