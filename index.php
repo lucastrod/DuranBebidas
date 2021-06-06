@@ -237,6 +237,8 @@
     </div>
   </div>
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script type="text/javascript" src="js/validarEdad.js"></script>
 <?php include_once('inc/footer.php'); ?>
 
 
