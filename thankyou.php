@@ -73,7 +73,7 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
             <span class="icon-check_circle display-3 text-success"></span>
             <h2 class="display-3 text-black">Gracias!</h2>
             <p class="lead mb-5">Su pedido se completó correctamente..</p>
-            <p><a href="productos.php" class="btn btn-sm btn-primary">Volver a la tienda</a></p>
+            <button  class="btn btn-default  bg-dark"  style="background-color:#A98307;color:rgb(243, 234, 234);font-family:Arial;font-size:17px;margin-bottom:35px;"><a href="productos.php" class="btn btn-sm ">Volver a la tienda</a></button>
           </div>
         </div>
       </div>

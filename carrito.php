@@ -200,7 +200,11 @@ else{
                 </div>
               </div>
             </div>-->
+          
                 <div class="row" style="padding-bottom:25px;">
+                <?php if (!empty($_GET['login'])){?>
+                <div><span id="login" data-id="<?php echo $_GET['login'];?>"></span></div>
+                <?php }?>
                   <div class="col-md-8"></div>
                   <div class="col-md-4">
                     <h2 class="h3 text-black">Envio</h2>
@@ -220,14 +224,10 @@ else{
                     </table>
                   </div>
                 </div>
-                
-               
-
-
                 <div class="row" style="padding-bottom:25px;">
                   <div class="col-md-8"></div>
                   <div class="col-md-3">
-                    <button type="submit" class="btn btn-primary btn-lg py-3 btn-block">Finalizar Compra</button>
+                    <button type="submit" class="btn btn-primary btn-lg py-3 btn-block">Finalizar Compra</button>               
                   </div>
                   <div class="col-md-1"></div>
                   
@@ -249,5 +249,7 @@ else{
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/carrito.js"></script>
   <script src="js/actualizarEnvio.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="js/validarLogin.js"></script>
 
 

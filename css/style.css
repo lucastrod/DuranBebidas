@@ -11235,3 +11235,33 @@ input[type=number]::-webkit-outer-spin-button {
 	font-size: 15px;
 	height: 400px;
 }
+
+.modal2{
+	font-size: 12px;
+	height: 200px;
+}
+
+.modal3{
+	font-size: 14px;
+	height: 400px;
+	width: 400px;
+}
+
+.modal4{
+	font-size: 15px!important;
+	height: 250px;
+}
+
+.botonSweet {
+	border-radius: 50%!important;
+	width: 60px!important;
+  	height: 60px!important;
+ }
+
+ .botonSweet2 {
+	border-radius: 50%!important;
+	width: 60px!important;
+  	height: 60px!important;
+	display:block!important;
+
+ }

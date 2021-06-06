@@ -9,6 +9,7 @@ $arrayRet= array(
     "total"=>$total
 );
 
+if(!empty($_SESSION["usuario"])){
 if($_POST['activo']==1){
     $_SESSION["usuario"] ["envio"] = $costoEnvio;
     $arrayRet['envio'] = $costoEnvio;
@@ -32,6 +33,6 @@ echo 0;
 }
 
 echo json_encode($arrayRet);
-
+}
 
 ?>
