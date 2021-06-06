@@ -1,4 +1,56 @@
-﻿<?php include_once('inc/headerBlack.php');;?>
+﻿<?php include_once('inc/headerBlack.php');
+include_once('funciones.php');
+
+$error='';
+$mensaje= '';
+if(isset($_POST['submit'])){
+if(!empty($_POST['email'])){
+
+  if(!esEmail($_POST['email'])){
+    $error = 'Correo electrónico inválido';
+  }
+
+  $resp = $user->validarEmail($_POST["email"]);
+
+  if(!$resp){
+    $error = 'Correo electrónico inválido';
+  }
+  else{
+
+    $usuario = $user->getDatos($_POST["email"]);
+
+    $token = generarToken();
+
+    if(($usuario->id_usuario) > 0){
+
+    $user->actualizarToken($usuario->id_usuario,$token);
+
+    $url = 'https://'.$_SERVER["SERVER_NAME"].'/DuranBebidas/DuranBebidas/recuperar.php?id='.$usuario->id_usuario.'&val='.$token;
+
+    $asunto = 'Recuperar Password - Duran Bebidas';
+
+    $nombre = $usuario->nombre;
+    $email = $usuario->email;
+
+    $cuerpo = "Estimado $nombre: <br/> <br/> Para continuar con el proceso de recuperación de contraseña, es necesario que ingreses al siguiente link  <a href='$url'>Recuperar Contraseña</a>"; 
+
+        if(confirmarPass($email, $nombre, $asunto, $cuerpo)){
+    
+            $valor = "Para terminar el proceso de recuperar la contraseña debe seguir las instrucciones que le enviamos a la direccion de correo electrónico: $email"; 
+            $mensaje.='<div> <span id="mensaje" data-id="'.$valor.'"></span>';
+        }
+        else{
+            Echo 'Falló el envío del email';
+        }
+
+    }
+
+  }
+
+}
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,37 +95,74 @@
   <!-- Main Container -->
   <section class="main-container col1-layout bounceInUp animated">
     <div class="main container">
+    <?php if(isset($_POST['submit']) && $error == ''){ ?>
+      <body>
+        <?= $mensaje;?>
+        <div class="container">
+            <div class="form_container">
+
+            <div class="site-wrap">
+                <div class="site-section">
+                    <div class="container" >
+                        <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span class="icon-check_circle display-3 text-success"></span>
+                            <h2 class="display-3 text-black" style="margin-top: 80px;font-size:40px;">Se ha registrado su cambio de contraseña Correctamente!</h2>
+                            <p class="lead mb-5">Una vez recuperada la contraseña, puede iniciar sesión presionando el boton de abajo</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group text-center pt-3" style="margin:15px;">
+                    <div class="col-md-12" style="margin:15px;">
+                    <button  class="btn btn-default  bg-dark"  style="background-color:#A98307;color:rgb(243, 234, 234);font-family:Arial;font-size:17px;margin-bottom:35px;"><a href="login.php" style="color:white;">Iniciar Sesion</a></button>
+                    </div>
+                </div> 
+            </div>
+    </div>
+        
+    </body>
+    <?php } 
+    else{?>
       <div class="col-main">
         <div class="account-login">
           <div class="page-title">
-            <h1>Forgot Your Password?</h1>
+          <br>
+          <br>
+            <h1>Olvidó su contraseña?</h1>
           </div>
           <!--page-title-->
-          <form action="#" method="post" id="form-validate">
+          <form method="POST" action="recuperar_pass.php">
             <fieldset class="col2-set">
-              <strong>Retrieve your password here</strong>
+              <strong>Recupera tu contraseña aquí</strong>
               <div class="content">
-                <p>Please enter your email address below. You will receive a link to reset your password.</p>
+                <p>Por favor ingrese su email. Va a recibir un correo para cambiar su contraseña.</p>
                 <ul class="form-list">
                   <li>
-                    <label for="email_address">Email Address<em class="required">*</em></label>
+                    <label for="email_address">Email<em class="required">*</em></label>
                     <div class="input-box">
-                      <input type="text" name="" alt="email" id="email_address" class="input-text required-entry validate-email" value="">
+                      <input type="text" name="email" alt="email" id="email" class="input-text required-entry validate-email" value="" required>
+                      <?php if($error !== ''){ ?>
+                        <p class="required" style="color:red;"><?= $error?></p>
+                        <?php } ?>
                     </div>
                   </li>
                 </ul>
               </div>
               <!--content-->
               
-              <p class="required">* Required Fields</p>
-              <button type="submit" title="Submit" class="button submit"><span>Submit</span></button>
-              <a href="#"><small>« </small>Back to Login</a>
+              <p class="required">* Campos requeridos</p>
+              <button type="submit" name="submit" title="Submit" class="button" style="background-color:#C2A476;"><span style="color:white;">Enviar</span></button>
+              <a href="login.php"><small>« </small>Volver al Login</a>
             </fieldset>
             <!--col2-set-->
           </form>
         </div>
       </div>
       <!--col-main--> 
+      <?php } ?>
     </div>
   </section>
   <!-- Main Container End --> 
@@ -120,10 +209,11 @@
           </div>
         </div>
       </div>
+     
     </div>
   </div>
   <!-- Brand logo ends  --> 
-  
+  <script src="js/pass.js"></script>
   <?php include_once('inc/footer.php'); ?>
 
 </body>

@@ -7,7 +7,7 @@ $error = '';
 $mensaje= '';
 if(isset($_POST['submit'])){
 
-if(empty($_POST["clave"]) || empty($_POST["email"]) || empty($_POST["usuario"]) || empty($_POST["nombre"]) || empty($_POST["apellido"]) || empty($_POST["direccion"]) || empty($_POST["telefono"])){
+if(empty($_POST["clave"]) || empty($_POST["email"]) || empty($_POST["usuario"]) || empty($_POST["nombre"]) || empty($_POST["apellido"]) || empty($_POST["direccion"]) || empty($_POST["telefono"]) || empty($_POST["confirmar_clave"])){
         $error .= 'datos ';
 }
 

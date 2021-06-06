@@ -113,7 +113,7 @@ if(!empty($_GET["estado"])){
               
               <div class="buttons-set">
                 <button id="send2" name="login" type="submit" class="button login"><span>Login</span></button>
-                <a class="forgot-word" href="#">Olvidaste tu contraseña?</a> </div>
+                <a class="forgot-word" href="recuperar_pass.php">Olvidaste tu contraseña?</a> </div>
             </div>
           </div>
                             

@@ -90,6 +90,16 @@ function generar_categorias($padre_id, $con,$data)
         $gen = md5(uniqid(mt_rand(),false));
         return $gen;
     }
+
+    function esEmail($email){
+        if(filter_var($email, FILTER_VALIDATE_EMAIL))
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     
 
 ?>
