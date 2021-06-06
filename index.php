@@ -209,7 +209,7 @@
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo1.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="images/b-logo1.png" alt="Image" ></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->

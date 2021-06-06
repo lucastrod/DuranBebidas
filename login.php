@@ -41,7 +41,7 @@ include_once('inc/arrays.php');
 
 <body class="customer-account-login inner-page">
 <div id="page"> 
-  
+
   
   <!-- Main Container -->
   <section class="main-container col1-layout bounceInUp animated">
@@ -51,16 +51,20 @@ include_once('inc/arrays.php');
       <div class="account-login">
         <div class="page-title">
         <br>
+          
           <h1>Logueate o Create una Cuenta</h1>
+
         </div>
         <fieldset class="col2-set">
-          <legend>Login or Create an Account</legend>
+          <legend>Login</legend>
 
           <div class="col-1 new-users"><strong>Nuevos Usuarios</strong>
             <div class="content">
               <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
               <div class="buttons-set">
+
               <a href="registro.php"><button class="button create-account">Regristrarse</button></a>
+
               </div>
             </div>
           </div>
