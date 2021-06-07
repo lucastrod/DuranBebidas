@@ -5,32 +5,30 @@ require_once("funciones.php");
 
 $error = '';
 $mensaje= '';
-if(isset($_POST['submit'])){
+    if(isset($_POST['submit'])){
 
 if(empty($_POST["clave"]) || empty($_POST["email"]) || empty($_POST["usuario"]) || empty($_POST["nombre"]) || empty($_POST["apellido"]) || empty($_POST["direccion"]) || empty($_POST["telefono"]) || empty($_POST["confirmar_clave"])){
         $error .= 'datos ';
 }
 
-if(strcmp($_POST["clave"],$_POST["confirmar_clave"]) !==0){
-    $error .= 'claves ';
-}
+    if(strcmp($_POST["clave"],$_POST["confirmar_clave"]) !==0){
+        $error .= 'claves ';
+    }
 
-$resp = $user->validarDatos($_POST["email"], $_POST["usuario"]);
+    $resp = $user->validarDatos($_POST["email"], $_POST["usuario"]);
 
-if(strpos($resp, 'Usuario') !== false){
-    $error.='usuario ';
-}
+    if(strpos($resp, 'Usuario') !== false){
+        $error.='usuario ';
+    }
 
-if(strpos($resp, 'Email') !== false){
-    $error.='email ';
-}
+    if(strpos($resp, 'Email') !== false){
+        $error.='email ';
+    }
 
-if($error ==''){
+    if($error ==''){
 
     //mostrar cartel de usuario creado
 
-
-    
     $datos=array();
     
     $email = $_POST["email"];
@@ -60,7 +58,7 @@ if($error ==''){
 
     if($registro > 0){
 
-    $url = 'https://'.$_SERVER["SERVER_NAME"].'/DuranBebidas/DuranBebidas/validar.php?id='.$registro.'&val='.$token;
+    $url = 'https://'.$_SERVER["SERVER_NAME"].'/DuranBebidas/validar.php?id='.$registro.'&val='.$token;
 
 
     $asunto = 'Activar Cuenta - Duran Bebidas';
@@ -121,18 +119,20 @@ if($error ==''){
 else{?>
 <form method="POST" action="registro.php">
 
+
             <div class="row" style="margin:15px;">
+            <h1  style="display:flex;justify-content:center;font-family:raleway, sans-serif;">Crear Usuario</h1>
                 <div class="col-md-2"></div>
                 <div class="form-group col-md-4">
                     <label for="nombre" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;padding-top:30px;">Nombre</label>
                     <div class="col-md-12">
-                        <input type="text" class="form-control text-center" id="nombre" name="nombre" placeholder="Nombre" value="" required>
+                        <input type="text" class="form-control text-center" id="nombre" name="nombre" placeholder="Ingrese su Nombre" value="" required>
                     </div>
                 </div> 
                  <div class="form-group col-md-4">
                     <label for="apellido" class="col-md-12 control-label  text-center" style="color:black;font-family:Arial;font-size:17px;padding-top:30px;">Apellido</label>
                      <div class="col-md-12">
-                        <input type="text" class="form-control text-center" id="apellido" name="apellido" placeholder="Apellido" value="" required>
+                        <input type="text" class="form-control text-center" id="apellido" name="apellido" placeholder="Ingrese su Apellido" value="" required>
                     </div>
                 </div> 
                 <div class="col-md-2"></div>
@@ -143,7 +143,7 @@ else{?>
                  <div class="form-group col-md-4">
                     <label for="usuario" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Usuario</label>
                      <div class="col-md-12">
-                        <input type="text" class="form-control text-center" id="usuario" name="usuario" placeholder="Usuario" value="" required>
+                        <input type="text" class="form-control text-center" id="usuario" name="usuario" placeholder="Ingrese su Usuario" value="" required>
                         <?php if(strpos($error, 'usuario') !== false){ ?>
                         <p class="required" style="color:red;">*Usuario ya registrado</p>
                         <?php } ?>
@@ -152,7 +152,7 @@ else{?>
                 <div class="form-group col-md-4">
                     <label for="email" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Email</label>
                      <div class="col-md-12">
-                        <input type="email" class="form-control text-center" id="email" name="email" placeholder="Email" value="" required>
+                        <input type="email" class="form-control text-center" id="email" name="email" placeholder="Ingrese su Email" value="" required>
                         <?php if(strpos($error, 'email') !== false){ ?>
                         <p class="required" style="color:red;">*Email ya registrado</p>
                         <?php } ?>
@@ -166,7 +166,7 @@ else{?>
                  <div class="form-group col-md-4">
                     <label for="clave" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Contraseña</label>
                      <div class="col-md-12">
-                        <input type="password" class="form-control text-center" id="clave" name="clave" placeholder="Contraseña" value="" required>
+                        <input type="password" class="form-control text-center" id="clave" name="clave" placeholder="Ingrese su Contraseña" value="" required>
                         <?php if(strpos($error, 'claves') !== false){ ?>
                         <p class="required" style="color:red;">*Las contraseñas no coinciden</p>
                         <?php } ?>
@@ -184,15 +184,15 @@ else{?>
              <div class="row" style="margin:15px;">
                  <div class="col-md-2"></div>
                  <div class="form-group col-md-5">
-                    <label for="password" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Direccion</label>
+                    <label for="password" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Dirección</label>
                      <div class="col-md-12">
-                        <input type="text" class="form-control text-center" id="direccion" name="direccion" placeholder="Direccion" value="" required>
+                        <input type="text" class="form-control text-center" id="direccion" name="direccion" placeholder="Ej: Paraguay 5261" value="" required>
                     </div>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="telefono" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Telefono</label>
                      <div class="col-md-12">
-                        <input type="number" class="form-control text-center" id="telefono" name="telefono" placeholder="Telefono" value="" required>
+                        <input type="number" class="form-control text-center" id="telefono" name="telefono" placeholder="Ingrese su Telefono" value="" required>
                     </div>
                 </div>
                 <div class="col-md-2"></div> 

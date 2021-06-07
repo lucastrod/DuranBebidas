@@ -209,7 +209,7 @@
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo1.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="images/b-logo1.png" alt="Image" ></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
@@ -242,6 +242,9 @@
 <?php if(!isset($_COOKIE['contador'])){?>
 <script type="text/javascript" src="js/validarEdad.js"></script> 
 <?php } ?>
+
+<div class="footer2" >
 <?php include_once('inc/footer.php'); ?>
+</div>
 
 
