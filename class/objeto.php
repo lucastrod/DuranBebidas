@@ -37,7 +37,7 @@ Class Usuario{
 	* obtengo un usuario
 	*/
 	public function get($id){
-	    $query = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt
+	    $query = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,telefono,direccion
 		           FROM usuarios WHERE id_usuario = ".$id;
         $query = $this->con->query($query); 
 			
@@ -53,6 +53,24 @@ Class Usuario{
 			/*echo '<pre>';
 			var_dump($usuario);echo '</pre>'; */
             return $usuario;
+	}
+
+	public function getDatos($email){
+
+	    $query = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,telefono,token,direccion
+		           FROM usuarios WHERE email = "."'$email'";
+		
+        $query = $this->con->query($query); 
+			
+		$usuario = $query->fetch(PDO::FETCH_OBJ);
+
+        return $usuario;
+	}
+
+	public function actualizarToken($id,$token){
+       
+		$sql = 'UPDATE usuarios SET token="'.$token.'" WHERE id_usuario = '.$id;
+		$this->con->exec($sql);	
 	}
 	
 	
@@ -91,7 +109,20 @@ Class Usuario{
 				return $id_usuario;
 		
 			
-	} 
+	}
+	
+	public function actualizarClave($id,$token,$clave){
+       
+		$salt = uniqid();
+		$pass = $this->encrypt($clave,$salt);
+
+		$sql = 'UPDATE usuarios SET clave="'.$pass.'", salt="'.$salt.'"  WHERE id_usuario = '.$id.' AND token = "'.$token.'"';
+		
+		$this->con->exec($sql);
+		
+		return true;
+		
+	}
 	
 	/**
 	* Actualizo los datos en la base de datos
@@ -267,6 +298,20 @@ Class Usuario{
 			return $resp;
 		}
 
+		public function validarEmail($email){
+       
+			$query = 'SELECT count(1) as cantidad FROM usuarios WHERE email like "'.$email.'"';
+
+			$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
+
+			if($consulta->cantidad == 1){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+
 		public function validarIdToken($id,$token){
 
 			$query = 'SELECT activo as Activo FROM usuarios WHERE id_usuario = '.$id.' AND token = "'.$token.'"';
@@ -286,6 +331,20 @@ Class Usuario{
 			}
 
 			return $resp;
+		}
+
+		public function validarRecupero($id,$token){
+
+			$query = 'SELECT count(1) as cantidad FROM usuarios WHERE id_usuario = '.$id.' AND token = "'.$token.'"';
+
+			
+			$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
+
+			if($consulta->cantidad == 0){
+				return false; 
+			}
+
+			return true;
 		}
 }
 
