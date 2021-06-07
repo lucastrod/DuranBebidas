@@ -1,6 +1,15 @@
 <?php
 
 include_once('inc/headerBlack.php');
+
+?>
+<br>
+<br>
+<br>
+<br>
+<br>
+<?php
+
 $productos = new Producto($con);
 
 if(isset($_POST['id'])){

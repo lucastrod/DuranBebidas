@@ -7416,6 +7416,7 @@ button.subscribe:before {
 	padding: 8px 10px;
 	width: 64%!important;
 }
+
 footer {
 	padding: 0px 0 0;
 	overflow: hidden;
@@ -7424,6 +7425,9 @@ footer {
 	background: #000  no-repeat top left;
 
 }
+
+
+
 footer ul {
 	margin: 0px;
 	padding: 0px;

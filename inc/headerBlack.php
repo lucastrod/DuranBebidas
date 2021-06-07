@@ -26,7 +26,6 @@ if(isset($_POST['login'])){
 }
  
 ?>
-<php lang="zxx" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,7 +62,6 @@ if(isset($_POST['login'])){
   </head>
 
 <body class="cms-index-index index">
-<div id="page">       
   <!-- Header -->
   <header>
     <div class="header-container">
@@ -86,7 +84,7 @@ if(isset($_POST['login'])){
             </div>
             <div class="col-xs-5 col-sm-6"> 
               
-              <div class="top-cart-contain pull-right"> 
+            <div class="top-cart-contain pull-right"> 
             <!-- Top Cart -->
             <div class="mini-cart">
               <div class="basket dropdown-toggle">
@@ -124,14 +122,14 @@ if(isset($_POST['login'])){
      
                           <div class="welcome-msg hidden-xs"> Bienvenido! <?= $_SESSION["usuario"]["nombre"]; ?></div>
                           <div class="login"><a href="ListProd.php"><span class="hidden-xs">Admin Panel</span></a></div>
-                          <div class="login"><a href="logout.php"><span class="hidden-xs">Logout</span></a></div>                    
+                          <div class="login"><a href="logout.php"><i class="fa fa-sign-out" style="display:flex;font-size:16.5px;justify-content:center; "></i></a></div>   
                                          
                   <?php
                   }
                   else{
                   ?>
                           <div class="welcome-msg hidden-xs"> Bienvenido! <?= $_SESSION["usuario"]["nombre"]; ?></div>
-                          <div class="login"><a href="logout.php"><span class="hidden-xs">Logout</span></a></div>   
+                          <div class="login"><a href="logout.php"><i class="fa fa-sign-out" style="display:flex;font-size:16.5px;justify-content:center; "></i></a></div>   
             <?php }
                  } ?>          
                 </div>

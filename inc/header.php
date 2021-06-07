@@ -12,7 +12,13 @@ if(isset($_POST['login'])){
   $valor = $user->login($_POST);
   if($valor !=Null){
     if($valor == 'Error'){
-      header('Location:login.php?estado=error&error=datosErroneos');
+      $resp = $user->consultarExiste($_POST);
+      if($resp === 1){
+        header('Location:login.php?estado=error&error=sinValidar');
+      }
+      else{
+        header('Location:login.php?estado=error&error=datosErroneos');
+      }
     }
   }
 }
@@ -77,7 +83,7 @@ if(isset($_POST['login'])){
             </div>
             <div class="col-xs-5 col-sm-6"> 
               
-              <div class="top-cart-contain pull-right"> 
+            <div class="top-cart-contain pull-right"> 
             <!-- Top Cart -->
             <div class="mini-cart">
               <div class="basket dropdown-toggle">
@@ -103,25 +109,29 @@ if(isset($_POST['login'])){
               <!-- Header Top Links -->
               <div class="toplinks">
                 <div class="links">
-
-                  <?php
-                  if(empty($_SESSION["usuario"])):
+          
+                <?php
+                  if(empty($_SESSION["usuario"])){
                   ?>
                     <div class="login"><a href="login.php"><span class="hidden-xs">Log In</span></a></div>
                   <?php
-                  else:
+                  }
+                  else{
                   
-                  if(!empty($_SESSION['usuario']['secciones'])){?>
-
-                          <div class="welcome-msg hidden-xs"> Bienvenido! <?= $_SESSION["usuario"]["nombre"]; ?></div>
-                          <span class="nav-link"></span>                                                
+                  if(!empty($_SESSION['usuario']['usuario']==='admin')){?>
+     
+                          <div class="welcome-msg hidden-xs"> Bienvenido!<?= $_SESSION["usuario"]["nombre"]; ?></div>
                           <div class="login"><a href="ListProd.php"><span class="hidden-xs">Admin Panel</span></a></div>
-                          <div class="login"><a href="logout.php"><span class="hidden-xs">Logout</span></a></div>                    
-                                          
+                          <div class="login"><a href="logout.php"><i class="fa fa-sign-out" style="display:flex;font-size:16.5px;justify-content:center; "></i></a></div>   
+                                         
                   <?php
                   }
-                  endif;
-                  ?>               
+                  else{
+                  ?>
+                          <div class="welcome-msg hidden-xs">Bienvenido! <?= $_SESSION["usuario"]["nombre"]; ?></div>
+                          <div class="login"><a href="logout.php"><i class="fa fa-sign-out" style="display:flex;font-size:16.5px;justify-content:center; "></i></a></div>   
+            <?php }
+                 } ?>          
                 </div>
               </div>
 
@@ -238,3 +248,5 @@ if(isset($_POST['login'])){
   <!-- end nav --> 
 
 </php>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="js/iconoCarrito.js"></script>

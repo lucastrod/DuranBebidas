@@ -65,7 +65,6 @@ $preference->save();
 ?>
 
   <div class="site-wrap">
-    
     <div class="site-section">
       <div class="container">
         <div class="row mb-5">
@@ -77,9 +76,8 @@ $preference->save();
         </div>
         <div class="row">
           <div class="col-md-6 mb-5 mb-md-0">
-            <h2 class="h3 mb-3 text-black">Datos</h2>
+            <h2 class="h3 mb-3 text-black">Datos de Contacto</h2>
             <div class="p-3 p-lg-5 border">
-
               <div class="form-group row">
                 <div class="col-md-6">
                   <label for="c_fname" class="text-black">Nombre</label>
@@ -194,7 +192,6 @@ $preference->save();
       </div>
     </div>
 
-    <?php include_once('inc/footer.php'); ?> 
   </div>
 
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -210,6 +207,14 @@ $preference->save();
   <script type="text/javascript" src="js/actualizarDireccion.js"></script>
   <script src="js/main.js"></script>
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
   </body>
 </html>
+<?php include_once('inc/footer.php'); ?> 

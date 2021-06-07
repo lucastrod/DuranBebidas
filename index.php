@@ -242,6 +242,9 @@
 <?php if(!isset($_COOKIE['contador'])){?>
 <script type="text/javascript" src="js/validarEdad.js"></script> 
 <?php } ?>
+
+<div class="footer2" >
 <?php include_once('inc/footer.php'); ?>
+</div>
 
 
