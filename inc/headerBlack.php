@@ -146,8 +146,11 @@ if(isset($_POST['login'])){
   <!-- end header --> 
 
     <!-- Logo -->
+    <br>
+    <br>
       <div class="logoNegro"><a title="DuranBebidas"  href="index.php"><img styles="heigth:20px; display:flex;margin-top:10px;" alt="Duran" src="images/logonegro.png"></a></div>
-    
+    <br>
+    <br>
     <!-- End Logo -->
   
     <!-- Navbar -->
