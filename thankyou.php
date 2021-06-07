@@ -60,7 +60,9 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
     
   </head>
   <body>
-  <?php //infoVenta($id_Venta);//Enviar Mail aca  Nombre-Apellido-Direccion-Telefono-Envio \\  - 
+
+  <?php //infoVenta($id_Venta);//Enviar Mail aca  Nombre-Apellido-Direccion-Telefono-Envio \\  -
+   
  ?>
 
 
@@ -72,9 +74,19 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
         <div class="row">
           <div class="col-md-12 text-center">
             <span class="icon-check_circle display-3 text-success"></span>
+            <?php/*
+            $compra = new Compra($con);
+            foreach ($compra->getDetalleVenta(11) as $value) {
+              echo($value['nombre']);
+              echo'';
+
+            }
+             */?>
             <h2 class="display-3 text-black">Gracias!</h2>
             <p class="lead mb-5">Su pedido se completó correctamente..</p>
             <a href="productos.php"><button class="button login">Volver a la tienda</button></a>
+            <br>
+            <br>
           </div>
         </div>
       </div>
@@ -95,4 +107,4 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
     
   </body>
 </html>
-<?php include_once('inc/footerEspecial.php'); ?>
+<?php include_once('inc/footer.php'); ?>

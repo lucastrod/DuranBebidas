@@ -1010,13 +1010,28 @@ class Compra{
 
 	public function getCliente($venta){
 
-		$query = 'SELECT usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.direccion,usuarios.telefono
+		$query = 'SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.direccion,usuarios.telefono, usuarios.email
 		FROM ventas
 		INNER JOIN usuarios on (ventas.id_cliente = usuarios.id_usuario)
 		WHERE ventas.id_venta = '.$venta;
 
 		return $this->con->query($query);	
 	}
+
+	//Devuelve el objeto con los datos
+	public function getClienteComprador($venta){
+
+        $query = 'SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.direccion,usuarios.telefono,usuarios.email
+        FROM ventas
+        INNER JOIN usuarios on (ventas.id_cliente = usuarios.id_usuario)
+        WHERE ventas.id_venta = '.$venta;
+
+		$query = $this->con->query($query); 
+	
+        $usuario = $query->fetch(PDO::FETCH_OBJ);
+
+        return $usuario;
+    }
 }
 
 ?>
