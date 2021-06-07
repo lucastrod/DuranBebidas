@@ -19,13 +19,9 @@ if(!empty($_POST['email'])){
 
     $usuario = $user->getDatos($_POST["email"]);
 
-    $token = generarToken();
-
     if(($usuario->id_usuario) > 0){
 
-    $user->actualizarToken($usuario->id_usuario,$token);
-
-    $url = 'https://'.$_SERVER["SERVER_NAME"].'/DuranBebidas/DuranBebidas/recuperar.php?id='.$usuario->id_usuario.'&val='.$token;
+    $url = 'https://'.$_SERVER["SERVER_NAME"].'/DuranBebidas/DuranBebidas/recuperar.php?id='.$usuario->id_usuario.'&val='.$usuario->token;
 
     $asunto = 'Recuperar Password - Duran Bebidas';
 

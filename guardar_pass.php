@@ -14,6 +14,10 @@ if(isset($_POST['submit'])){
     if(isset($_POST['id_usuario']) && isset($_POST['token']) && isset($_POST['clave'])){
         $resp = $user->actualizarClave($_POST['id_usuario'],$_POST['token'], $_POST['clave']);
 
+        $token = generarToken();
+
+        $user->actualizarToken($_POST['id_usuario'],$token);
+
         if($resp){
             $mensaje = 'Se actualizó correctamente su clave';
         }
