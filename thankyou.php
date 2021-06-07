@@ -60,7 +60,16 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
     
   </head>
   <body>
-  <?php //infoVenta($id_Venta);//Enviar Mail aca  Nombre-Apellido-Direccion-Telefono-Envio \\  - 
+  <?php     
+  
+  $datosCliente = new Compra($con);
+
+  $algo = $datosCliente->getClienteComprador(10);
+  //Datos cliente
+  var_dump($algo->nombre);
+
+
+//infoVenta($id_Venta);//Enviar Mail aca  Nombre-Apellido-Direccion-Telefono-Envio \\  - 
  ?>
 
 

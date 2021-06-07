@@ -11,11 +11,16 @@ use PHPMailer\PHPMailer\Exception;
 
 function infoVenta($id_Venta){
 
-    $compra = new Compra($con);
+    $datosCliente = new Compra($con);
 
-    $compra->getDetalleVenta($id_Venta);
+    $datosCliente->getClienteComprador($id_Venta);
 
-    console.log($compra);
+    //Datos cliente
+    $datosCliente-> nombre;
+
+    echo($datosCliente->nombre);
+
+    //Datos Venta
 
      // HTML email starts here
    
