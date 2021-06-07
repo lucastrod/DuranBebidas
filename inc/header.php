@@ -121,7 +121,7 @@ if(isset($_POST['login'])){
                   if(!empty($_SESSION['usuario']['usuario']==='admin')){?>
      
                           <div class="welcome-msg hidden-xs"> Bienvenido!<?= $_SESSION["usuario"]["nombre"]; ?></div>
-                          <div class="login"><a href="ListProd.php"><span class="hidden-xs">Admin Panel</span></a></div>
+                          <div class="login"><a href="ListProd.php"><i class="fa fa-list-alt" style="display:flex;font-size:16.5px;justify-content:center; "></i></a></div>
                           <div class="login"><a href="logout.php"><i class="fa fa-sign-out" style="display:flex;font-size:16.5px;justify-content:center; "></i></a></div>   
                                          
                   <?php

@@ -60,7 +60,8 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
     
   </head>
   <body>
-  <?php //sendMail(); ?>
+  <?php //infoVenta($id_Venta);//Enviar Mail aca  Nombre-Apellido-Direccion-Telefono-Envio \\  - 
+ ?>
 
 
   <div class="site-wrap">

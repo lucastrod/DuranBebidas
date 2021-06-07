@@ -26,7 +26,7 @@ MercadoPago\SDK::setAccessToken('TEST-6760243392925397-042116-b5fa11a3fd3a9e2bb4
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 $preference->back_urls = array(
-    "success" => "https://localhost/DuranBebidas/DuranBebidas/thankyou.php",
+    "success" => "https://localhost/DuranBebidas/thankyou.php",
     "failure" => "https://localhost/DuranBebidas/errorPago.php?error=error",
     "pending" => "https://localhost/DuranBebidas/errorPago.php?error=pendiente"
 );
@@ -165,14 +165,9 @@ $preference->save();
                     </tbody>
                   </table>
 
-                  <!--<form action="pagar.php" method="post">
-                    <div class="form-group">
-                      <input type="hidden" class="form-control" id="importe" name="importe" placeholder="" value="<?php echo $subtotal;?>">
-                      <input type="submit" value="Pagar" class="btn btn-md btn-primary py-3 px-5" >
-                    </div>
-                </form>-->
                 <div class="form-group text-center " style="font-size:20px;">
                   <form action="DuranBebidas/thankyou.php" method="POST">
+                  
                     <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>">
                     </script>
                     

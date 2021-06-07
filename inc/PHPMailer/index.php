@@ -1,4 +1,5 @@
 <?php
+include_once('inc/headerBlack.php');
 require 'includes/PHPMailer.php';
 require 'includes/SMTP.php';
 require 'includes/Exception.php';
@@ -7,9 +8,14 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-//Traer array cuando este hecho 
 
-function sendMail(){
+function infoVenta($id_Venta){
+
+    $compra = new Compra($con);
+
+    $compra->getDetalleVenta($id_Venta);
+
+    console.log($compra);
 
      // HTML email starts here
    
