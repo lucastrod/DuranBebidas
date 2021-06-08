@@ -41,6 +41,14 @@
               </a>
               <?php }?>
 
+              <?php if(in_array('msj',$_SESSION['usuario']['secciones'])){?>
+              <a href="mensajes.php" class="bg-dark list-group-item list-group-item-action <?=isset($mensajesMenu)?'active':''?>">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="menu-collapsed" style="font-family:Montserrat">Mensajes</span>
+                </div>
+              </a>
+              <?php }?>
+
         </ul><!-- List Group END-->
     </div><!-- sidebar-container END -->
     

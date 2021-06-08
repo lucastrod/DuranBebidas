@@ -78,7 +78,7 @@ endif;
       
 
 	        
-        <div class="col-sm-9 col-md-10 main">
+        <div class="col-sm-12 col-md-12 main">
           
           <!--toggle sidebar button-->
 

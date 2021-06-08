@@ -1034,4 +1034,46 @@ class Compra{
     }
 }
 
+class Mensaje{
+
+	protected $con;
+	
+	public function __construct($con){
+		$this->con = $con;
+	}
+
+	public function getMensaje($mensaje){
+
+		$query = 'SELECT id_mensaje, titulo, subtitulo
+		FROM mensajes
+		WHERE id_mensaje = '.$mensaje;
+
+		$query = $this->con->query($query); 
+	
+		$mensaj = $query->fetch(PDO::FETCH_OBJ);
+
+		return $mensaj;	
+	}
+
+	public function getMensajes(){
+		$query = "SELECT id_mensaje, titulo, subtitulo 
+		           FROM mensajes";
+        return $this->con->query($query); 
+	}
+
+	public function editMensaje($data){
+	    $id = $data['id_mensaje'];
+        unset($data['id_mensaje']);
+		
+            foreach($data as $key => $value){
+                if($value != null){
+					$columns[]=$key." = '".$value."'";
+					$sql = "UPDATE mensajes SET ".implode(',',$columns)." WHERE id_mensaje = ".$id;
+            
+					$this->con->exec($sql);
+                }
+			}
+    }
+}
+
 ?>
