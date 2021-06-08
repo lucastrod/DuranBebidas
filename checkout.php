@@ -81,11 +81,11 @@ $preference->save();
               <div class="form-group row">
                 <div class="col-md-6">
                   <label for="c_fname" class="text-black">Nombre</label>
-                  <label for="c_lname" class="form-control"><?= $_SESSION['usuario']['nombre'];?></label>
+                  <label for="c_lname" class="form-control" disabled><?= $_SESSION['usuario']['nombre'];?></label>
                 </div>
                 <div class="col-md-6">
                   <label for="c_lname" class="text-black">Apellido</label>
-                  <label for="c_lname" class="form-control"><?= $_SESSION['usuario']['apellido'];?></label>
+                  <label for="c_lname" class="form-control" disabled><?= $_SESSION['usuario']['apellido'];?></label>
                 </div>
               </div>
 
@@ -100,12 +100,12 @@ $preference->save();
 
               <div class="form-group row mb-5">
                 <div class="col-md-6">
-                  <label for="c_email_address" class="text-black">Email</label>
-                  <label for="c_lname" class="form-control"><?= $_SESSION['usuario']['email'];?></label>
+                  <label for="c_email_address" class="text-black" >Email</label>
+                  <label for="c_lname" class="form-control" disabled><?= $_SESSION['usuario']['email'];?></label>
                 </div>
                 <div class="col-md-6">
-                  <label for="c_phone" class="text-black">Telefono</label>
-                  <label for="c_lname" class="form-control"><?= $_SESSION['usuario']['telefono'];?></label>
+                  <label for="c_phone" class="text-black" >Telefono</label>
+                  <label for="c_lname" class="form-control"disabled><?= $_SESSION['usuario']['telefono'];?></label>
                 </div>
               </div>
 
