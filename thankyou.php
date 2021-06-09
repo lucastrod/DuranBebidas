@@ -61,7 +61,21 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
   </head>
   <body>
 
-  <?php infoVenta(11);//Enviar Mail aca  Nombre-Apellido-Direccion-Telefono-Envio \\  -
+  <?php
+
+  $datosCliente = new Compra($con);
+
+  $datos = $datosCliente->getClienteComprador(10);
+  
+
+$productos = array();
+
+  foreach ($datosCliente->getDetalleVenta(10) as $key => $value) {
+    $productos [$key] =['nombre'=>$value["nombre"],'cantidad'=>$value["cantidad"]];
+  }
+
+  infoVenta($datos,$productos) ;//Enviar Mail aca  Nombre-Apellido-Direccion-Telefono-Envio \\  -
+
    
  ?>
 

@@ -9,15 +9,15 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 
-function infoVenta($id_Venta){
+function infoVenta($datos,$productos){
 
-    $datosCliente = new Compra($con);
-    $datosCliente->getClienteComprador($id_Venta);
+
+foreach ($productos as $key => $value) {
+    echo $productos [$key]['nombre'];
+    echo $productos [$key]['cantidad'];
+}
 
     //Datos cliente
-    $datosCliente-> nombre;
-
-    echo($datosCliente-> nombre);
     //Datos Venta
     
 
@@ -77,7 +77,27 @@ function infoVenta($id_Venta){
   
   // HTML email ends here
 
-    $mail = new PHPMailer();
+  $mail = new PHPMailer();
+  $mail->isSMTP();
+  $mail->SMTPAuth = true;
+  $mail->SMTPSecure = 'tls';
+  $mail->Host = 'smtp.gmail.com';
+  $mail->Port = "587";
+  $mail->Username = "santiago.linares@davinci.edu.ar";
+  $mail->Password = "34585070";
+  $mail->setFrom("santiago.linares@davinci.edu.ar", 'Sistema de Usuarios');
+  $mail->addAddress('santiagolinares89@gmail.com','Santiago');
+  $mail->Subject = "Pedido Confirmado N#";
+  $mail->Body = $message;
+  $mail->isHTML(true);
+
+  /*if($mail->send())
+  return true;
+  else
+  return false;*/
+
+
+  /*  $mail = new PHPMailer();
     $mail->isSMTP();
     $mail->isHTML(true);
     $mail->Host = "smtp.gmail.com";
@@ -95,7 +115,7 @@ function infoVenta($id_Venta){
         echo "Email sent!";
     }else{
         echo "Fracasó todo";
-    } */
+    } 
 
     try {
         $mail->Send();
@@ -103,7 +123,7 @@ function infoVenta($id_Venta){
         console.log($th) ;
     }
     
-    $mail->smtpClose();
+    $mail->smtpClose();*/
 
     
 
