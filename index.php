@@ -181,9 +181,7 @@
 
 									
 									style="z-index: 7; white-space: nowrap;">Lorem ipsum dolor sit amet, consectetur </div>
-            </li>
-
-            
+            </li>   
           </ul>
           <div class="tp-static-layers"></div>
           <div class="tp-bannertimer" style="height: 7px; background-color: rgba(255, 255, 255, 0.25);"></div>
