@@ -18,8 +18,13 @@ foreach ($productos as $key => $value) {
 }
 
     //Datos cliente
-
     //Datos Venta
+    
+
+   /*   $query = 'SELECT detalle_venta.id_venta, detalle_venta.id_producto, productos.nombre, productos.descripcion, detalle_venta.cantidad
+		FROM detalle_venta
+		INNER JOIN productos on (detalle_venta.id_producto = productos.producto_id)
+		WHERE detalle_venta.id_venta = '.$venta; */
 
      // HTML email starts here
    
@@ -40,13 +45,26 @@ foreach ($productos as $key => $value) {
   $message .= "<tbody>
      <tr>
       <td colspan='4' style='padding:15px;'>
-       <p style='font-size:20px;'>Pedido N# </p>
+       <p style='font-size:20px;'>Pedido N#: $id_Venta </p>
        <hr />
        <p style='font-size:25px;'>El pedido realizado fue el siguiente :</p>
-       <img src='https://4.bp.blogspot.com/-rt_1MYMOzTs/VrXIUlYgaqI/AAAAAAAAAaI/c0zaPtl060I/s1600/Image-Upload-Insert-Update-Delete-PHP-MySQL.png' alt='Sending HTML eMail using PHPMailer in PHP' title='Sending HTML eMail using PHPMailer in PHP' style='height:auto; width:100%; max-width:100%;' />
-       <p style='font-size:15px; font-family:Verdana, Geneva, sans-serif;'>Atte Pegasus</p>
       </td>
      </tr>
+     <tr>
+        <td>Producto</td>
+        <td>Cantidad</td>
+     </tr>
+     <tr>
+     <td colspan='4' style='padding:15px;'>
+      <p style='font-size:20px;'>Pedido N# </p>
+      <hr />
+      <p style='font-size:25px;'>Datos del cliente:</p>
+     </td>
+     <td>Nombre:$datosCliente-> nombre; Apellido:$datosCliente-> apellido;</td>
+     <td>Direccion:$datosCliente-> direccion;</td>
+     <td>Telefono:$datosCliente-> telefono;</td>
+     <td>Email:$datosCliente-> email;</td>
+    </tr>
      
      </tbody>";
    
