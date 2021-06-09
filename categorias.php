@@ -22,7 +22,7 @@ if(isset($_GET['del'])){
 
 <div class="container-fluid">
               
-        <div class="col-sm-9 col-md-10 main">
+        <div class="col-sm-12 col-md-12 main">
           
           <!--toggle sidebar button-->
           
@@ -58,8 +58,8 @@ if(isset($_GET['del'])){
 				  <thead>
 					<tr  class="bg-dark" style="font-family:Arial;background-color:#A98307;">
                       <th style="width:20%;color:rgb(243, 234, 234);" class="">Categoria</th>
-                      <th style="width:50%;color:rgb(243, 234, 234);" class="">Subcategorias</th>
-                      <th class=" pl-0 pr-5" style="color:rgb(243, 234, 234);padding-left:30px;width:12%">Activo</th>
+                      <th style="width:55%;color:rgb(243, 234, 234);" class="">Subcategorias</th>
+                      <th class=" pl-0 pr-5" style="color:rgb(243, 234, 234);padding-left:30px;width:15%">Activo</th>
                       <th style="color:rgb(243, 234, 234);">Acciones</th>
 					</tr>
 				  </thead>

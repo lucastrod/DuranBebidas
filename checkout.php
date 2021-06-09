@@ -94,7 +94,7 @@ $preference->save();
                   <label for="c_address" class="text-black">Dirección de Envío</label>
                   <label for="c_lname" class="form-control"><?= $_SESSION['usuario']['direccion'];?></label>
                   <span class="text-danger">* Puede modificar la dirección de envío</span>
-                  <a title="Cambiar" href="javascript:void(null)"><img alt="Cambiar" src="images/lapiz.png" width="10" height="20" onClick="cambiar(<?php echo $_SESSION['usuario']['id_usuario']?>, '<?php echo $_SESSION['usuario']['direccion'] ?>');"></a>
+                  <a title="Cambiar" href="javascript:void(null)"><img alt="Cambiar" src="images/lapiz.png" width="10" height="20" onClick="cambiar(<?php echo $_SESSION['usuario']['id_usuario']?>, '<?= !empty($_SESSION['usuario']['direccion'])?$_SESSION['usuario']['direccion']:'Sin datos'; ?>');"></a>
                 </div>
               </div>
 

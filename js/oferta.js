@@ -20,7 +20,7 @@ $('input[type=checkbox]').on('change', function() {
         input: 'text',
         showConfirmButton: true,
 		showCancelButton: true,
-        customClass:'modal',
+        customClass:'modal2',
         cancelButtonColor:'red',
         confirmButtonColor:'green',
         confirmButtonText:'Confirmar',
@@ -36,7 +36,7 @@ $('input[type=checkbox]').on('change', function() {
   				text: 'Debe colocar un precio válido',
 				showConfirmButton: false,
        			timer: 1500,
-                customClass:'modal'
+                customClass:'modal2'
 				});
 				setTimeout("location.href='ListProd.php'",2000);
 			}
@@ -61,7 +61,7 @@ $('input[type=checkbox]').on('change', function() {
        		title: 'Oferta Agregada',
        		showConfirmButton: false,
        		timer: 1500,
-            customClass:'modal'
+            customClass:'modal2'
         	});
 			setTimeout("location.href='ListProd.php'",2100);
     		}
@@ -74,7 +74,7 @@ $('input[type=checkbox]').on('change', function() {
   				text: 'Precio de Oferta Mayor al Original',
 				showConfirmButton: false,
        			timer: 2500,
-                customClass:'modal'   
+                customClass:'modal2'   
 				});
 				setTimeout("location.href='ListProd.php'",2700);
 			}
@@ -99,7 +99,7 @@ $('input[type=checkbox]').on('change', function() {
        	title: 'Oferta Eliminada',
        	showConfirmButton: false,
        	timer: 1500,
-        customClass:'modal'
+        customClass:'modal2'
         });
 			setTimeout("location.href='ListProd.php'",2100);
     	}
@@ -115,7 +115,7 @@ $('input[type=checkbox]').on('change', function() {
         showConfirmButton: true,
 		showCancelButton: true,
         inputValue:precio_oferta,
-        customClass:'modal',
+        customClass:'modal2',
         cancelButtonColor:'red',
         confirmButtonColor:'green',
         confirmButtonText:'Confirmar',
@@ -131,7 +131,7 @@ $('input[type=checkbox]').on('change', function() {
   				text: 'Debe colocar un precio válido',
 				showConfirmButton: false,
        			timer: 1500,
-                customClass:'modal'
+                customClass:'modal2'
 				});
 			}
 		}
@@ -153,7 +153,7 @@ $('input[type=checkbox]').on('change', function() {
        		title: 'Oferta Editada',
        		showConfirmButton: false,
        		timer: 1500,
-            customClass:'modal'
+            customClass:'modal2'
         	});
             setTimeout("location.href='ListProd.php'",1500);
     		}
@@ -166,7 +166,7 @@ $('input[type=checkbox]').on('change', function() {
   				text: 'Precio de Oferta Mayor al Original',
 				showConfirmButton: false,
        			timer: 2500,
-                customClass:'modal'
+                customClass:'modal2'
 				});
 			}
 		}

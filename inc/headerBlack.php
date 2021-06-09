@@ -240,7 +240,7 @@ if(isset($_POST['login'])){
               <ul class="level1" style="display: none;">
                 <li class="level1 first"> <a href="productos.php?cat=40"> <span>Alimentos</span> </a> </li>
               </ul></li>
-            <li class="level0 parent drop-menu px3"><a style="color: #000" href="productos.php?ofertas=1" class="level-top"><span>Ofertas</span></a></li>
+            <li class="level0 parent drop-menu px3"><a style="color: #000" href="productos.php?oferta=1" class="level-top"><span>Ofertas</span></a></li>
             </ul>
             
     

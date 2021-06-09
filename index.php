@@ -1,5 +1,6 @@
 <?php
   include_once('inc/header.php');
+  $mensajes = new Mensaje($con);
 ?>  
 
 <!-- Slider -->
@@ -16,6 +17,7 @@
               <!-- LAYERS --> 
               
               <!-- LAYER NR. 1 -->
+			  <?php $mensaje = $mensajes->getMensaje(1);?>
               <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
 									 id="slide-16-layer-1" 
 									 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -37,7 +39,7 @@
 
 									data-elementdelay="0.05" 
 									
-									style="z-index: 5; white-space: nowrap;">SEASON SALE</div>
+									style="z-index: 5; white-space: nowrap;"><?= $mensaje->titulo;?></div>
               
               <!-- LAYER NR. 2 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
@@ -59,7 +61,7 @@
 									data-responsive_offset="on" 
 
 									
-									style="z-index: 6; white-space: nowrap;">Superb ecommerce store is updated regularly with offers.</div>
+									style="z-index: 6; white-space: nowrap;"><?= $mensaje->subtitulo;?></div>
               
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0" 
@@ -117,11 +119,12 @@
               <!-- LAYERS --> 
               
               <!-- LAYER NR. 1 -->
+			  <?php $mensaje = $mensajes->getMensaje(2);?>
               <div class="tp-caption tp-shape tp-shapewrapper   tp-resizeme rs-parallaxlevel-0" 
 									 id="slide-18-layer-9" 
 									 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
 									 data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
-												data-width="600"
+									 data-width='100%'
 									data-height="155"
 									data-whitespace="nowrap"
 									data-transform_idle="o:1;"
@@ -158,7 +161,7 @@
 
 									data-elementdelay="0.05" 
 									
-									style="z-index: 6; white-space: nowrap;">HOLA </div>
+									style="z-index: 6; white-space: nowrap;"><?= $mensaje->titulo;?></div>
               
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
@@ -180,8 +183,10 @@
 									data-responsive_offset="on" 
 
 									
-									style="z-index: 7; white-space: nowrap;">Lorem ipsum dolor sit amet, consectetur </div>
-            </li>   
+									style="z-index: 7; white-space: nowrap;"><?= $mensaje->subtitulo;?> </div>
+            </li>
+
+            
           </ul>
           <div class="tp-static-layers"></div>
           <div class="tp-bannertimer" style="height: 7px; background-color: rgba(255, 255, 255, 0.25);"></div>
