@@ -63,7 +63,10 @@ $preference->save();
 
 
 ?>
-
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARQb7meO4fWMvsx9olNrIU3k5FYI-QHqU&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
   <div class="site-wrap">
     <div class="site-section">
       <div class="container">
@@ -109,6 +112,7 @@ $preference->save();
                 </div>
               </div>
 
+                                <!-- Convert Adress to Coord    -->
 
             </div>
           </div>
@@ -172,17 +176,18 @@ $preference->save();
                     
                   </form>
                 </div>
-                  <div class="form-group">
-                  <!--  <button class="btn btn-primary btn-lg py-3 btn-block" data-usu="<?php echo $_SESSION["usuario"] ["id_usuario"]?>" data-importe="<?php echo $subtotal?>" data-fecha="<?php echo date("Y-m-d");?>">Place Order</button>-->
-                  </div>
-
                 </div>
               </div>
             </div>
 
           </div>
         </div>
+
+        
         <!-- </form> -->
+
+        
+
       </div>
     </div>
 

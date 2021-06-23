@@ -5,7 +5,7 @@
         <div class="col-sm-12 col-xs-12 footer-logo"><img alt="Logo" src="images/logo1.png"></div> 
 
           <address>
-            <i class="fa fa-map-marker"></i>Paraguay 5261, Palermo <i class="fa fa-whatsapp"></i><span> +54 11 6846-3206</span> <i class="fa fa-envelope"></i><span> correo@correo.com</span>
+            <i class="fa fa-map-marker"></i>Paraguay 5261, Palermo <i class="fa fa-whatsapp"></i><span> +54 11 6846-3206</span> <i class="fa fa-envelope"></i><span> Duranalmacendebebidas@gmail.com</span>
           </address>
       </div>
     </div>

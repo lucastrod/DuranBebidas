@@ -61,22 +61,6 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
   </head>
   <body>
 
-  <?php
-
-    $datosCliente = new Compra($con);
-
-    $datos = $datosCliente->getClienteComprador($id_Venta);
-    
-    $productos = array();
-
-    foreach ($datosCliente->getDetalleVenta($id_Venta) as $key => $value) {
-      $productos [$key] =['nombre'=>$value["nombre"],'cantidad'=>$value["cantidad"]];
-    }
-
-    infoVenta($id_Venta,$datos,$productos);
-
- ?>
-
 
   <div class="site-wrap">
    
@@ -86,8 +70,8 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
         <div class="row">
           <div class="col-md-12 text-center">
             <span class="icon-check_circle display-3 text-success"></span>
-            <h2 class="display-3 text-black">Gracias!</h2>
-            <p class="lead mb-5">Su pedido se completó correctamente..</p>
+            <h2 class="display-3 text-black">Uy! Algo salió mal...</h2>
+            <p class="lead mb-5">Su pedido no ha podido procesarse correctamente..</p>
             <a href="productos.php"><button class="button login">Volver a la tienda</button></a>
             <br>
             <br>

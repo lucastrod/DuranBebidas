@@ -147,11 +147,10 @@
             <div class="block-title">Datos de contacto</div>
             <div class="block-content">
               <ol id="recently-viewed-items">
-                <li><span><i class="fa fa-whatsapp"></i>     WhatsApp</span>+5411999999999</li>
-                <li><span><i class="fa fa fa-phone"></i> Teléfono</span>+54119999999</li> 
-                <li><span><i class="fa fa-envelope"></i> Correo</span>correo@correo.com</li> 
-                <li><span><i class="fa fa-map-marker"></i> Ubicación</span>Calle Falsa 123, CABA</li> 
-                <li><span><i class="fa fa-clock-o"></i> Horarios</span>Lunes a Viernes 10:00hs a 18:00hs</li>
+                <li><span><i class="fa fa-whatsapp"></i>     WhatsApp</span><br>+54 11 6846-3206</li>
+                <li><span><i class="fa fa-envelope"></i> Correo</span><br>Duranalmacendebebidas@gmail.com</li> 
+                <li><span><i class="fa fa-map-marker"></i> Ubicación</span><br>Paraguay 5261, Palermo</li> 
+                <li><span><i class="fa fa-clock-o"></i> Horarios</span><br>Do a Mié 10:00 a 20:00<br>Jue a Sáb 10:00 - 00:00</li>
               </ol>
             </div>
           </div>
@@ -169,37 +168,6 @@
         <div id="brand-logo-slider" class="product-flexslider hidden-buttons">
           <div class="slider-items slider-width-col6"> 
             
-            <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo3.png" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
-            <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo2.png" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
-            <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo1.png" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
-            <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo4.png" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
-            <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo5.png" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
-            <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo6.png" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
-            <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo1.png" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
-            <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo4.png" alt="Image"></a> </div>
-            <!-- End Item --> 
             
           </div>
         </div>

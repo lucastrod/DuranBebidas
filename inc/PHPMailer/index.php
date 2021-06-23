@@ -9,73 +9,57 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 
-function infoVenta($datos,$productos){
+function infoVenta($id_Venta,$datos,$productos){
 
 
-foreach ($productos as $key => $value) {
-    echo $productos [$key]['nombre'];
-    echo $productos [$key]['cantidad'];
-}
+    //Datos Cliente
+    $datosCliente=$datos;
+    $nombre=$datosCliente-> nombre;
+    $telefono=$datosCliente-> telefono;
+    $email=$datosCliente-> email;
+    $direccion=$datosCliente-> direccion;
 
-    //Datos cliente
+
     //Datos Venta
     
+     $message = // contents of report in $message
+     "
+     <html>
+     <head></head>
+     <body>
+         <h3>Pedido N# $id_Venta</h3>
+         <hr />
+         <p>Datos del Cliente:</p>
+         <p>Nombre: $nombre</p>
+         <p>Telephone: $telefono</p>
+         <p>Email: $email</p>
+         <p>Direccion: $direccion</p>
+         <hr />    
+         <h3>El pedido contiene lo siguiente:</h3>    
+         <table name='contact_seller' style='border-collapse:collapse';> 
+             <thead>
+                 <tr>
+                     <th>Producto</th>
+                     <th></th>
+                     <th>Cantidad</th>
+                 </tr>    
+             </thead>
+             <tbody>";
+                 foreach($productos as $key => $value) { 
+                     $message .="<tr>
+                         <td>" .$productos[$key]['nombre'] ."</td>
+                         <td></td>
+                         <td>".$productos [$key]['cantidad']."</td>
+                     </tr>";
+                  } 
+             $message .= "</tbody>
+         </table>
+         <p>Recuerde confirmar el pedido en el Panel</p> 
+         <hr />
+         Cordialmente PegasusApp
+     </body>
+     </html>"; //end of $message
 
-   /*   $query = 'SELECT detalle_venta.id_venta, detalle_venta.id_producto, productos.nombre, productos.descripcion, detalle_venta.cantidad
-		FROM detalle_venta
-		INNER JOIN productos on (detalle_venta.id_producto = productos.producto_id)
-		WHERE detalle_venta.id_venta = '.$venta; */
-
-     // HTML email starts here
-   
-  $message  = "<html><body>";
-   
-  $message .= "<table width='100%' bgcolor='#e0e0e0' cellpadding='0' cellspacing='0' border='0'>";
-  
-  $message .= "<tr><td>";
-  
-  $message .= "<table align='center' width='100%' border='0' cellpadding='0' cellspacing='0' style='max-width:650px; background-color:#fff; font-family:Verdana, Geneva, sans-serif;'>";
-   
-  $message .= "<thead>
-     <tr height='80'>
-      <th colspan='4' style='background-color:#f5f5f5; border-bottom:solid 1px #bdbdbd; font-family:Verdana, Geneva, sans-serif; color:#333; font-size:34px;' >Duran Bebidas</th>
-     </tr>
-     </thead>";
-   
-  $message .= "<tbody>
-     <tr>
-      <td colspan='4' style='padding:15px;'>
-       <p style='font-size:20px;'>Pedido N#: $id_Venta </p>
-       <hr />
-       <p style='font-size:25px;'>El pedido realizado fue el siguiente :</p>
-      </td>
-     </tr>
-     <tr>
-        <td>Producto</td>
-        <td>Cantidad</td>
-     </tr>
-     <tr>
-     <td colspan='4' style='padding:15px;'>
-      <p style='font-size:20px;'>Pedido N# </p>
-      <hr />
-      <p style='font-size:25px;'>Datos del cliente:</p>
-     </td>
-     <td>Nombre:$datosCliente-> nombre; Apellido:$datosCliente-> apellido;</td>
-     <td>Direccion:$datosCliente-> direccion;</td>
-     <td>Telefono:$datosCliente-> telefono;</td>
-     <td>Email:$datosCliente-> email;</td>
-    </tr>
-     
-     </tbody>";
-   
-  $message .= "</table>";
-  
-  $message .= "</td></tr>";
-  $message .= "</table>";
-  
-  $message .= "</body></html>";
-  
-  // HTML email ends here
 
   $mail = new PHPMailer();
   $mail->isSMTP();
@@ -83,49 +67,18 @@ foreach ($productos as $key => $value) {
   $mail->SMTPSecure = 'tls';
   $mail->Host = 'smtp.gmail.com';
   $mail->Port = "587";
-  $mail->Username = "santiago.linares@davinci.edu.ar";
-  $mail->Password = "34585070";
-  $mail->setFrom("santiago.linares@davinci.edu.ar", 'Sistema de Usuarios');
-  $mail->addAddress('santiagolinares89@gmail.com','Santiago');
-  $mail->Subject = "Pedido Confirmado N#";
+  $mail->Username = "lucas.castro45@davinci.edu.ar";
+  $mail->Password = "39464303";
+  $mail->setFrom("lucas.castro45@davinci.edu.ar", 'Nuevo Pedido');
+  $mail->addAddress('lucasderiver@gmail.com','Santiago');
+  $mail->Subject = "Pedido Confirmado N# ".$id_Venta;
   $mail->Body = $message;
   $mail->isHTML(true);
 
-  /*if($mail->send())
+  if($mail->send())
   return true;
   else
-  return false;*/
-
-
-  /*  $mail = new PHPMailer();
-    $mail->isSMTP();
-    $mail->isHTML(true);
-    $mail->Host = "smtp.gmail.com";
-    $mail->SMTPAuth = "true";
-    $mail->SMTPSecure = "tls";
-    $mail->Port = "587";
-    $mail->Username = "lucas.castro45@davinci.edu.ar";
-    $mail->Password = "39464303";
-    $mail->Subject = "Pedido Confirmado N#";
-    //$mail->setFrom("Duranalmacendebebidas@gmail.com");
-    //$mail->addAddress("Duranalmacendebebidas@gmail.com");
-    $mail->Body = $message;
-    
-/*     if( $mail->Send() ) {
-        echo "Email sent!";
-    }else{
-        echo "Fracasó todo";
-    } 
-
-    try {
-        $mail->Send();
-    } catch (\Throwable $th) {
-        console.log($th) ;
-    }
-    
-    $mail->smtpClose();*/
-
-    
+  return false;
 
 }
 
