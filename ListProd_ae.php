@@ -83,9 +83,9 @@ include_once('funciones.php');
                     </div>
                 </div> 
                  <div class="form-group col-md-6">
-                    <label for="apellido" class="col-md-12 control-label  text-center" style="color:rgb(243, 234, 234);font-family:Arial;font-size:17px;">Stock</label>
+                    <label for="stock" class="col-md-12 control-label  text-center" style="color:rgb(243, 234, 234);font-family:Arial;font-size:17px;">Stock</label>
                      <div class="col-md-12">
-                        <input type="text" class="form-control" id="apellido" name="stock" placeholder="" value="<?=isset($producto->stock)?utf8_encode($producto->stock):'';?>" required>
+                        <input type="number" class="form-control" id="stock" name="stock" placeholder="" value="<?=isset($producto->stock)?utf8_encode($producto->stock):'';?>" required>
                     </div>
                 </div> 
 
@@ -94,9 +94,9 @@ include_once('funciones.php');
              <div class="row" style="margin:15px;">
 
                  <div class="form-group col-md-6">
-                    <label for="producto" class="col-md-12 control-label text-center" style="color:rgb(243, 234, 234);font-family:Arial;font-size:17px;">Precio</label>
+                    <label for="precio" class="col-md-12 control-label text-center" style="color:rgb(243, 234, 234);font-family:Arial;font-size:17px;">Precio</label>
                      <div class="col-md-12">
-                        <input type="text" class="form-control" id="usuario" name="precio" placeholder="" value="<?=isset($producto->precio)?$producto->precio:'';?>" required>
+                        <input type="number" class="form-control" id="precio" name="precio" placeholder="" value="<?=isset($producto->precio)?$producto->precio:'';?>" required>
                     </div>
                 </div> 
              </div>
