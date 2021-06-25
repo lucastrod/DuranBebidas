@@ -2,7 +2,7 @@
 
 session_start();
 
-$costoEnvio = 1000;
+$costoEnvio = $_SESSION["envio"];
 $total = 0;
 $arrayRet= array(
     "envio"=>$costoEnvio,
@@ -27,9 +27,6 @@ if(isset($_SESSION['carrito'])){
     }
     $arrayRet['total'] = $total + $arrayRet['envio'];
     
-}
-else{
-echo 0;
 }
 
 echo json_encode($arrayRet);

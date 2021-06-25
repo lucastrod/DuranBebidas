@@ -167,48 +167,7 @@ else{
         </div>
         
        
-        <!-- <div class="row">
-          <div class="col-md-6 pl-5">
-            <div class="row justify-content-end">
-              <div class="col-md-7">
-                <div class="row">
-                  <div class="col-md-12 text-right border-bottom mb-5">
-                    <h3 class="text-black h4 text-uppercase">Resumen de Compra</h3>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-md-6">            
-                    <span class="text">Subtotal</span>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <strong class="text">$<span id="subtotal"></span></strong>
-                  </div>
-                </div>
-                <div class="row mb-3" style="font-size: 15px;">
-                  <div class="col-md-6">
-                    <span class="text">Descuento</span>
-                  </div>
-                  <div class="col-md-6 text-right" >
-                    <strong class="text">$<?php echo $descuento;?></strong>
-                  </div>
-                </div> 
-                <div class="row mb-5" style="font-size: 20px;">
-                  <div class="col-md-6">
-                    <span class="text-black">Total</span>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <strong class="text-black">$ <span id="total"></span></strong>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary btn-lg py-3 btn-block">Ir a Comprar</button>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>-->
+      
           
                 <div class="row" style="padding-bottom:25px;">
                 <?php if (!empty($_GET['login'])){?>

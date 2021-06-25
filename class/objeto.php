@@ -1076,4 +1076,61 @@ class Mensaje{
     }
 }
 
+class Envio{
+
+	protected $con;
+	
+	public function __construct($con){
+		$this->con = $con;
+	}
+
+	public function getPrecio(){
+
+		$query = 'SELECT id_envio, precio
+		FROM envio';
+
+		$query = $this->con->query($query); 
+
+		return $query;	
+	}
+
+	public function Precio(){
+
+		$query = 'SELECT id_envio, precio
+		FROM envio';
+
+		$query = $this->con->query($query); 
+		$costo = $query->fetch(PDO::FETCH_OBJ);
+
+		return $costo->precio;	
+	}
+
+	public function getEnvio($envio){
+
+		$query = 'SELECT id_envio, precio
+		FROM envio
+		WHERE id_envio = '.$envio;
+
+		$query = $this->con->query($query); 
+	
+		$costo = $query->fetch(PDO::FETCH_OBJ);
+
+		return $costo;	
+	}
+
+	public function editCosto($data){
+	    $id = $data['id_envio'];
+        unset($data['id_envio']);
+		
+            foreach($data as $key => $value){
+                if($value != null){
+					$columns[]=$key." = '".$value."'";
+					$sql = "UPDATE envio SET ".implode(',',$columns)." WHERE id_envio = ".$id;
+            
+					$this->con->exec($sql);
+                }
+			}
+    }
+}
+
 ?>

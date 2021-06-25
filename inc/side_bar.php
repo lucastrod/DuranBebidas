@@ -49,6 +49,14 @@
               </a>
               <?php }?>
 
+              <?php if(in_array('env',$_SESSION['usuario']['secciones'])){?>
+              <a href="envios.php" class="bg-dark list-group-item list-group-item-action <?=isset($enviosMenu)?'active':''?>">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="menu-collapsed" style="font-family:Montserrat">Envio</span>
+                </div>
+              </a>
+              <?php }?>
+
         </ul><!-- List Group END-->
     </div><!-- sidebar-container END -->
     
