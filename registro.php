@@ -7,7 +7,7 @@ $error = '';
 $mensaje= '';
     if(isset($_POST['submit'])){
 
-if(empty($_POST["clave"]) || empty($_POST["email"]) || empty($_POST["usuario"]) || empty($_POST["nombre"]) || empty($_POST["apellido"]) || empty($_POST["direccion"]) || empty($_POST["telefono"]) || empty($_POST["confirmar_clave"])){
+if(empty($_POST["clave"]) || empty($_POST["email"]) || empty($_POST["usuario"]) || empty($_POST["nombre"]) || empty($_POST["apellido"]) || empty($_POST["calle"]) || empty($_POST["numero"])|| empty($_POST["telefono"]) || empty($_POST["confirmar_clave"])){
         $error .= 'datos ';
 }
 
@@ -36,8 +36,10 @@ if(empty($_POST["clave"]) || empty($_POST["email"]) || empty($_POST["usuario"]) 
     $usuario = $_POST['usuario'];
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
-    $direccion = $_POST["direccion"];
+    $calle = $_POST["calle"];
+    $numero = $_POST["numero"];
     $telefono = $_POST["telefono"];
+    $pisto_depto = !empty($_POST["piso_departamento"])?$_POST["piso_departamento"]:'';
 
     $token = generarToken();
 
@@ -47,7 +49,9 @@ if(empty($_POST["clave"]) || empty($_POST["email"]) || empty($_POST["usuario"]) 
         'usuario'=> $usuario,
         'nombre'=> $nombre,
         'apellido'=> $apellido,
-        'direccion'=> $direccion,
+        'calle'=> $calle,
+        'numero'=> $numero,
+        'piso_departamento'=> $pisto_depto,
         'telefono'=> $telefono,
         'token'=> $token,
         'salt'=>''
@@ -183,20 +187,37 @@ else{?>
 
              <div class="row" style="margin:15px;">
                  <div class="col-md-2"></div>
-                 <div class="form-group col-md-5">
-                    <label for="password" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Dirección</label>
+                 <div class="form-group col-md-3">
+                    <label for="password" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Calle</label>
                      <div class="col-md-12">
-                        <input type="text" class="form-control text-center" id="direccion" name="direccion" placeholder="Ej: Paraguay 5261" value="" required>
+                        <input type="text" class="form-control text-center" id="calle" name="calle" placeholder="Ej: Paraguay" value="" required>
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="password" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Numero de Puerta</label>
+                     <div class="col-md-12">
+                        <input type="number" class="form-control text-center" id="numero" name="numero" placeholder="Ej: 5261" value="" required>
                     </div>
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="telefono" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Telefono</label>
+                    <label for="password" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Piso/Departamento</label>
                      <div class="col-md-12">
-                        <input type="number" class="form-control text-center" id="telefono" name="telefono" placeholder="Ingrese su Telefono" value="" required>
+                        <input type="text" class="form-control text-center" id="piso_departamento" name="piso_departamento" placeholder="Ej: PB, Piso 4 depto C" value="">
                     </div>
                 </div>
-                <div class="col-md-2"></div> 
+                
+                <div class="col-md-2"></div>
+                <div class="row" style="margin:15px;">
+                <div class="col-md-2"></div>
+                        <div class="form-group col-md-3">
+                            <label for="telefono" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Telefono</label>
+                            <div class="col-md-12">
+                                <input type="number" class="form-control text-center" id="telefono" name="telefono" placeholder="Ingrese su Telefono" value="" required>
+                            </div>
+                        </div>
+                </div> 
              </div>
+             
                 <div class="form-group text-center pt-3" style="margin:15px;">
                     <div class="col-md-12" style="margin:15px;">
                     <?php if(strpos($error, 'datos') !== false){ ?>

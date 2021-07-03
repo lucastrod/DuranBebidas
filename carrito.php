@@ -96,6 +96,100 @@ else{
     }
 }
 
+if(!empty($_SESSION["usuario"])){
+  $direccion = $user->GetDireccion($_SESSION["usuario"]['id_usuario']);
+  $direccion.=', CABA';
+  ?>
+  <label for=""><strong>Request</strong></label>
+  <br>
+  <span id="dir"  data-id="<?=$direccion?>"></span>
+  <br>
+  <label for=""><strong>Response</strong></label>
+  <br>
+  <span id="res"></span>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+var direccion = $('#dir').data('id');
+   
+initMap(direccion);
+
+  function initMap(direccion) {
+    
+    const bounds = new google.maps.LatLngBounds();
+    
+    // initialize services
+    const geocoder = new google.maps.Geocoder();
+    const service = new google.maps.DistanceMatrixService();
+    // Datos del cliente
+    const origin1 = {
+      lat: -34.57882308284431,
+      lng: -58.431455779050324
+    };
+   
+    const destinationB = direccion;
+   
+    const request = {
+      origins: [origin1],
+      destinations: [ destinationB],
+      travelMode: google.maps.TravelMode.DRIVING,
+      unitSystem: google.maps.UnitSystem.METRIC,
+      avoidHighways: false,
+      avoidTolls: false,
+    };
+        
+    // put request on page
+    document.getElementById("dir").innerText = JSON.stringify(
+      request,
+      null,
+      2
+    );
+    // get distance matrix response
+    service.getDistanceMatrix(request).then((response) => {
+      // put response
+      document.getElementById("res").innerText = JSON.stringify(
+        response,
+        null,
+        2
+      );
+     
+    });
+  }
+
+  //setInterval(initMap, 0);
+
+  function getCostoEnvio(km){
+
+      if (km<3) {
+        //$200
+      }
+
+      if (km>3 && km<6) {
+        //$400
+      } 
+
+      if (km>6 && km<10) {
+        //$600
+      } 
+
+  }
+});
+
+</script>
+
+<?php
+  //var_dump($km);
+  
+  $envio = new Envio($con);
+  $_SESSION["envio"] = $envio->Precio();
+  }
+  else{
+    $_SESSION["envio"] = 0;
+  }
+
 ?>
 
 <div class="site-wrap">
@@ -219,5 +313,6 @@ else{
   <script src="js/actualizarEnvio.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="js/validarLogin.js"></script>
+
 
 

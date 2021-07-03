@@ -25,13 +25,14 @@ if(isset($_POST['login'])){
   }
 }
 
-if(!empty($_SESSION["usuario"])){
+/*if(!empty($_SESSION["usuario"])){
   $envio = new Envio($con);
   $_SESSION["envio"] = $envio->Precio();
   }
   else{
     $_SESSION["envio"] = 0;
-  }
+  }*/
+
 ?>
 <head>
     <meta charset="UTF-8">
@@ -66,66 +67,9 @@ if(!empty($_SESSION["usuario"])){
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,600,600italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css"> 
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
-  <script>
-    function initMap(dir) {
-
-    const bounds = new google.maps.LatLngBounds();
     
-    // initialize services
-    const geocoder = new google.maps.Geocoder();
-    const service = new google.maps.DistanceMatrixService();
-    // Datos del cliente
-    const origin1 = {
-      lat: -34.57882308284431,
-      lng: -58.431455779050324
-    };
-    
-    const destinationB = dir;
 
-    const request = {
-      origins: [origin1],
-      destinations: [ destinationB],
-      travelMode: google.maps.TravelMode.DRIVING,
-      unitSystem: google.maps.UnitSystem.METRIC,
-      avoidHighways: false,
-      avoidTolls: false,
-    };
-    // put request on page
-    document.getElementById("request").innerText = JSON.stringify(
-      request,
-      null,
-      2
-    );
-    // get distance matrix response
-    service.getDistanceMatrix(request).then((response) => {
-      // put response
-      document.getElementById("response").innerText = JSON.stringify(
-        response,
-        null,
-        2
-      );
-      
-    });
-  }
-
-  function getCostoEnvio(km){
-
-      if (km<3) {
-        //$200
-      }
-
-      if (km>3 && km<6) {
-        //$400
-      } 
-
-      if (km>6 && km<10) {
-        //$600
-      } 
-
-  }
-  </script>
+  
   </head>
 
 <body class="cms-index-index index">
@@ -327,4 +271,9 @@ if(!empty($_SESSION["usuario"])){
 
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="js/iconoCarrito.js"></script>
-
+<script type="text/javascript" src="js/calcularEnvio.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=&v=weekly"
+  async>
+</script>

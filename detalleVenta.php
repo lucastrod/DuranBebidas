@@ -77,7 +77,7 @@ $compra = new Compra($con);
                               <td><?= utf8_decode(utf8_encode($client['nombre']));?></td>
 							  <td style="width:40%;word-wrap: break-word;"><?= utf8_decode(utf8_encode($client['apellido']));?></td>
                               <td class=""><?= utf8_decode(utf8_encode($client['usuario']));?></td>
-                              <td class=""><?= utf8_decode(utf8_encode($client['direccion']));?></td>
+                              <td class=""><?= utf8_decode(utf8_encode($client['calle']));?></td>
 							  <td class=""><?= utf8_decode(utf8_encode($client['telefono']));?></td>
 						    </tr>
 						<?php }?>                

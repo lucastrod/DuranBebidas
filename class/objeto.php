@@ -37,7 +37,7 @@ Class Usuario{
 	* obtengo un usuario
 	*/
 	public function get($id){
-	    $query = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,telefono,direccion
+	    $query = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,telefono, calle, numero, piso_departamento
 		           FROM usuarios WHERE id_usuario = ".$id;
         $query = $this->con->query($query); 
 			
@@ -57,7 +57,7 @@ Class Usuario{
 
 	public function getDatos($email){
 
-	    $query = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,telefono,token,direccion
+	    $query = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,telefono,token,calle, numero, piso_departamento
 		           FROM usuarios WHERE email = "."'$email'";
 		
         $query = $this->con->query($query); 
@@ -197,7 +197,7 @@ Class Usuario{
 
 			
 
-            $sql = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,direccion,telefono
+            $sql = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,calle,telefono, numero, piso_departamento
 		           FROM usuarios WHERE activo = 1 AND email = '".$data['email']."'";
 			$datos = $this->con->query($sql)->fetch(PDO::FETCH_ASSOC);
  			if(isset($datos['id_usuario'])){
@@ -227,7 +227,7 @@ Class Usuario{
 
 		public function consultarExiste($data){
 
-            $sql = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,direccion
+            $sql = "SELECT id_usuario,nombre,apellido,email,usuario,clave,activo,salt,calle, numero, piso_departamento
 		           FROM usuarios WHERE activo = 0 AND email = '".$data['email']."'";
 			$datos = $this->con->query($sql)->fetch(PDO::FETCH_ASSOC);
  			if(isset($datos['id_usuario'])){
@@ -254,10 +254,18 @@ Class Usuario{
 			return false;
 		}
 
-		public function actualizarDireccion($id,$direccion){
+		public function actualizarDireccion($datos){
        
-			$sql = 'UPDATE usuarios SET direccion="'.$direccion.'" WHERE id_usuario = '.$id;
-			$this->con->exec($sql);	
+			$id = $data['id_usuario'];
+			unset($data['id_usuario']);
+			
+				foreach($data as $key => $value){
+					if($value != null){
+						$columns[]=$key." = '".$value."'";
+						$sql = "UPDATE usuarios SET ".implode(',',$columns)." WHERE id_usuario = ".$id;
+						$this->con->exec($sql);
+					}
+				}	
 		}
 		
 		public function activarUsuario($data){
@@ -272,6 +280,23 @@ Class Usuario{
 						$this->con->exec($sql);
 					}
 				}
+		}
+
+		public function GetDireccion($id){
+
+			
+			$query = 'SELECT calle as Calle, numero as Numero FROM usuarios WHERE id_usuario = '.$id;
+
+		
+			$consulta = $this->con->query($query)->fetch(PDO::FETCH_ASSOC);
+	
+			$resp = '';
+
+			$resp .= $consulta['Calle'].' ';
+
+			$resp .= $consulta['Numero'];
+
+			return $resp;
 		}
 
 		public function validarDatos($email,$usuario){
@@ -1010,7 +1035,7 @@ class Compra{
 
 	public function getCliente($venta){
 
-		$query = 'SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.direccion,usuarios.telefono, usuarios.email
+		$query = 'SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.calle,usuarios.telefono, usuarios.email
 		FROM ventas
 		INNER JOIN usuarios on (ventas.id_cliente = usuarios.id_usuario)
 		WHERE ventas.id_venta = '.$venta;
@@ -1021,7 +1046,7 @@ class Compra{
 	//Devuelve el objeto con los datos
 	public function getClienteComprador($venta){
 
-        $query = 'SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.direccion,usuarios.telefono,usuarios.email
+        $query = 'SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.calle,usuarios.telefono,usuarios.email
         FROM ventas
         INNER JOIN usuarios on (ventas.id_cliente = usuarios.id_usuario)
         WHERE ventas.id_venta = '.$venta;

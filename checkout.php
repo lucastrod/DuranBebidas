@@ -12,7 +12,7 @@ if(!isset($_SESSION['usuario'])){
 }
 include_once('inc/headerBlack.php');
 
-$user->actualizarDireccion($_SESSION['usuario']['id_usuario'], $_SESSION['usuario']['direccion']);
+//$user->actualizarDireccion($_SESSION['usuario']);
 
 $array = $_SESSION['carrito'];
 
@@ -94,10 +94,22 @@ $preference->save();
 
               <div class="form-group row">
                 <div class="col-md-12">
-                  <label for="c_address" class="text-black">Dirección de Envío</label>
-                  <label for="c_lname" class="form-control"><?= $_SESSION['usuario']['direccion'];?></label>
+                  <div class="form-group row">
+                    <div class="col-md-4">
+                      <label for="c_fname" class="text-black">Calle</label>
+                      <label for="c_lname" class="form-control"><?= $_SESSION['usuario']['calle'];?></label>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="c_lname" class="text-black">Numero</label>
+                      <label for="c_lname" class="form-control"><?= $_SESSION['usuario']['numero'];?></label>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="c_lname" class="text-black">Piso/Departamento</label>
+                      <label for="c_lname" class="form-control"><?= $_SESSION['usuario']['piso_departamento'];?></label>
+                    </div>
+                </div>
                   <span class="text-danger">* Puede modificar la dirección de envío</span>
-                  <a title="Cambiar" href="javascript:void(null)"><img alt="Cambiar" src="images/lapiz.png" width="10" height="20" onClick="cambiar(<?php echo $_SESSION['usuario']['id_usuario']?>, '<?= !empty($_SESSION['usuario']['direccion'])?$_SESSION['usuario']['direccion']:'Sin datos'; ?>');"></a>
+                  <a title="Cambiar" href="javascript:void(null)"><img alt="Cambiar" src="images/lapiz.png" width="10" height="20" onClick="cambiar(<?php echo $_SESSION['usuario']['id_usuario']?>, '<?= !empty($_SESSION['usuario']['calle'])?$_SESSION['usuario']['calle']:'Sin datos'; ?>', '<?= !empty($_SESSION['usuario']['numero'])?$_SESSION['usuario']['numero']:'Sin datos'; ?>', '<?= !empty($_SESSION['usuario']['piso_departamento'])?$_SESSION['usuario']['piso_departamento']:'Sin datos'; ?>');"></a>
                 </div>
               </div>
 

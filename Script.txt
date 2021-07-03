@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2021 a las 03:51:43
+-- Tiempo de generación: 03-07-2021 a las 07:54:10
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -1228,7 +1228,9 @@ CREATE TABLE `usuarios` (
   `usuario` varchar(100) COLLATE utf8_bin NOT NULL,
   `clave` varchar(50) COLLATE utf8_bin NOT NULL,
   `email` varchar(100) COLLATE utf8_bin NOT NULL,
-  `direccion` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `calle` varchar(100) COLLATE utf8_bin NOT NULL,
+  `numero` int(11) NOT NULL,
+  `piso_departamento` varchar(11) COLLATE utf8_bin NOT NULL,
   `activo` tinyint(1) NOT NULL,
   `salt` varchar(50) COLLATE utf8_bin NOT NULL,
   `token` varchar(50) COLLATE utf8_bin NOT NULL,
@@ -1239,9 +1241,10 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `usuario`, `clave`, `email`, `direccion`, `activo`, `salt`, `token`, `telefono`) VALUES
-(19, 'Admin', 'Eladmin', 'admin', 'f002b6a33f98d8520a4f767c5c561a4a', 'admin@vino.com', '', 1, '5de014d119f70', '', 0),
-(71, 'Santiago', 'Linares', 'Slinares', 'b8101205ad9f39a7c41113ceac4e3393', 'santiagolinares89@gmail.com', 'Av. Caseros 3183 depto 71', 1, '60bda08974903', '4c5481744cd1dac6c45254efb4a68d12', 1136587288);
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `usuario`, `clave`, `email`, `calle`, `numero`, `piso_departamento`, `activo`, `salt`, `token`, `telefono`) VALUES
+(19, 'Admin', 'Eladmin', 'admin', 'f002b6a33f98d8520a4f767c5c561a4a', 'admin@vino.com', '', 0, '', 1, '5de014d119f70', '', 0),
+(71, 'Santiago', 'Linares', 'Slinares', 'b8101205ad9f39a7c41113ceac4e3393', 'santiagolinares89@gmail.com', 'Av. Caseros ', 3183, 'depto 71', 1, '60bda08974903', '4c5481744cd1dac6c45254efb4a68d12', 1136587288),
+(72, 'Rodri', 'Santala', 'rsantala', 'ca241dc318abc160f48a2fa5d8180f96', 'santiago.linares@davinci.edu.ar', 'Caseros', 3183, '71', 1, '60dfb3c38e3bb', '978b17662aee503492da93a6f290a35d', 1136587288);
 
 -- --------------------------------------------------------
 
@@ -1468,7 +1471,7 @@ ALTER TABLE `secciones`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_perfiles`
