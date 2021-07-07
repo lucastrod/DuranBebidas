@@ -100,16 +100,97 @@ if(!empty($_SESSION["usuario"])){
   $direccion = $user->GetDireccion($_SESSION["usuario"]['id_usuario']);
   $direccion.=', CABA';
   ?>
-  <label for=""><strong>Request</strong></label>
+  <!--<label for=""><strong>Request</strong></label>
   <br>
   <span id="dir"  data-id="<?=$direccion?>"></span>
   <br>
   <label for=""><strong>Response</strong></label>
   <br>
-  <span id="res"></span>
+  <span id="res"></span>-->
+  <html>
+    <body>
+        <form action="" method="post">
+            <label>Origin:</label> <input type="text" name="o" placeholder="Enter Origin location" required> <br><br>
+            <label>Destination:</label> <input type="text" name="d" placeholder="Enter Destination location" required> <br><br>
+            <input type="submit" value="Calculate distance & time" name="submit"> <br><br>
+        </form>
+        <?php
+            if(isset($_POST['submit'])){
+            $Origin = $_POST['o']; $destination = $_POST['d'];
+            $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$Origin."&destinations=".$destination."&key=AIzaSyCJKPl7ACcboe15l0ILXFrn0lkuT2so0to");
+            $data = json_decode($api);
+        ?>
+            <label><b>Distance: </b></label> <span><?php echo ((int)$data->rows[0]->elements[0]->distance->value / 1000).' Km'; ?></span> <br><br>
+            <label><b>Travel Time: </b></label> <span><?php echo $data->rows[0]->elements[0]->duration->text; ?></span> 
 
+        <?php } ?>
+    </body>
+</html>
+
+
+<!--  <div id="dvDistance"></div>
 
 <script type="text/javascript">
+
+$(document).ready(function() {
+var geocoder;
+var map;
+var locations = ["Caseros 3183, CABA"];
+var distancesArray = [];
+var end2 = "Caseros 3183, CABA";
+
+initialize();
+
+function initialize() {
+    var start = new google.maps.LatLng(-34.57882308284431, -58.431455779050324);
+    var distancesArray = [];
+    
+    var service = new google.maps.DistanceMatrixService();
+    
+    service.getDistanceMatrix({
+        origins: [start],
+        destinations: [end2],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: false,
+        avoidTolls: false
+    },
+
+    function (response, status) {
+        window.alert("Inside callback.");
+        var dvTest = document.getElementById("dvDistance");
+        dvTest.innerHTML += "getDistanceMatrix's callback.<br />";
+
+        if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+            for (var i = 0; i < response.rows.length; i++) {
+                for (var j = 0; j < response.rows[i].elements.length; j++) {
+                    var distance = response.rows[i].elements[j].distance.text;
+                    var duration = response.rows[i].elements[j].duration.text;
+                    var dvDistance = document.getElementById("dvDistance");
+                    dvDistance.innerHTML += "[" + j + "] Distance: " + distance;
+                    dvDistance.innerHTML += " Duration:" + duration +"<br />";
+                }
+                distancesArray.push(i);
+            }
+        } else {
+            dvTest = document.getElementById("dvDistance");
+            dvTest.innerHTML += " For started, locations length = " + locations.length + "<br />";
+
+            // window.alert("Aucun chemin trouvé");
+        }
+    }
+
+
+    );
+}
+
+
+
+google.maps.event.addDomListener(window, "load", initialize);
+});
+</script>
+-->
+<!--<script type="text/javascript">
 
 $(document).ready(function() {
 
@@ -178,7 +259,7 @@ initMap(direccion);
   }
 });
 
-</script>
+</script>-->
 
 <?php
   //var_dump($km);
