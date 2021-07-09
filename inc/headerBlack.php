@@ -274,6 +274,6 @@ if(isset($_POST['login'])){
 <script type="text/javascript" src="js/calcularEnvio.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=&v=weekly"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJKPl7ACcboe15l0ILXFrn0lkuT2so0to&callback=initMap&libraries=&v=weekly"
   async>
 </script>
