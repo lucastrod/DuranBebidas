@@ -12,13 +12,14 @@ if(!isset($_SESSION['usuario'])){
 }
 include_once('inc/headerBlack.php');
 
-//$user->actualizarDireccion($_SESSION['usuario']);
-
 $array = $_SESSION['carrito'];
 
 $productos = new Producto($con);
+?>
 
 
+
+<?php
 require __DIR__ .  '/vendor/autoload.php';  //Aqui coloca la ruta en donde descargaste el sdk de mercadopago
 
 MercadoPago\SDK::setAccessToken('TEST-6760243392925397-042116-b5fa11a3fd3a9e2bb4ba79f1649ed6fb-747384554'); // Ya que vas a hacer pruebas de pago, aqui tu access token de prueba, luego puedes agregar el token de produccion
@@ -63,10 +64,6 @@ $preference->save();
 
 
 ?>
-<script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARQb7meO4fWMvsx9olNrIU3k5FYI-QHqU&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
   <div class="site-wrap">
     <div class="site-section">
       <div class="container">

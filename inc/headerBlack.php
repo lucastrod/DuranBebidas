@@ -25,14 +25,6 @@ if(isset($_POST['login'])){
   }
 }
 
-/*if(!empty($_SESSION["usuario"])){
-  $envio = new Envio($con);
-  $_SESSION["envio"] = $envio->Precio();
-  }
-  else{
-    $_SESSION["envio"] = 0;
-  }*/
-
 ?>
 <head>
     <meta charset="UTF-8">

@@ -83,7 +83,7 @@ include_once('inc/arrays.php');
                      value="<?=isset($usuario->email)?$usuario->email:'';?>" required>
                 </li>
                 <li>
-                  <label for="pass">Constraseña <span class="required">*</span></label>
+                  <label for="pass">Contraseña <span class="required">*</span></label>
                   <br>
                   <input type="password" name="clave" class="form-control input_pass"
                                       required>

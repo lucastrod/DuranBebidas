@@ -10,7 +10,10 @@ include_once('inc/headerBlack.php');
 <br>
 <?php
 
+
+
 $productos = new Producto($con);
+$direccion = '';
 
 if(isset($_POST['id'])){
 $resp = $productos->chequearProducto($_POST['id']);
@@ -99,160 +102,15 @@ else{
 if(!empty($_SESSION["usuario"])){
   $direccion = $user->GetDireccion($_SESSION["usuario"]['id_usuario']);
   $direccion.=', CABA';
+?>
 
-  /*function getCoordinates($direccion){
-    $direccion = urlencode($direccion);
-    $url = "https://maps.google.com/maps/api/geocode/json?sensor=false&address=".$direccion."&key=AIzaSyCJKPl7ACcboe15l0ILXFrn0lkuT2so0to";
-    $response = file_get_contents($url);
-    $json = json_decode($response,true);
- 
-    $lat = $json['results'][0]['geometry']['location']['lat'];
-    $lng = $json['results'][0]['geometry']['location']['lng'];
- 
-    return array($lat, $lng);
-}
- 
- 
-$coords = getCoordinates("Caseros 3183, CABA");
-
-/*function distance($lat1, $lon1, $lat2, $lon2, $unit) {
- 
-  $theta = $lon1 - $lon2;
-  $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
-  $dist = acos($dist);
-  $dist = rad2deg($dist);
-  $miles = $dist * 60 * 1.1515;
-  $unit = strtoupper($unit);
- 
-  if ($unit == "K") {
-    return ($miles * 1.609344);
-  } else if ($unit == "N") {
-      return ($miles * 0.8684);
-    } else {
-        return $miles;
-      }
-}
-
-echo distance($coords[0], $coords[1], -34.57882308284431, -58.431455779050324, "K") . " Kilómetros<br>";
-
-print_r($coords);*/
-
-  ?>
-  <!--<span id="lat"  data-id="<?=$coords[0]?>"></span>
-  <span id="lng"  data-id="<?=$coords[1]?>"></span>-->
-
- <label for=""><strong>Request</strong></label>
-  <br>
   <span id="dir"  data-id="<?=$direccion?>"></span>
-  <br>
-  <label for=""><strong>Response</strong></label>
-  <br>
-  <span id="res"></span>
-
-
-<script type="text/javascript">
-
-$(document).ready(function() {
-
-var direccion = $('#dir').data('id');
-   
-initMap(direccion);
-
-  function initMap(direccion) {
-    
-    const bounds = new google.maps.LatLngBounds();
-    
-    // initialize services
-    const geocoder = new google.maps.Geocoder();
-    const service = new google.maps.DistanceMatrixService();
-    // Datos del cliente
-    const origin1 = {
-      lat: -34.57882308284431,
-      lng: -58.431455779050324
-    };
-   
-    const destinationB = direccion;
-   
-    const request = {
-      origins: [origin1],
-      destinations: [ destinationB],
-      travelMode: google.maps.TravelMode.DRIVING,
-      unitSystem: google.maps.UnitSystem.METRIC,
-      avoidHighways: false,
-      avoidTolls: false,
-    };
-        
-    // put request on page
-    document.getElementById("dir").innerText = JSON.stringify(
-      request,
-      null,
-      2
-    );
-    // get distance matrix response
-    service.getDistanceMatrix(request).then((response) => {
-      // put response
-      document.getElementById("res").innerText = JSON.stringify(
-        response,
-        null,
-        2
-      );
-     
-    });
-  }
-
-  //setInterval(initMap, 0);
-
-  function getCostoEnvio(km){
-
-      if (km<3) {
-        //$200
-      }
-
-      if (km>3 && km<6) {
-        //$400
-      } 
-
-      if (km>6 && km<10) {
-        //$600
-      } 
-
-  }
-});
-
-</script>
-
-
-<script type="text/javascript">
-
-$(document).ready(function() {
-
-var lat = $('#lat').data('id');
-var lng = $('#lng').data('id');
-
-  function getCostoEnvio(km){
-
-      if (km<3) {
-        //$200
-      }
-
-      if (km>3 && km<6) {
-        //$400
-      } 
-
-      if (km>6 && km<10) {
-        //$600
-      } 
-
-  }
-});
-
-</script>
 
 <?php
   //var_dump($km);
   
-  $envio = new Envio($con);
-  $_SESSION["envio"] = $envio->Precio();
+  //$envio = new Envio($con);
+  //$_SESSION["envio"] = $envio->Precio();
   }
   else{
     $_SESSION["envio"] = 0;
@@ -381,6 +239,6 @@ var lng = $('#lng').data('id');
   <script src="js/actualizarEnvio.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="js/validarLogin.js"></script>
-
+  <script src="js/calcularEnvio.js"></script>
 
 

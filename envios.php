@@ -47,7 +47,8 @@ if(isset($_POST['submit'])){
 				<table class="table table-striped" style="table-layout: fixed; width: 99%;">
 				  <thead>
 					<tr  class="bg-dark" style="font-family:Arial;background-color:#A98307;">
-                      <th style="width:50%;color:rgb(243, 234, 234);" class="text-center">Costo Envio</th>
+                      <th style="width:40%;color:rgb(243, 234, 234);" class="text-center">Costo Envio</th>
+					  <th style="width:20%;color:rgb(243, 234, 234);" class="text-center">Tramo</th>
                       <th style="color:rgb(243, 234, 234);" class="text-center">Acciones</th>
 					</tr>
 				  </thead>
@@ -58,6 +59,7 @@ if(isset($_POST['submit'])){
                   ?>
 							<tr>
                                 <td class="text-center"><?= $env['precio'];?></td>
+								<td class="text-center"><?= $env['tramo'];?></td>
                               <td class="text-center">
 										<a href="envios_ae.php?edit=<?=$env['id_envio']?>"><button type="button" class="btn btn-success" title="Editar">E</button></a>
                               </td>

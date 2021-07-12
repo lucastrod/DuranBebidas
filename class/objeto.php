@@ -256,10 +256,10 @@ Class Usuario{
 
 		public function actualizarDireccion($datos){
        
-			$id = $data['id_usuario'];
-			unset($data['id_usuario']);
+			$id = $datos['id'];
+			unset($datos['id']);
 			
-				foreach($data as $key => $value){
+				foreach($datos as $key => $value){
 					if($value != null){
 						$columns[]=$key." = '".$value."'";
 						$sql = "UPDATE usuarios SET ".implode(',',$columns)." WHERE id_usuario = ".$id;
@@ -1111,7 +1111,7 @@ class Envio{
 
 	public function getPrecio(){
 
-		$query = 'SELECT id_envio, precio
+		$query = 'SELECT id_envio, precio, tramo
 		FROM envio';
 
 		$query = $this->con->query($query); 

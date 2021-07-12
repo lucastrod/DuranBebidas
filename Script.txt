@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-07-2021 a las 07:54:10
+-- Tiempo de generación: 12-07-2021 a las 23:50:57
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -134,15 +134,18 @@ INSERT INTO `detalle_venta` (`id_detalle_venta`, `id_venta`, `id_producto`, `can
 
 CREATE TABLE `envio` (
   `id_envio` int(11) NOT NULL,
-  `precio` double NOT NULL
+  `precio` double NOT NULL,
+  `tramo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `envio`
 --
 
-INSERT INTO `envio` (`id_envio`, `precio`) VALUES
-(1, 500);
+INSERT INTO `envio` (`id_envio`, `precio`, `tramo`) VALUES
+(1, 200, 'menor a 3 km'),
+(2, 400, 'de 3 a 6 km'),
+(3, 600, 'de 6 a 10 km');
 
 -- --------------------------------------------------------
 
@@ -1242,7 +1245,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `usuario`, `clave`, `email`, `calle`, `numero`, `piso_departamento`, `activo`, `salt`, `token`, `telefono`) VALUES
-(19, 'Admin', 'Eladmin', 'admin', 'f002b6a33f98d8520a4f767c5c561a4a', 'admin@vino.com', '', 0, '', 1, '5de014d119f70', '', 0),
+(19, 'Duran', 'Bebidas', 'admin', 'f93a3bb0b60c9edbd48b834a296cd3b2', 'Duranalmacendebebidas@gmail.com', 'Paraguay', 5261, '', 1, '5de014d119f70', '', 0),
 (71, 'Santiago', 'Linares', 'Slinares', 'b8101205ad9f39a7c41113ceac4e3393', 'santiagolinares89@gmail.com', 'Av. Caseros ', 3183, 'depto 71', 1, '60bda08974903', '4c5481744cd1dac6c45254efb4a68d12', 1136587288),
 (72, 'Rodri', 'Santala', 'rsantala', 'ca241dc318abc160f48a2fa5d8180f96', 'santiago.linares@davinci.edu.ar', 'Caseros', 3183, '71', 1, '60dfb3c38e3bb', '978b17662aee503492da93a6f290a35d', 1136587288);
 
@@ -1423,7 +1426,7 @@ ALTER TABLE `detalle_venta`
 -- AUTO_INCREMENT de la tabla `envio`
 --
 ALTER TABLE `envio`
-  MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `marcas`

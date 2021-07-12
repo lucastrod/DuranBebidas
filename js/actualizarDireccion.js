@@ -54,17 +54,21 @@
 					  piso_departamento:piso
 					  },
 					success:function(resp){
+
 					Swal.fire({
 					   position: 'center',
-					   icon: 'success',
-					   title: 'Direccion Editada',
+					   //icon: 'success',
+					   title: 'Guardando Cambios...',
 					   showConfirmButton: false,
 					   timer: 1500,
-					customClass:'modal2'
+					customClass:'modal2',
+						willOpen: () => {
+						  Swal.showLoading()
+						}
 					});
 					}
 				});
-				setTimeout("location.href='checkout.php'",1500);
+				setTimeout("location.href='confirmarDomicilio.php'",1500);
 			}
 			
 		}
