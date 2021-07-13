@@ -121,8 +121,6 @@ $preference->save();
                 </div>
               </div>
 
-                                <!-- Convert Adress to Coord    -->
-
             </div>
           </div>
           <div class="col-md-6">

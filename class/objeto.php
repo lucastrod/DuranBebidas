@@ -1035,7 +1035,7 @@ class Compra{
 
 	public function getCliente($venta){
 
-		$query = 'SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.calle,usuarios.telefono, usuarios.email
+		$query = 'SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.calle,usuarios.numero,usuarios.piso_departamento,usuarios.telefono, usuarios.email
 		FROM ventas
 		INNER JOIN usuarios on (ventas.id_cliente = usuarios.id_usuario)
 		WHERE ventas.id_venta = '.$venta;
@@ -1046,7 +1046,7 @@ class Compra{
 	//Devuelve el objeto con los datos
 	public function getClienteComprador($venta){
 
-        $query = 'SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.calle,usuarios.telefono,usuarios.email
+        $query = 'SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.calle,usuarios.numero,usuarios.piso_departamento,usuarios.telefono,usuarios.email
         FROM ventas
         INNER JOIN usuarios on (ventas.id_cliente = usuarios.id_usuario)
         WHERE ventas.id_venta = '.$venta;

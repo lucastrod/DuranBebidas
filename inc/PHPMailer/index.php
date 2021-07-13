@@ -11,14 +11,18 @@ use PHPMailer\PHPMailer\Exception;
 
 function infoVenta($id_Venta,$datos,$productos){
 
+    $user = "lucas.castro45@davinci.edu.ar";
+    $pw = "39464303";
 
     //Datos Cliente
     $datosCliente=$datos;
     $nombre=$datosCliente-> nombre;
     $telefono=$datosCliente-> telefono;
     $email=$datosCliente-> email;
-    $direccion=$datosCliente-> direccion;
-
+    $calle=$datosCliente-> calle;
+    $numero=$datosCliente-> numero;
+    $piso_departamento=$datosCliente-> piso_departamento;
+    $direccion= $calle.'  '.$numero.'  '.$piso_departamento;
 
     //Datos Venta
     
@@ -29,11 +33,11 @@ function infoVenta($id_Venta,$datos,$productos){
      <body>
          <h3>Pedido N# $id_Venta</h3>
          <hr />
-         <p>Datos del Cliente:</p>
-         <p>Nombre: $nombre</p>
-         <p>Telephone: $telefono</p>
-         <p>Email: $email</p>
-         <p>Direccion: $direccion</p>
+         <p><b>Datos del Cliente:</b></p>
+         <p><b>Nombre:</b> $nombre</p>
+         <p><b>Telefono:</b> $telefono</p>
+         <p><b>Email: </b>$email</p>
+         <p><b>Direccion:</b> $direccion</p>
          <hr />    
          <h3>El pedido contiene lo siguiente:</h3>    
          <table name='contact_seller' style='border-collapse:collapse';> 
@@ -47,16 +51,16 @@ function infoVenta($id_Venta,$datos,$productos){
              <tbody>";
                  foreach($productos as $key => $value) { 
                      $message .="<tr>
-                         <td>" .$productos[$key]['nombre'] ."</td>
+                         <td>   " .$productos[$key]['nombre'] ."</td>
                          <td></td>
-                         <td>".$productos [$key]['cantidad']."</td>
+                         <td>".'   '.$productos [$key]['cantidad']."</td>
                      </tr>";
                   } 
              $message .= "</tbody>
          </table>
          <p>Recuerde confirmar el pedido en el Panel</p> 
          <hr />
-         Cordialmente PegasusApp
+         Saludos PegasusApp
      </body>
      </html>"; //end of $message
 
@@ -67,9 +71,9 @@ function infoVenta($id_Venta,$datos,$productos){
   $mail->SMTPSecure = 'tls';
   $mail->Host = 'smtp.gmail.com';
   $mail->Port = "587";
-  $mail->Username = "lucas.castro45@davinci.edu.ar";
-  $mail->Password = "39464303";
-  $mail->setFrom("lucas.castro45@davinci.edu.ar", 'Nuevo Pedido');
+  $mail->Username = $user;
+  $mail->Password = $pw;
+  $mail->setFrom($user, 'Nuevo Pedido Realizado');
   $mail->addAddress('lucasderiver@gmail.com','Santiago');
   $mail->Subject = "Pedido Confirmado N# ".$id_Venta;
   $mail->Body = $message;
@@ -83,6 +87,9 @@ function infoVenta($id_Venta,$datos,$productos){
 }
 
 function confirmarUsuario($email, $nombre, $asunto, $cuerpo){
+    $user = "lucas.castro45@davinci.edu.ar";
+    $pw = "39464303";
+
 
     $mail = new PHPMailer();
     $mail->isSMTP();
@@ -90,9 +97,9 @@ function confirmarUsuario($email, $nombre, $asunto, $cuerpo){
     $mail->SMTPSecure = 'tls';
     $mail->Host = 'smtp.gmail.com';
     $mail->Port = "587";
-    $mail->Username = "santiago.linares@davinci.edu.ar";
-    $mail->Password = "34585070";
-    $mail->setFrom("santiago.linares@davinci.edu.ar", 'Sistema de Usuarios');
+    $mail->Username = $user;
+    $mail->Password = $pw;
+    $mail->setFrom($user, 'Sistema de Usuarios');
     $mail->addAddress($email,$nombre);
     $mail->Subject = $asunto;
     $mail->Body = $cuerpo;
@@ -105,6 +112,9 @@ function confirmarUsuario($email, $nombre, $asunto, $cuerpo){
 }
 
 function confirmarPass($email, $nombre, $asunto, $cuerpo){
+    $user = "lucas.castro45@davinci.edu.ar";
+    $pw = "39464303";
+
 
     $mail = new PHPMailer();
     $mail->isSMTP();
@@ -112,9 +122,9 @@ function confirmarPass($email, $nombre, $asunto, $cuerpo){
     $mail->SMTPSecure = 'tls';
     $mail->Host = 'smtp.gmail.com';
     $mail->Port = "587";
-    $mail->Username = "santiago.linares@davinci.edu.ar";
-    $mail->Password = "34585070";
-    $mail->setFrom("santiago.linares@davinci.edu.ar", 'Recupero de Password');
+    $mail->Username = $user;
+    $mail->Password = $pw;
+    $mail->setFrom($user, 'Recupero de Password');
     $mail->addAddress($email,$nombre);
     $mail->Subject = $asunto;
     $mail->Body = $cuerpo;
