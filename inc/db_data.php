@@ -1,13 +1,13 @@
 <?php
 
-/*
-$host = 'localhost';
-$dbname = 'asdavinc_pw_acn3a_20192_equipo07';
-$user = 'asdavinc_pw_n021';
-$pass = 'c6ak4wkwab7jmnq9';
-$port = '3306';
 
-*/
+/* $host = '127.0.0.1';
+$dbname = 'u164376993_bebidas';
+$user = 'u164376993_adminDur4n';
+$pass = '|9wF@nb#3Mf';
+$port = '3306'; */
+
+
 
 $host = '127.0.0.1';
 $dbname = 'bebidas';

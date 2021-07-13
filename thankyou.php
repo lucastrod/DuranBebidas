@@ -87,8 +87,10 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
         <div class="row">
           <div class="col-md-12 text-center">
             <span class="icon-check_circle display-3 text-success"></span>
-            <h2 class="display-3 text-black">Gracias!</h2>
-            <p class="lead mb-5">Su pedido se completó correctamente..</p>
+            <h1 class="display-3 text-black">Gracias!</h2>
+            <br>
+            <p class="lead mb-5">Su pedido esta siendo procesado.</p>
+            <p class="lead mb-5">Por favor espere a ser contactado.</p>
             <a href="productos.php"><button class="button login">Volver a la tienda</button></a>
             <br>
             <br>

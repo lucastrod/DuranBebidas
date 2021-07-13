@@ -41,6 +41,9 @@ if(isset($_POST['login'])){
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- CSS Style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all">
@@ -51,6 +54,7 @@ if(isset($_POST['login'])){
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-menu.css">
     <link rel="stylesheet" type="text/css" href="css/revslider.css" >
     <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
 
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
@@ -120,7 +124,7 @@ if(isset($_POST['login'])){
                   
                   if(!empty($_SESSION['usuario']['usuario']==='admin')){?>
      
-                          <div class="welcome-msg hidden-xs"> Bienvenido!<?= $_SESSION["usuario"]["nombre"]; ?></div>
+                          <div class="welcome-msg hidden-xs"> Bienvenido!&nbsp<?= $_SESSION["usuario"]["nombre"]; ?></div>
                           <div class="login"><a href="ListProd.php"><i class="fa fa-list-alt" style="display:flex;font-size:16.5px;justify-content:center; "></i></a></div>
                           <div class="login"><a href="logout.php"><i class="fa fa-sign-out" style="display:flex;font-size:16.5px;justify-content:center; "></i></a></div>   
                                          

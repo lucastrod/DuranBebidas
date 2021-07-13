@@ -3,9 +3,11 @@
     <div class="footer-inner">
       <div class="container">
         <div class="col-sm-12 col-xs-12 footer-logo"><img alt="Logo" src="images/logo1.png"></div> 
-
           <address>
-            <i class="fa fa-map-marker"></i>Paraguay 5261, Palermo <i class="fa fa-whatsapp"></i><span> +54 11 6846-3206</span> <i class="fa fa-envelope"></i><span> Duranalmacendebebidas@gmail.com</span>
+		  	<a style="color:#ffffff;" href="https://t.ly/u3lr" target="_blank"><i class="fa fa-map-marker"></i>Paraguay 5261, Palermo 
+			<a style="color:#ffffff;" href="https://wa.me/541168463206" target="_blank"><i class="fa fa-whatsapp"></i>+54 11 6846-3206
+			<a style="color:#ffffff;" href="https://www.instagram.com/duran.ba/" target="_blank"><i class="fa fa-instagram"></i>Duran.BA
+			<a style="color:#ffffff;" href="mailto:Duranalmacendebebidas@gmail.com" target="_blank"><i class="fa fa-envelope"></i>Duranalmacendebebidas@gmail.com
           </address>
       </div>
     </div>

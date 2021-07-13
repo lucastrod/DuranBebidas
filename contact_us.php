@@ -45,49 +45,8 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Add Map</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <style type="text/css">
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
 
-      /* Optional: Makes the sample page fill the window. */
-    
-
-    </style>
-
-    <script>
-      let map;
-
-      function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-          center: { lat: -34.397, lng: 150.644 },
-          zoom: 8,
-        });
-      }
-    </script>
-  </head>
   <body>
-<!--     <h3>My Google Maps Demo</h3>
-    The div element for the map -->
-<!--     <div id="map"></div>
- -->
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
- <!--    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCokftS9CBTuKGKePMOebIaWTo3Yj-z38Q&callback=initMap&libraries=&v=weekly"
-      async
-    ></script> -->
-
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOzN0dUthH6Cb8QY_anSYgGWRJg82lKeY&callback=initMap"
-      async
-    ></script> -->
-
-
   <!-- Main Container --> 
   <div class="row">
 
@@ -102,44 +61,19 @@
           <div class="row">
             <h1>Contactanos!</h1>
           </div>
-          <div class="static-contain">
-            <fieldset class="group-select">
-              <ul>
-                <li id="billing-new-address-form">
-                  <fieldset>
-                    <input type="hidden"  id="billing:address_id">
-                    <ul>
-                      <li>
-                        <div class="customer-name">
-                          <div class="input-box name-firstname">
-                            <label for="billing:firstname"> Nombre<span class="required">*</span></label>
-                            <br>
-                            <input type="text" id="billing:firstname" name="" title="First Name" class="input-text ">
-                          </div>
-                          <div class="input-box name-lastname">
-                            <label for="billing:lastname"> Email <span class="required">*</span> </label>
-                            <br>
-                            <input type="text" id="billing:lastname" name="" title="Last Name" class="input-text">
-                          </div>
-                        </div>
-                      </li>         
-                      <li class="">
-                        <label for="comment">Comentario<em class="required">*</em></label>
-                        <br>
-                        <div style="float:none" class="">
-                          <textarea name="" id="comment" title="Comment" class="input-text" cols="5" rows="3"></textarea>
-                        </div>
-                      </li>
-                    </ul>
-                  </fieldset>
-                </li>
-                <span class="require"><em class="required">* </em>Campos requeridos</span>
-                <div class="buttons-set">
-                  <button type="submit" title="Submit" class="button submit"> <span> Enviar </span> </button>
-                </div>
-              </ul>
-            </fieldset>
-          </div>
+          <br>
+          <br>
+           <h4>
+              <p>Te invitamos a que participes en nuestras redes sociales para que puedas dejarnos opiniones o sugerencias! </p>
+            </h4>
+            <br>
+            <table style="margin-left: auto;margin-right: auto;letter-spacing:50;">
+            <td><a href="https://www.instagram.com/duran.ba/" target="_blank"><i class="fa fa-instagram" style="font-size:48px;color:black"></i></a></td>
+            <td><a href="https://wa.me/541168463206" target="_blank"><i class="fa fa-whatsapp" style="font-size:48px;color:black"></i></a></td>
+            <td><a href="mailto:Duranalmacendebebidas@gmail.com" target="_blank"><i class="fa fa-envelope" style="font-size:48px;color:black" ></i></td>
+            </table>
+
+
         </section>
         <aside class="col-right sidebar col-sm-3">
 
@@ -148,6 +82,7 @@
             <div class="block-content">
               <ol id="recently-viewed-items">
                 <li><span><i class="fa fa-whatsapp"></i>     WhatsApp</span><br>+54 11 6846-3206</li>
+                <li><span><i class="fa fa-instagram"></i> Instagram</span><br>Duran.BA</li>
                 <li><span><i class="fa fa-envelope"></i> Correo</span><br>Duranalmacendebebidas@gmail.com</li> 
                 <li><span><i class="fa fa-map-marker"></i> Ubicación</span><br>Paraguay 5261, Palermo</li> 
                 <li><span><i class="fa fa-clock-o"></i> Horarios</span><br>Do a Mié 10:00 a 20:00<br>Jue a Sáb 10:00 - 00:00</li>

@@ -21,25 +21,27 @@
               <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
 									 id="slide-16-layer-1" 
 									 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-									 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-									data-lineheight="['70','70','70','50']"
-									data-width="none"
-									data-height="none"
+									 data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
+									 data-width='100%'
+									data-height="155"
 									data-whitespace="nowrap"
 									data-transform_idle="o:1;"
 						 
-									 data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
+									 data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" 
 									 data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-									 data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-									 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-									data-start="1000" 
-									data-splitin="chars" 
-									data-splitout="none" 
+									 data-mask_in="x:0px;y:0px;" 
+									 data-mask_out="x:inherit;y:inherit;" 
+									data-start="2000" 
 									data-responsive_offset="on" 
-
-									data-elementdelay="0.05" 
 									
-									style="z-index: 5; white-space: nowrap;"><?= $mensaje->titulo;?></div>
+									style="font-family: 'Ubuntu Condensed', sans-serif !important;z-index: 5; white-space: nowrap; -webkit-text-stroke: 1px black;
+									color: white;
+									text-shadow:
+										3px 3px 0 black,
+										-1px -1px 0 black,  
+										1px -1px 0 black,
+										-1px 1px 0 black,
+										1px 1px 0 black; "><?= $mensaje->titulo;?></div>
               
               <!-- LAYER NR. 2 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
@@ -61,7 +63,13 @@
 									data-responsive_offset="on" 
 
 									
-									style="z-index: 6; white-space: nowrap;"><?= $mensaje->subtitulo;?></div>
+									style="font-family: 'Poppins', sans-serif;z-index: 6; white-space: nowrap;color: white;
+									text-shadow:
+										3px 3px 0 black,
+										-1px -1px 0 black,  
+										1px -1px 0 black,
+										-1px 1px 0 black,
+										1px 1px 0 black;"><?= $mensaje->subtitulo;?></div>
               
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0" 
@@ -138,7 +146,14 @@
 
 									data-elementdelay="0.05" 
 									
-									style="z-index: 6; white-space: nowrap;"><?= $mensaje->titulo;?></div>
+									style="font-family: 'Ubuntu Condensed', sans-serif !important;z-index: 5; white-space: nowrap; -webkit-text-stroke: 1px black;
+   color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black; "><?= $mensaje->titulo;?></div>
               
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
@@ -160,7 +175,13 @@
 									data-responsive_offset="on" 
 
 									
-									style="z-index: 7; white-space: nowrap;"><?= $mensaje->subtitulo;?> </div>
+									style="font-family: 'Poppins', sans-serif;z-index: 6; white-space: nowrap;color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->subtitulo;?> </div>
             </li>
 
 			<!-- SLIDE  -->
@@ -174,25 +195,27 @@
               <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
 									 id="slide-16-layer-1" 
 									 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-									 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-									data-lineheight="['70','70','70','50']"
-									data-width="none"
-									data-height="none"
+									 data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
+									 data-width='100%'
+									data-height="155"
 									data-whitespace="nowrap"
 									data-transform_idle="o:1;"
 						 
-									 data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
+									 data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" 
 									 data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-									 data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-									 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-									data-start="1000" 
-									data-splitin="chars" 
-									data-splitout="none" 
-									data-responsive_offset="on" 
-
-									data-elementdelay="0.05" 
+									 data-mask_in="x:0px;y:0px;" 
+									 data-mask_out="x:inherit;y:inherit;" 
+									data-start="2000" 
+									data-responsive_offset="on"  
 									
-									style="z-index: 5; white-space: nowrap;"><?= $mensaje->titulo;?></div>
+									style="font-family: 'Ubuntu Condensed', sans-serif !important;z-index: 5; white-space: nowrap; -webkit-text-stroke: 1px black;
+   color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->titulo;?></div>
               
               <!-- LAYER NR. 2 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
@@ -214,7 +237,13 @@
 									data-responsive_offset="on" 
 
 									
-									style="z-index: 6; white-space: nowrap;"><?= $mensaje->subtitulo;?></div>
+									style="font-family: 'Poppins', sans-serif;z-index: 6; white-space: nowrap;color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->subtitulo;?></div>
               
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0" 
@@ -253,25 +282,27 @@
               <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
 									 id="slide-20-layer-1" 
 									 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-									 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-									data-lineheight="['70','70','70','50']"
-									data-width="none"
-									data-height="none"
+									 data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
+									 data-width='100%'
+									data-height="155"
 									data-whitespace="nowrap"
 									data-transform_idle="o:1;"
 						 
-									 data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
+									 data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" 
 									 data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-									 data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-									 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-									data-start="1000" 
-									data-splitin="chars" 
-									data-splitout="none" 
+									 data-mask_in="x:0px;y:0px;" 
+									 data-mask_out="x:inherit;y:inherit;" 
+									data-start="2000" 
 									data-responsive_offset="on" 
-
-									data-elementdelay="0.05" 
 									
-									style="z-index: 5; white-space: nowrap;"><?= $mensaje->titulo;?></div>
+									style="font-family: 'Ubuntu Condensed', sans-serif !important;z-index: 5; white-space: nowrap; -webkit-text-stroke: 1px black;
+   color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->titulo;?></div>
               
               <!-- LAYER NR. 2 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
@@ -293,7 +324,13 @@
 									data-responsive_offset="on" 
 
 									
-									style="z-index: 6; white-space: nowrap;"><?= $mensaje->subtitulo;?></div>
+									style="font-family: 'Poppins', sans-serif;z-index: 6; white-space: nowrap;color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->subtitulo;?></div>
               
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0" 
@@ -331,25 +368,27 @@
               <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
 									 id="slide-16-layer-1" 
 									 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-									 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-									data-lineheight="['70','70','70','50']"
-									data-width="none"
-									data-height="none"
+									 data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
+									 data-width='100%'
+									data-height="155"
 									data-whitespace="nowrap"
 									data-transform_idle="o:1;"
 						 
-									 data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
+									 data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" 
 									 data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-									 data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-									 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-									data-start="1000" 
-									data-splitin="chars" 
-									data-splitout="none" 
+									 data-mask_in="x:0px;y:0px;" 
+									 data-mask_out="x:inherit;y:inherit;" 
+									data-start="2000" 
 									data-responsive_offset="on" 
-
-									data-elementdelay="0.05" 
 									
-									style="z-index: 5; white-space: nowrap;"><?= $mensaje->titulo;?></div>
+									style="font-family: 'Ubuntu Condensed', sans-serif !important;z-index: 5; white-space: nowrap; -webkit-text-stroke: 1px black;
+   color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->titulo;?></div>
               
               <!-- LAYER NR. 2 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
@@ -371,7 +410,13 @@
 									data-responsive_offset="on" 
 
 									
-									style="z-index: 6; white-space: nowrap;"><?= $mensaje->subtitulo;?></div>
+									style="font-family: 'Poppins', sans-serif;z-index: 6; white-space: nowrap;color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->subtitulo;?></div>
               
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0" 
@@ -447,7 +492,14 @@
 
 									data-elementdelay="0.05" 
 									
-									style="z-index: 6; white-space: nowrap;"><?= $mensaje->titulo;?></div>
+									style="font-family: 'Ubuntu Condensed', sans-serif !important;z-index: 5; white-space: nowrap; -webkit-text-stroke: 1px black;
+   color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->titulo;?></div>
               
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
@@ -469,7 +521,13 @@
 									data-responsive_offset="on" 
 
 									
-									style="z-index: 7; white-space: nowrap;"><?= $mensaje->subtitulo;?> </div>
+									style="font-family: 'Poppins', sans-serif;z-index: 6; white-space: nowrap;color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->subtitulo;?> </div>
             </li>
 
 			<!-- SLIDE  -->
@@ -483,25 +541,27 @@
               <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
 									 id="slide-16-layer-1" 
 									 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-									 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-									data-lineheight="['70','70','70','50']"
-									data-width="none"
-									data-height="none"
+									 data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
+									 data-width='100%'
+									data-height="155"
 									data-whitespace="nowrap"
 									data-transform_idle="o:1;"
 						 
-									 data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
+									 data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" 
 									 data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-									 data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-									 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-									data-start="1000" 
-									data-splitin="chars" 
-									data-splitout="none" 
+									 data-mask_in="x:0px;y:0px;" 
+									 data-mask_out="x:inherit;y:inherit;" 
+									data-start="2000" 
 									data-responsive_offset="on" 
-
-									data-elementdelay="0.05" 
 									
-									style="z-index: 5; white-space: nowrap;"><?= $mensaje->titulo;?></div>
+									style="font-family: 'Ubuntu Condensed', sans-serif !important;z-index: 5; white-space: nowrap; -webkit-text-stroke: 1px black;
+   color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->titulo;?></div>
               
               <!-- LAYER NR. 2 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
@@ -523,7 +583,13 @@
 									data-responsive_offset="on" 
 
 									
-									style="z-index: 6; white-space: nowrap;"><?= $mensaje->subtitulo;?></div>
+									style="font-family: 'Poppins', sans-serif;z-index: 6; white-space: nowrap;color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->subtitulo;?></div>
               
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0" 
@@ -561,25 +627,27 @@
               <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
 									 id="slide-16-layer-1" 
 									 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-									 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-									data-lineheight="['70','70','70','50']"
-									data-width="none"
-									data-height="none"
+									 data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
+									 data-width='100%'
+									data-height="155"
 									data-whitespace="nowrap"
 									data-transform_idle="o:1;"
 						 
-									 data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
+									 data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" 
 									 data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-									 data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-									 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-									data-start="1000" 
-									data-splitin="chars" 
-									data-splitout="none" 
+									 data-mask_in="x:0px;y:0px;" 
+									 data-mask_out="x:inherit;y:inherit;" 
+									data-start="2000" 
 									data-responsive_offset="on" 
-
-									data-elementdelay="0.05" 
 									
-									style="z-index: 5; white-space: nowrap;"><?= $mensaje->titulo;?></div>
+									style="font-family: 'Ubuntu Condensed', sans-serif !important;z-index: 5; white-space: nowrap; -webkit-text-stroke: 1px black;
+   color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->titulo;?></div>
               
               <!-- LAYER NR. 2 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
@@ -601,7 +669,13 @@
 									data-responsive_offset="on" 
 
 									
-									style="z-index: 6; white-space: nowrap;"><?= $mensaje->subtitulo;?></div>
+									style="font-family: 'Poppins', sans-serif;z-index: 6; white-space: nowrap;color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->subtitulo;?></div>
               
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0" 
@@ -639,25 +713,27 @@
               <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
 									 id="slide-16-layer-1" 
 									 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-									 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-									data-lineheight="['70','70','70','50']"
-									data-width="none"
-									data-height="none"
+									 data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
+									 data-width='100%'
+									data-height="155"
 									data-whitespace="nowrap"
 									data-transform_idle="o:1;"
 						 
-									 data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
+									 data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" 
 									 data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-									 data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-									 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-									data-start="1000" 
-									data-splitin="chars" 
-									data-splitout="none" 
+									 data-mask_in="x:0px;y:0px;" 
+									 data-mask_out="x:inherit;y:inherit;" 
+									data-start="2000" 
 									data-responsive_offset="on" 
-
-									data-elementdelay="0.05" 
 									
-									style="z-index: 5; white-space: nowrap;"><?= $mensaje->titulo;?></div>
+									style="font-family: 'Ubuntu Condensed', sans-serif !important;z-index: 5; white-space: nowrap; -webkit-text-stroke: 1px black;
+   color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->titulo;?></div>
               
               <!-- LAYER NR. 2 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
@@ -679,7 +755,13 @@
 									data-responsive_offset="on" 
 
 									
-									style="z-index: 6; white-space: nowrap;"><?= $mensaje->subtitulo;?></div>
+									style="font-family: 'Poppins', sans-serif;z-index: 6; white-space: nowrap;color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->subtitulo;?></div>
               
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0" 
@@ -718,25 +800,27 @@
               <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
 									 id="slide-16-layer-1" 
 									 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-									 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-									data-lineheight="['70','70','70','50']"
-									data-width="none"
-									data-height="none"
+									 data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
+									 data-width='100%'
+									data-height="155"
 									data-whitespace="nowrap"
 									data-transform_idle="o:1;"
 						 
-									 data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
+									 data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" 
 									 data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-									 data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-									 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-									data-start="1000" 
-									data-splitin="chars" 
-									data-splitout="none" 
+									 data-mask_in="x:0px;y:0px;" 
+									 data-mask_out="x:inherit;y:inherit;" 
+									data-start="2000" 
 									data-responsive_offset="on" 
-
-									data-elementdelay="0.05" 
 									
-									style="z-index: 5; white-space: nowrap;"><?= $mensaje->titulo;?></div>
+									style="font-family: 'Ubuntu Condensed', sans-serif !important;z-index: 5; white-space: nowrap; -webkit-text-stroke: 1px black;
+   color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->titulo;?></div>
               
               <!-- LAYER NR. 2 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
@@ -758,7 +842,13 @@
 									data-responsive_offset="on" 
 
 									
-									style="z-index: 6; white-space: nowrap;"><?= $mensaje->subtitulo;?></div>
+									style="font-family: 'Poppins', sans-serif;z-index: 6; white-space: nowrap;color: white;
+   text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;"><?= $mensaje->subtitulo;?></div>
               
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0" 
