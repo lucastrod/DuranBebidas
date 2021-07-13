@@ -33,6 +33,7 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
     $productos['cantidad'] = $colum['Cantidad'];
 
     $compra->guardarDetalle($productos);
+    $compra->actualizarStock($productos['id_producto'], $productos['cantidad']);
 
   }
   unset($_SESSION['carrito']);

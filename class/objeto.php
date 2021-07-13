@@ -992,6 +992,13 @@ class Compra{
 
 	}
 
+	public function actualizarStock($id,$cantidad){
+
+		$sql = "UPDATE productos SET stock = stock - $cantidad WHERE producto_id = ".$id;
+           
+		$this->con->exec($sql);
+	}
+
 	public function mostrarVenta($parametros = array()){
 
 		
