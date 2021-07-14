@@ -197,7 +197,7 @@ if(!empty($_SESSION["usuario"])){
                   <div class="col-md-4">
                     <h2 class="h3 text-black">Envio</h2>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;">
-                      <label><input type="radio" name="envio" value="0" id="radio2" checked> Retiro en Tienda</label>
+                      <label><input type="radio" name="envio" value="0" id="radio2" required> Retiro en Tienda</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;">
                       <label><input type="radio" name="envio" value="1" required id="radio1" > Envio a Domicilio</label>   

@@ -18,6 +18,5 @@ $(document).ready(function(){
         }
     });
 }
-setInterval(actualizar, 0);
 
 });

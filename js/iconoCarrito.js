@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    changeNumber();
     function changeNumber() {
         value = $('#value').text();
         $.ajax({
@@ -9,5 +10,5 @@ $(document).ready(function() {
             }
         });
     }
-    setInterval(changeNumber, 0);
+    //setInterval(changeNumber, 0);
 });

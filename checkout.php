@@ -10,6 +10,11 @@ if(!isset($_SESSION['carrito'])){
 if(!isset($_SESSION['usuario'])){
   header('Location:carrito.php?login=1');
 }
+
+if(!isset($_POST['envio'])){
+  $_SESSION["usuario"] ["envio"] = 0;
+}
+
 include_once('inc/headerBlack.php');
 
 $array = $_SESSION['carrito'];

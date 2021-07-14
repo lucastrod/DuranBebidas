@@ -19,7 +19,7 @@ $(document).ready(function(){
        showConfirmButton: false,
        timer: 1500
         });
-        //setTimeout("location.href='productos.php'",2100);
+        setTimeout("location.href='productos.php'",2100);
       });
     });
 

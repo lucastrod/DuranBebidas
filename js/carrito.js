@@ -41,7 +41,7 @@ $(document).ready(function(){
           cantidad:cantidad
         }
       }).done(function(respuesta){
-          
+        //actualizar();
       });
     }
     
@@ -57,6 +57,6 @@ $(document).ready(function(){
             }
         });
     }
-    setInterval(actualizar, 0);
+    //setInterval(actualizar, 0);
     
   });
