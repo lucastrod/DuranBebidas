@@ -188,7 +188,7 @@ endif;
 								echo isset($padre->nombre_Cat)?$padre->nombre_Cat:'';
 							  	}
 							  	else{
-									echo utf8_encode($prod['nombre_Cat']);
+									echo utf8_decode(utf8_encode(($prod['nombre_Cat'])));
 								  }?>
 							   </td>
 							  <td style="width:40%;word-wrap: break-word;">
@@ -199,7 +199,7 @@ endif;
 							   foreach($ca as $key => $value){
 							
                             ?>
-                                <?= utf8_encode($value['nombre_Cat']);?>
+                                <?= utf8_decode(utf8_encode(($value['nombre_Cat'])));?>
 							<?php }?>
 							  </td>
 

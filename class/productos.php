@@ -312,8 +312,14 @@ class Producto{
 			$sql = 'DELETE FROM productos_categorias WHERE producto_id = '.$id;
 			$this->con->exec($sql);
 
-			$query = 'SELECT count(1) as cantidad FROM categorias WHERE padre_id = 0';
-			$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
+			$query = 'SELECT categoria_id FROM categorias WHERE padre_id = 0';
+			//$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
+			$consulta = $this->con->query($query)->fetchAll(PDO::FETCH_ASSOC);
+
+			$arrayCategoriasPadre = array();
+			foreach($consulta as $cat){
+				array_push($arrayCategoriasPadre,$cat['categoria_id']);
+			}
 					
 			$sql = '';
 			if(!empty($data['categorias'])){
@@ -321,12 +327,13 @@ class Producto{
 				foreach($data['categorias'] as $categoria){
 					$sql .= 'INSERT INTO productos_categorias(producto_id,categoria_id) 
 										VALUES ('.$id.','.$categoria.');';
-					if($categoria > $consulta->cantidad){
-						
-						$sql .= "UPDATE productos SET categoria_id = $categoria WHERE producto_id = ".$id;
+
+					if(!in_array($categoria,$arrayCategoriasPadre)){
+						$sql .= " UPDATE productos SET categoria_id = $categoria WHERE producto_id = ".$id_producto;
 					}
 				}
-						 $this->con->exec($sql);
+				
+				$this->con->exec($sql);
 			}
 					
 			
@@ -372,7 +379,7 @@ class Producto{
 		$query = 'SELECT categoria_id FROM categorias WHERE padre_id = 0';
 		//$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
 		$consulta = $this->con->query($query)->fetchAll(PDO::FETCH_ASSOC);
-		
+
 		$arrayCategoriasPadre = array();
 		foreach($consulta as $cat){
 			array_push($arrayCategoriasPadre,$cat['categoria_id']);
@@ -391,9 +398,9 @@ class Producto{
 				//	$sql .= "UPDATE productos SET categoria_id = $categoria WHERE producto_id = ".$id_producto;
 			//	}
 				
-			if(!in_array($categoria,$arrayCategoriasPadre)){
-				$sql .= " UPDATE productos SET categoria_id = $categoria WHERE producto_id = ".$id_producto;
-			}
+				if(!in_array($categoria,$arrayCategoriasPadre)){
+					$sql .= " UPDATE productos SET categoria_id = $categoria WHERE producto_id = ".$id_producto;
+				}
 		
 			}
 			
@@ -404,10 +411,11 @@ class Producto{
 	}
 	
 	public function getProducto($id){
-	    $query = "SELECT productos.producto_id,inactivo,precio,codigo,nombre,descripcion,stock,marcas.id_marca,marcas.nombre_Marca, productos_categorias.categoria_id, marcas.activo, oferta, precio_oferta
-				   FROM productos, marcas, productos_categorias WHERE productos_categorias.producto_id = productos.producto_id AND productos.id_marca = marcas.id_marca AND productos.producto_id = ".$id;
-				 
-        $query = $this->con->query($query); 
+	    $query = "SELECT productos.producto_id,inactivo,precio,codigo,nombre,descripcion,stock, productos_categorias.categoria_id, oferta, precio_oferta
+				   FROM productos, productos_categorias WHERE productos_categorias.producto_id = productos.producto_id AND productos.producto_id = ".$id;
+
+        $query = $this->con->query($query);
+		
 			
 		$producto = $query->fetch(PDO::FETCH_OBJ);
 
@@ -424,7 +432,7 @@ class Producto{
 	}
 
 	public function chequearProducto($id){
-		$query = 'SELECT count(1) as cantidad FROM productos, marcas, categorias WHERE productos.producto_id ='.$id.' AND productos.id_marca = marcas.id_marca AND productos.categoria_id = categorias.categoria_id AND (marcas.activo = 0 OR productos.inactivo = 1 OR categorias.inactivo = 1 OR categorias.padre_id IN (SELECT categoria_id FROM categorias WHERE inactivo = 1))';
+		$query = 'SELECT count(1) as cantidad FROM productos, categorias WHERE productos.producto_id ='.$id.' AND productos.categoria_id = categorias.categoria_id AND (productos.inactivo = 1 OR categorias.inactivo = 1 OR categorias.padre_id IN (SELECT categoria_id FROM categorias WHERE inactivo = 1))';
 
 		$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
 		
