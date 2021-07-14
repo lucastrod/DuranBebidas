@@ -369,8 +369,14 @@ class Producto{
 		$this->con->exec($sql);
 		$id_producto = $this->con->lastInsertId();
 
-		$query = 'SELECT count(1) as cantidad FROM categorias WHERE padre_id = 0';
-		$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
+		$query = 'SELECT categoria_id FROM categorias WHERE padre_id = 0';
+		//$consulta = $this->con->query($query)->fetch(PDO::FETCH_OBJ);
+		$consulta = $this->con->query($query)->fetchAll(PDO::FETCH_ASSOC);
+		
+		$arrayCategoriasPadre = array();
+		foreach($consulta as $cat){
+			array_push($arrayCategoriasPadre,$cat['categoria_id']);
+		}
 
 		$sql = '';
 		
@@ -380,10 +386,15 @@ class Producto{
 				$sql .= 'INSERT INTO productos_categorias(producto_id,categoria_id) 
 							VALUES ('.$id_producto.','.$categoria.');';
 
-				if($categoria > $consulta->cantidad){
+				//if($categoria > $consulta->cantidad){
 						
-					$sql .= "UPDATE productos SET categoria_id = $categoria WHERE producto_id = ".$id_producto;
-				}
+				//	$sql .= "UPDATE productos SET categoria_id = $categoria WHERE producto_id = ".$id_producto;
+			//	}
+				
+			if(!in_array($categoria,$arrayCategoriasPadre)){
+				$sql .= " UPDATE productos SET categoria_id = $categoria WHERE producto_id = ".$id_producto;
+			}
+		
 			}
 			
 			 $this->con->exec($sql);

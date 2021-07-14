@@ -20,7 +20,6 @@ $categoria = new Categoria($con);
 
 if(isset($_POST['submit'])){
 
-
 	$imagen = $_FILES["imagen"];
     if($_POST['producto_id'] > 0){
 			$producto->editarProducto($_POST); 

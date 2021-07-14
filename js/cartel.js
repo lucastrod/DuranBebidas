@@ -19,9 +19,21 @@ $(document).ready(function(){
        showConfirmButton: false,
        timer: 1500
         });
-        setTimeout("location.href='productos.php'",2100);
+        changeNumber();
+        //setTimeout("location.href='productos.php'",1500);
       });
     });
+
+    function changeNumber() {
+      value = $('#value').text();
+      $.ajax({
+          type: "POST",
+          url: "./add.php",
+          success: function(data) {
+              $('#value').text(data);
+          }
+      });
+    }
 
     $("select[id=catPrinc]").change(function(){
         recargarLista();
