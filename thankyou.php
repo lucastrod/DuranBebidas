@@ -67,13 +67,11 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
 
     $datosCliente = new Compra($con);
 
-    //$datos = $datosCliente->getClienteComprador($id_Venta);
-
-    $datos = $datosCliente->getClienteComprador(14);
+    $datos = $datosCliente->getClienteComprador($id_Venta);
     
     $productos = array();
 
-    foreach ($datosCliente->getDetalleVenta(14) as $key => $value) {
+    foreach ($datosCliente->getDetalleVenta($id_Venta) as $key => $value) {
       $productos [$key] =['nombre'=>$value["nombre"],'cantidad'=>$value["cantidad"], 'precio'=>$value['precio']];
     }
 
