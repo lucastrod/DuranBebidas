@@ -31,6 +31,7 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
     $productos['id_venta'] = $id_Venta;
     $productos['id_producto'] = $colum['Id'];
     $productos['cantidad'] = $colum['Cantidad'];
+    $productos['precio'] = $colum['Precio'];
 
     $compra->guardarDetalle($productos);
     $compra->actualizarStock($productos['id_producto'], $productos['cantidad']);
@@ -66,15 +67,19 @@ if(!empty($_SESSION["usuario"] ["id_usuario"])){
 
     $datosCliente = new Compra($con);
 
-    $datos = $datosCliente->getClienteComprador($id_Venta);
+    //$datos = $datosCliente->getClienteComprador($id_Venta);
+
+    $datos = $datosCliente->getClienteComprador(14);
     
     $productos = array();
 
-    foreach ($datosCliente->getDetalleVenta($id_Venta) as $key => $value) {
-      $productos [$key] =['nombre'=>$value["nombre"],'cantidad'=>$value["cantidad"]];
+    foreach ($datosCliente->getDetalleVenta(14) as $key => $value) {
+      $productos [$key] =['nombre'=>$value["nombre"],'cantidad'=>$value["cantidad"], 'precio'=>$value['precio']];
     }
 
     infoVenta($id_Venta,$datos,$productos);
+
+    infoUsuario($id_Venta,$datos,$productos,$_SESSION["usuario"] ["envio"],$total);
 
  ?>
 
