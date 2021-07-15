@@ -85,7 +85,7 @@ $(document).ready(function() {
             				              activo:1
             				              },
                                   success:function(resp){
-                                    setTimeout("location.href='checkout.php'",0);
+                                    setTimeout("location.href='checkout.php?modif=ok'",0);
                                   }
             				    });
 							  }
