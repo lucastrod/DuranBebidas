@@ -115,7 +115,9 @@ $preference->save();
                     </div>
                 </div>
                   <span class="text-danger">* Puede modificar la dirección de envío</span>
-                  <a title="Cambiar" href="javascript:void(null)"><img alt="Cambiar" src="images/lapiz.png" width="10" height="20" onClick="cambiar(<?php echo $_SESSION['usuario']['id_usuario']?>, '<?= !empty($_SESSION['usuario']['calle'])?$_SESSION['usuario']['calle']:'Sin datos'; ?>', '<?= !empty($_SESSION['usuario']['numero'])?$_SESSION['usuario']['numero']:'Sin datos'; ?>', '<?= !empty($_SESSION['usuario']['piso_departamento'])?$_SESSION['usuario']['piso_departamento']:'Sin datos'; ?>');"></a>
+                  <a title="Cambiar" href="javascript:void(null)">
+                    <img alt="Cambiar" src="images/lapiz.png" width="10" height="20" 
+                    onClick="cambiar(<?php echo $_SESSION['usuario']['id_usuario']?>, '<?= !empty($_SESSION['usuario']['calle'])?$_SESSION['usuario']['calle']:'Sin datos'; ?>', '<?= !empty($_SESSION['usuario']['numero'])?$_SESSION['usuario']['numero']:'Sin datos'; ?>', '<?= !empty($_SESSION['usuario']['piso_departamento'])?$_SESSION['usuario']['piso_departamento']:''; ?>');"></a>
                 </div>
               </div>
 
