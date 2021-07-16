@@ -23,55 +23,26 @@
 
 include_once('inc/headerBlack.php');
 
-if(!empty($_SESSION["usuario"])){
-    $direccion = $user->GetDireccion($_SESSION["usuario"]['id_usuario']);
-    $direccion.=', CABA';
+if(!empty($_GET["km"])){
+  $km=$_GET["km"];
 }
 
- ?>
+?>
 
-<span id="dir"  data-id="<?=$direccion?>"></span>
+<span id="km" data-id="<?=$km?>"></span>
 
 <script type="text/javascript">
 
 $(document).ready(function() {
 
-        var direccion = $('#dir').data('id');
+        var km = $('#km').data('id');
 
-        if(direccion !=''){
-        initMap(direccion);
+        if(km !=''){
+        calcular(km);
         }
-          function initMap(direccion) {
-            
-            const bounds = new google.maps.LatLngBounds();
-            
-            // initialize services
-            const geocoder = new google.maps.Geocoder();
-            const service = new google.maps.DistanceMatrixService();
-            // Datos del cliente
-            const origin1 = {
-              lat: -34.57882308284431,
-              lng: -58.431455779050324
-            };
-           
-            const destinationB = direccion;
-           
-            const request = {
-              origins: [origin1],
-              destinations: [ destinationB],
-              travelMode: google.maps.TravelMode.DRIVING,
-              unitSystem: google.maps.UnitSystem.METRIC,
-              avoidHighways: false,
-              avoidTolls: false,
-            };
-                
-            // get distance matrix response
-            service.getDistanceMatrix(request).then((response) => {
-              // put response
-              var km = response.rows[0].elements[0].distance.value/1000;
-              //document.getElementById("res").innerText =  response.rows[0].elements[0].distance.value/1000;
+          function calcular(km) {
               
-              $.ajax({
+                          $.ajax({
                             type:"POST",
                               url:"pasarEnvio.php",
                               data:{
@@ -87,14 +58,12 @@ $(document).ready(function() {
                                   success:function(resp){
                                     setTimeout("location.href='checkout.php?modif=ok'",0);
                                   }
-            				    });
-							  }
-                });
+            				            });
+							                }
+                          });
              
-            });
-                           
           }
-
+                          
 });
 </script>
 
@@ -131,3 +100,4 @@ $(document).ready(function() {
   </body>
 </html>
 <?php include_once('inc/footer.php'); ?>
+

@@ -2,14 +2,25 @@
 include_once('inc/headerBlack.php');
 require_once("funciones.php");
 
-
 $error = '';
 $mensaje= '';
-    if(isset($_POST['submit'])){
+$direccion = '';
+$recarga='';
+$email = empty($_POST["email"])?'':$_POST["email"];
+$clave = empty($_POST["clave"])?'':$_POST["clave"];
+$usuario = empty($_POST["usuario"])?'':$_POST["usuario"];
+$nombre = empty($_POST["nombre"])?'':$_POST["nombre"];
+$calle = empty($_POST["calle"])?'':$_POST["calle"];
+$numero = empty($_POST["numero"])?'':$_POST["numero"];
+$apellido = empty($_POST["apellido"])?'':$_POST["apellido"];
+$telefono = empty($_POST["telefono"])?'':$_POST["telefono"];
+$piso_depto = empty($_POST["piso_departamento"])?'':$_POST["piso_departamento"];
 
-if(empty($_POST["clave"]) || empty($_POST["email"]) || empty($_POST["usuario"]) || empty($_POST["nombre"]) || empty($_POST["apellido"]) || empty($_POST["calle"]) || empty($_POST["numero"])|| empty($_POST["telefono"]) || empty($_POST["confirmar_clave"])){
+if(isset($_POST['submit'])){
+
+    if(empty($_POST["clave"]) || empty($_POST["email"]) || empty($_POST["usuario"]) || empty($_POST["nombre"]) || empty($_POST["apellido"]) || empty($_POST["calle"]) || empty($_POST["numero"])|| empty($_POST["telefono"]) || empty($_POST["confirmar_clave"])){
         $error .= 'datos ';
-}
+    }
 
     if(strcmp($_POST["clave"],$_POST["confirmar_clave"]) !==0){
         $error .= 'claves ';
@@ -25,63 +36,15 @@ if(empty($_POST["clave"]) || empty($_POST["email"]) || empty($_POST["usuario"]) 
         $error.='email ';
     }
 
-    if($error ==''){
+    if(!empty($_POST["calle"]) && !empty($_POST["numero"]) && $error ==''){
 
-    //mostrar cartel de usuario creado
-
-    $datos=array();
-    
-    $email = $_POST["email"];
-    $clave = $_POST["clave"];
-    $usuario = $_POST['usuario'];
-    $nombre = $_POST["nombre"];
-    $apellido = $_POST["apellido"];
-    $calle = $_POST["calle"];
-    $numero = $_POST["numero"];
-    $telefono = $_POST["telefono"];
-    $pisto_depto = !empty($_POST["piso_departamento"])?$_POST["piso_departamento"]:'';
-
-    $token = generarToken();
-
-    $datos = array(
-        'email'=> $email,
-        'clave'=> $clave,
-        'usuario'=> $usuario,
-        'nombre'=> $nombre,
-        'apellido'=> $apellido,
-        'calle'=> $calle,
-        'numero'=> $numero,
-        'piso_departamento'=> $pisto_depto,
-        'telefono'=> $telefono,
-        'token'=> $token,
-        'salt'=>''
-    );
-
-
-    $registro = $user->save($datos);
-
-    if($registro > 0){
-
-    $url = 'https://'.$_SERVER["SERVER_NAME"].'/DuranBebidas/validar.php?id='.$registro.'&val='.$token;
-
-
-    $asunto = 'Activar Cuenta - Duran Bebidas';
-
-    $cuerpo = "Estimado $nombre: <br/> <br/> Para continuar con el proceso de registro, es necesario que ingreses al siguiente link  <a href='$url'>Activar Cuenta</a>"; 
-
-        if(confirmarUsuario($email, $nombre, $asunto, $cuerpo)){
-    
-            $valor = "Para terminar el proceso de registro debe seguir las instrucciones que le enviamos a la direccion de correo electrónico: $email"; 
-            $mensaje.='<div> <span id="mensaje" data-id="'.$valor.'"></span>';
-        }
-        else{
-            Echo 'Falló el envío del email';
-        } 
-
+            $direccion = $_POST["calle"].' '.$_POST["numero"];
+            $direccion.=', CABA';     
     }
 
-}
-
+    if($error ==''){
+        $recarga = 'Si';     
+    }
 
 }
 
@@ -89,10 +52,23 @@ if(empty($_POST["clave"]) || empty($_POST["email"]) || empty($_POST["usuario"]) 
 
 <div class="container">
 
+<span id="dir"  data-id="<?=$direccion?>"></span>
+<span id="err"  data-id="<?=$error?>"></span>
+<span id="ema"  data-id="<?=$email?>"></span>
+<span id="cla"  data-id="<?=$clave?>"></span>
+<span id="usu"  data-id="<?=$usuario?>"></span>
+<span id="nom"  data-id="<?=$nombre?>"></span>
+<span id="cal"  data-id="<?=$calle?>"></span>
+<span id="num"  data-id="<?=$numero?>"></span>
+<span id="tel"  data-id="<?=$telefono?>"></span>
+<span id="pis"  data-id="<?=$piso_depto?>"></span>
+<span id="ape"  data-id="<?=$apellido?>"></span>
+<span id="rec"  data-id="<?=$recarga?>"></span>
+
 <div class="form_container">
-<?php if(isset($_POST['submit']) && $error == ''){ ?>
+<?php if($recarga!=''){ 
+?> 
     <body>
-        <?= $mensaje;?>
         <div class="container">
             <div class="form_container">
 
@@ -191,6 +167,9 @@ else{?>
                     <label for="password" class="col-md-12 control-label text-center" style="color:black;font-family:Arial;font-size:17px;">Calle</label>
                      <div class="col-md-12">
                         <input type="text" class="form-control text-center" id="calle" name="calle" placeholder="Ej: Paraguay" value="" required>
+                        <?php if(!empty($_GET['domicilio'])){ ?>
+                        <p class="required" style="color:red;">*Domicilio Invalido</p>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="form-group col-md-2">
@@ -205,8 +184,7 @@ else{?>
                         <input type="text" class="form-control text-center" id="piso_departamento" name="piso_departamento" placeholder="Ej: PB, Piso 4 depto C" value="">
                     </div>
                 </div>
-                
-                <div class="col-md-2"></div>
+            </div>
                 <div class="row" style="margin:15px;">
                 <div class="col-md-2"></div>
                         <div class="form-group col-md-3">
@@ -235,8 +213,8 @@ else{?>
 </div>
 </div>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-<script src="js/registro.js"></script>
+<script src="js/recarga.js"></script>
+<script src="js/VerificarDomicilio.js"></script>
 
 <?php include('inc/footer.php');?>
 

@@ -44,7 +44,91 @@
 				let num = result.value.numero;
 				let piso = result.value.piso_departamento;
 
-				$.ajax({
+				let direccion = ca +' '+num+', CABA';
+
+				if(direccion !=''){
+					initMap(direccion);
+					}
+					  function initMap(direccion) {
+						
+						const bounds = new google.maps.LatLngBounds();
+						
+						// initialize services
+						const geocoder = new google.maps.Geocoder();
+						const service = new google.maps.DistanceMatrixService();
+						// Datos del cliente
+						const origin1 = {
+						  lat: -34.57882308284431,
+						  lng: -58.431455779050324
+						};
+					   
+						const destinationB = direccion;
+					   
+						const request = {
+						  origins: [origin1],
+						  destinations: [ destinationB],
+						  travelMode: google.maps.TravelMode.DRIVING,
+						  unitSystem: google.maps.UnitSystem.METRIC,
+						  avoidHighways: false,
+						  avoidTolls: false,
+						};
+							
+						// get distance matrix response
+						service.getDistanceMatrix(request).then((response) => {
+						  // put response
+			
+						  var domicilioDestino = response.destinationAddresses[0];
+			
+						  if(domicilioDestino == 'Buenos Aires, CABA, Argentina'){
+							
+							Swal.fire({
+								icon: 'error',
+								title: 'Oops...',
+								text: 'Debe colocar una dirección válida',
+							  showConfirmButton: false,
+								 timer: 2500,
+							  customClass:'modal2'
+							  });
+						  }
+						  else{
+			
+						  var km = response.rows[0].elements[0].distance.value/1000;
+						  //document.getElementById("res").innerText =  response.rows[0].elements[0].distance.value/1000;
+						  
+						  	$.ajax({
+								type:"POST",
+							  	url:"actualizarDireccion.php",
+							 	data:{
+							  	id:id,
+							  	calle:ca,
+							  	numero:num,
+							  	piso_departamento:piso
+							  	},
+								success:function(resp){
+		
+									Swal.fire({
+							   			position: 'center',
+							   			//icon: 'success',
+							   			title: 'Guardando Cambios...',
+							   			showConfirmButton: false,
+							   			timer: 2500,
+										customClass:'modal2',
+										willOpen: () => {
+											Swal.showLoading()
+										  }
+									});
+									setTimeout(function(){window.top.location="confirmarDomicilio.php?km="+km} , 2000);
+								}
+							});
+
+						}	
+						 
+						});
+									   
+					  }
+						  
+
+				/*$.ajax({
 					type:"POST",
 					  url:"actualizarDireccion.php",
 					  data:{
@@ -67,8 +151,8 @@
 						}
 					});
 					}
-				});
-				setTimeout("location.href='confirmarDomicilio.php'",1500);
+				});*/
+				//setTimeout("location.href='confirmarDomicilio.php'",1500);
 			}
 			
 		}

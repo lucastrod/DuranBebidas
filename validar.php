@@ -54,4 +54,4 @@ if(isset($_GET['id']) && isset($_GET['val'])){
 
 <script src="js/validar.js"></script>
 
-<?php include('inc/footerEspecial.php');?>
+<?php include('inc/footer.php');?>
