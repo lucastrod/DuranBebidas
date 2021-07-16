@@ -1,5 +1,5 @@
 ﻿<?php 
-include_once('inc/headerblack.php');
+include_once('inc/headerBlack.php');
 include_once('inc/arrays.php');
 ?>
 
@@ -168,6 +168,3 @@ if(!empty($_GET["estado"])){
   <script src="js/jquery.mb.YTPlayer.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="js/main.js"></script>
-
-</body>
-</html>
