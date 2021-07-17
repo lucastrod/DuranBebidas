@@ -8,7 +8,6 @@ $pass = '|9wF@nb#3Mf';
 $port = '3306'; */
 
 
-
 $host = '127.0.0.1';
 $dbname = 'bebidas';
 $user = 'root';

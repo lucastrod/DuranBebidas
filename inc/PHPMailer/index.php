@@ -87,16 +87,17 @@ function infoVenta($id_Venta,$datos,$productos){
 }
 
 function confirmarUsuario($email, $nombre, $asunto, $cuerpo){
-    $user = "lucas.castro45@davinci.edu.ar";
-    $pw = "39464303";
-
+   /*  $user = "Duranalmacendebebidas@gmail.com";
+    $pw = "Maracaibocasi"; */
+    $user = "usuarios@duranalmacen.com.ar";
+    $pw = "Maracaibocasi1";
 
     $mail = new PHPMailer();
     $mail->isSMTP();
+    $mail->Host = 'smtp.hostinger.com';
+    $mail->Port = "587";
     $mail->SMTPAuth = true;
     $mail->SMTPSecure = 'tls';
-    $mail->Host = 'smtp.gmail.com';
-    $mail->Port = "587";
     $mail->Username = $user;
     $mail->Password = $pw;
     $mail->setFrom($user, 'Sistema de Usuarios');
