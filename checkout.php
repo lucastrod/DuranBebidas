@@ -12,7 +12,9 @@ if(!isset($_SESSION['usuario'])){
 }
 
 if(!isset($_POST['envio'])){
-  $_SESSION["usuario"] ["envio"] = 0;
+  if(!isset($_GET['modif'])){
+    $_SESSION["usuario"] ["envio"] = 0;
+  }
 }
 
 include_once('inc/headerBlack.php');
@@ -20,12 +22,14 @@ include_once('inc/headerBlack.php');
 $array = $_SESSION['carrito'];
 
 $productos = new Producto($con);
+
 ?>
 
 
 
 <?php
-require __DIR__ .  '/vendor/autoload.php';  //Aqui coloca la ruta en donde descargaste el sdk de mercadopago
+//require __DIR__ .  '/vendor/autoload.php';  //Aqui coloca la ruta en donde descargaste el sdk de mercadopago
+include_once('vendor/autoload.php');
 
 MercadoPago\SDK::setAccessToken('TEST-6760243392925397-042116-b5fa11a3fd3a9e2bb4ba79f1649ed6fb-747384554'); // Ya que vas a hacer pruebas de pago, aqui tu access token de prueba, luego puedes agregar el token de produccion
 
@@ -38,8 +42,8 @@ $preference->back_urls = array(
 );
 
 $preference->statement_descriptor = "DuranBebidas";
-$envio = new MercadoPago\shipments();
-$envio ->cost = $_SESSION["usuario"] ["envio"];
+$envio = new MercadoPago\Shipments();
+$envio ->cost =  intval($_SESSION["usuario"] ["envio"]);
 $envio ->mode = "not_specified";
 $preference->shipments = $envio;
 
@@ -111,7 +115,9 @@ $preference->save();
                     </div>
                 </div>
                   <span class="text-danger">* Puede modificar la dirección de envío</span>
-                  <a title="Cambiar" href="javascript:void(null)"><img alt="Cambiar" src="images/lapiz.png" width="10" height="20" onClick="cambiar(<?php echo $_SESSION['usuario']['id_usuario']?>, '<?= !empty($_SESSION['usuario']['calle'])?$_SESSION['usuario']['calle']:'Sin datos'; ?>', '<?= !empty($_SESSION['usuario']['numero'])?$_SESSION['usuario']['numero']:'Sin datos'; ?>', '<?= !empty($_SESSION['usuario']['piso_departamento'])?$_SESSION['usuario']['piso_departamento']:'Sin datos'; ?>');"></a>
+                  <a title="Cambiar" href="javascript:void(null)">
+                    <img alt="Cambiar" src="images/lapiz.png" width="10" height="20" 
+                    onClick="cambiar(<?php echo $_SESSION['usuario']['id_usuario']?>, '<?= !empty($_SESSION['usuario']['calle'])?$_SESSION['usuario']['calle']:'Sin datos'; ?>', '<?= !empty($_SESSION['usuario']['numero'])?$_SESSION['usuario']['numero']:'Sin datos'; ?>', '<?= !empty($_SESSION['usuario']['piso_departamento'])?$_SESSION['usuario']['piso_departamento']:''; ?>');"></a>
                 </div>
               </div>
 

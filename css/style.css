@@ -11244,7 +11244,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .modal2{
 	font-size: 12px;
-	height: 200px;
+	height: 250px;
 }
 
 .modal3{
@@ -11258,6 +11258,22 @@ input[type=number]::-webkit-outer-spin-button {
 	height: 250px;
 }
 
+.modal5{
+	font-size: 25px!important;
+	/*width: 200px;*/
+}
+
+.recarga{
+	font-size: 15px!important;
+}
+
+.texto{
+	font-size: 85px!important;
+	color: red;
+	/*height: 400px;*/
+	/*width: 900px!important;*/
+}
+
 .botonSweet {
 	border-radius: 50%!important;
 	width: 60px!important;
@@ -11269,5 +11285,4 @@ input[type=number]::-webkit-outer-spin-button {
 	width: 60px!important;
   	height: 60px!important;
 	display:block!important;
-
  }

@@ -1032,20 +1032,10 @@ class Compra{
 
 	public function getDetalleVenta($venta){
 
-		$query = 'SELECT detalle_venta.id_venta, detalle_venta.id_producto, productos.nombre, productos.descripcion, detalle_venta.cantidad
+		$query = 'SELECT detalle_venta.id_venta, detalle_venta.id_producto, productos.nombre, productos.descripcion, detalle_venta.cantidad, detalle_venta.precio
 		FROM detalle_venta
 		INNER JOIN productos on (detalle_venta.id_producto = productos.producto_id)
 		WHERE detalle_venta.id_venta = '.$venta;
-
-		return $this->con->query($query);	
-	}
-
-	public function getCliente($venta){
-
-		$query = 'SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.usuario, usuarios.calle,usuarios.numero,usuarios.piso_departamento,usuarios.telefono, usuarios.email
-		FROM ventas
-		INNER JOIN usuarios on (ventas.id_cliente = usuarios.id_usuario)
-		WHERE ventas.id_venta = '.$venta;
 
 		return $this->con->query($query);	
 	}

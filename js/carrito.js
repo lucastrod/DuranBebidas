@@ -12,9 +12,21 @@ $(document).ready(function(){
         }
       }).done(function(respuesta){
           boton.parent('td').parent('tr').remove();
+          changeNumber();
       });
     });
 
+    function changeNumber() {
+      value = $('#value').text();
+      $.ajax({
+          type: "POST",
+          url: "./add.php",
+          success: function(data) {
+              $('#value').text(data);
+          }
+      });
+    }
+    
     $("select[name=cant]").change(function(){
       var cantidad = $(this).val();
       var id = $(this).data('id');

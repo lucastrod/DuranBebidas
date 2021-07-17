@@ -11,7 +11,8 @@
                 'Nombre'=>$array[$i]['Nombre'],
                 'Precio'=> $array[$i]['Precio'],
                 'Imagen'=> $array[$i]['Imagen'],
-                'Cantidad'=> $array[$i]['Cantidad']
+                'Cantidad'=> $array[$i]['Cantidad'],
+                'Stock'=> $array[$i]['Stock']
             );
 
         }
